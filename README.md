@@ -20,22 +20,24 @@ This project leverages OpenAI's powerful models and Streamlit to create a respon
 Clone the repository:
 ```bash
 git clone https://github.com/inquisitour/Knowledge-Based-Agent.git
+```
 
-## Install the required packages:
-
+Install the required packages:
+```bash
 pip install -r requirements.txt
-
-## Set up environment variables:
-
+```
+Set up environment variables:
+```bash
 OPENAI_API_KEY: Your OpenAI API key.
+```
 Database credentials in the environment or configuration file.
 
-## Usage
+Usage
 
 Start the Streamlit application:
-
+```bash
 streamlit run main.py
-
+```
 Navigate to http://localhost:8501 in your browser to view the application.
 ```
 
