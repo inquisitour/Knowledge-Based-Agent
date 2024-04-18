@@ -37,6 +37,7 @@ Start the Streamlit application:
 streamlit run main.py
 
 Navigate to http://localhost:8501 in your browser to view the application.
+```bash
 
 ## Contributing
 Contributions are welcome! Please fork the repository and open a pull request with your improvements.
