@@ -32,14 +32,14 @@ OPENAI_API_KEY: Your OpenAI API key.
 ```
 Database credentials in the environment or configuration file.
 
-Usage
+## Usage
 
 Start the Streamlit application:
 ```bash
 streamlit run main.py
 ```
 Navigate to http://localhost:8501 in your browser to view the application.
-```
+
 
 ## Contributing
 Contributions are welcome! Please fork the repository and open a pull request with your improvements.
