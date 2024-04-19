@@ -8,8 +8,20 @@ DATABASE_URL = "postgres://username:password@hostname:port/dbname"
 class DBops:
     @staticmethod
     def setup_database():
-        # This would setup your database tables and connections
-        pass
+        with conn.cursor() as cur:
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS faq_embeddings (
+                    id SERIAL PRIMARY KEY,
+                    question TEXT,
+                    answer TEXT,
+                    embedding BYTEA
+                );
+                CREATE TABLE IF NOT EXISTS data_hash (
+                    id SERIAL PRIMARY KEY,
+                    file_hash TEXT
+                );
+            """)
+            conn.commit()
 
     @staticmethod
     def insert_data(questions, answers, embeddings):
