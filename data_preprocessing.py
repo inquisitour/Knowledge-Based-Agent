@@ -85,3 +85,26 @@ class DBops:
         except IOError as e:
             print(f"File operation failed: {e}")
             raise
+
+    @staticmethod
+    def get_similar_questions(embedding):
+        try:
+            with get_database_connection() as conn:
+                with conn.cursor() as cur:
+                    cur.execute(
+                        "SELECT question, answer FROM faq_embeddings ORDER BY (embedding <-> %s) LIMIT 10;",
+                        (psycopg2.Binary(embedding),)
+                    )
+                    return cur.fetchall()
+        except (OperationalError, Error) as e:
+            print("Database operation failed:", e)
+            raise
+    
+    @staticmethod
+    def get_database_connection():
+    database_url = get_database_url()
+    try:
+        return psycopg2.connect(database_url)
+    except (OperationalError, Error) as e:
+        print("Error connecting to the database:", e)
+        raise
