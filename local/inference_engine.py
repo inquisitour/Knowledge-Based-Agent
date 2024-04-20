@@ -89,8 +89,4 @@ class ResponseAgent:
     def answer_question(self, user_question):
         return self.openaiops.answer_question(user_question)
 
-# Example usage
-if __name__ == "__main__":
-    response_agent = ResponseAgent()
-    question = "How does the retrieval process work?"
-    print(response_agent.answer_question(question))
+
