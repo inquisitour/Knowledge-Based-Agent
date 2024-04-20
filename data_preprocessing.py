@@ -102,9 +102,9 @@ class DBops:
     
     @staticmethod
     def get_database_connection():
-    database_url = get_database_url()
-    try:
-        return psycopg2.connect(database_url)
-    except (OperationalError, Error) as e:
-        print("Error connecting to the database:", e)
-        raise
+        database_url = get_database_url()
+        try:
+            return psycopg2.connect(database_url)
+        except (OperationalError, Error) as e:
+            print("Error connecting to the database:", e)
+            raise
