@@ -55,6 +55,22 @@ Navigate to the lambda folder:
 ```bash
 cd lambda
 ```
+Review the contents of the lambda folder:
+```bash
+ls
+```
+Open the lambda code files in a text editor:
+```bash
+code .
+```
+Check the status of your Lambda function using the AWS CLI:
+```bash
+aws lambda list-functions
+```
+Deploy your Lambda function using the AWS CLI (if you have the AWS CLI configured):
+```bash
+sls deploy
+```
 Deploy your Lambda function using the AWS Lambda Console or the AWS CLI.
 Set the following environment variables in your Lambda function configuration:
 - **OPENAI_API_KEY**: Your OpenAI API key.
