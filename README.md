@@ -39,17 +39,35 @@ set OPENAI_API_KEY "Your OpenAI API key"
 Database credentials in the environment or configuration file.
 
 ## Usage
-
+### Local Setup
+Navigate to the local folder:
+```bash
+cd local
+```
 Start the Streamlit application:
 ```bash
 streamlit run ui.py
 ```
 Navigate to http://localhost:8501 in your browser to view the application.
 
+### AWS Lambda Setup
+Navigate to the lambda folder:
+```bash
+cd lambda
+```
+Deploy your Lambda function using the AWS Lambda Console or the AWS CLI.
+Set the following environment variables in your Lambda function configuration:
+- **OPENAI_API_KEY**: Your OpenAI API key.
+- **S3_BUCKET_NAME**: The name of your S3 bucket containing the data file.
+- **S3_FILE_KEY**: The key (path) of your data file in the S3 bucket.
+
 ## File Structure
-- **data_preprocessing.py**: Handles data loading and database interactions.
-- **inference_engine.py**: Contains the core AI and decision-making capabilities using LangChain agents.
-- **ui.py**: Manages the Streamlit frontend interface.
+- **lambda**: Handles data loading and database interactions.
+- **local**: Contains the core AI and decision-making capabilities using LangChain agents.
+- **old**: Manages the Streamlit frontend interface.
+- **.gitignore**:
+- **README.md**:
+- **requirements.txt**:
 
 
 ## Contributing
