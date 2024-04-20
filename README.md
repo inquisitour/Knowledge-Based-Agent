@@ -1,7 +1,7 @@
 # Knowledge-Based-Agent
 
 ## Overview
-This project leverages OpenAI's powerful models, LangChain's agent capabilities, and Streamlit to create a responsive and intelligent application. It connects to a PostgreSQL database, handles errors gracefully, and utilizes advanced AI techniques to process and respond to user inputs dynamically.
+This project harnesses the advanced capabilities of OpenAI's models along with LangChain's agent functionalities to power a dynamic and responsive application built using Streamlit. Designed to interact seamlessly with a PostgreSQL database, it not only manages data efficiently but also ensures robust error handling. By incorporating cutting-edge AI techniques, the application intelligently processes and dynamically responds to user inputs, offering a sophisticated and user-friendly experience.
 
 ## Features
 - **Database Integration**: Connects to PostgreSQL database to manage and retrieve data efficiently.
