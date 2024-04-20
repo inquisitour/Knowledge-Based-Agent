@@ -3,10 +3,11 @@ import boto3
 import hashlib
 import pandas as pd
 from io import BytesIO
-from common import get_database_url
+from data_preprocessing import DBops  # Ensure DBops is properly defined and implemented
+from inference_engine import ResponseAgent
 
 # Environment variables for database configuration
-DATABASE_URL = get_database_url()
+DATABASE_URL = DBops.get_database_url()
 
 # Ensure API keys are read from environment variables
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
