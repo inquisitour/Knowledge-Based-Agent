@@ -35,7 +35,7 @@ pip install -r requirements.txt
 ```
 ### Set up environment variables:
 ```bash
-OPENAI_API_KEY: Your OpenAI API key.
+set OPENAI_API_KEY: Your OpenAI API key.
 ```
 Database credentials in the environment or configuration file.
 
