@@ -1,5 +1,7 @@
+os
 psycopg2
 streamlit
 langchain
 pandas
 numpy
+hashlib
