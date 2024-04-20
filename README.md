@@ -1,8 +1,7 @@
 # Knowledge-Based-Agent
 
 ## Overview
-This project leverages OpenAI's powerful models, LangChain's agent capabilities, and Streamlit to create a responsive and intelligent application. It connects to a PostgreSQL database, handles errors gracefully, and utilizes advanced AI techniques to process and respond to user inputs dynamically.
-
+Knowledge based agent is powered by sophisticated integrations with OpenAI, LangChain, and Streamlit, coupled with a robust PostgreSQL database backend. Our focus has been on creating an agent that not only handles tasks autonomously but also adapts and responds to user input with high intelligence and contextual awareness. By seamlessly merging these technologies, we ensure that our agent is not only responsive and dynamic but also capable of learning and evolving over time to better serve user needs.
 ## Features
 - **Database Integration**: Connects to PostgreSQL database to manage and retrieve data efficiently.
 - **OpenAI Integration**: Utilizes OpenAI's APIs for embeddings and chat functionalities to generate context-aware responses.
@@ -35,7 +34,7 @@ pip install -r requirements.txt
 ```
 ### Set up environment variables:
 ```bash
-OPENAI_API_KEY: Your OpenAI API key.
+set OPENAI_API_KEY "Your OpenAI API key"
 ```
 Database credentials in the environment or configuration file.
 
