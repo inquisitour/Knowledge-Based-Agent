@@ -3,11 +3,11 @@ import boto3
 import hashlib
 import pandas as pd
 from io import BytesIO
-from data_preprocessing import DBops  # Ensure DBops is properly defined and implemented
+from data_preprocessing import DBops, get_database_url
 from inference_engine import ResponseAgent
 
 # Environment variables for database and API configuration
-DATABASE_URL = DBops.get_database_url()
+DATABASE_URL = get_database_url()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME")
 S3_FILE_KEY = os.getenv("S3_FILE_KEY")
