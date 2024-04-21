@@ -5,10 +5,10 @@ import numpy as np
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.llms import OpenAI
 from langchain.agents import initialize_agent, AgentType, Tool
-from data_preprocessing import DBops  # Ensure DBops is properly defined and implemented
+from data_preprocessing import DBops, get_database_url  
 
 # Environment variables for database configuration
-DATABASE_URL = DBops.get_database_url()
+DATABASE_URL = get_database_url()
 
 # Ensure API keys are read from environment variables
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
