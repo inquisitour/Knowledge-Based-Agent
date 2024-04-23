@@ -58,10 +58,16 @@ class OpenAIops:
         context = self.chat_model(messages=messages) 
         print("Finishing up..!")
         output_section = context.content
-        answer_index = output_section.find("Answer:")  # Find the index of 'Answer:'
-        if answer_index != -1:
-            # Extract everything after 'Answer:'
-            output_section = output_section[answer_index + len("Answer:"):].strip()
+        
+        # Search for both 'Answer:' and 'Output:'
+        answer_index = output_section.find('Answer:')
+        output_index = output_section.find('Output:')
+
+        # Determine which index to use (use the first valid index found)
+        if answer_index != -1 and (output_index == -1 or answer_index < output_index):
+            output_section = output_section[answer_index + len('Answer:'):].strip()
+        elif output_index != -1:
+            output_section = output_section[output_index + len('Output:'):].strip()
             
         return output_section
 
