@@ -1,7 +1,9 @@
 os
 numpy
+openai
 pandas
 hashlib
+tiktoken
 psycopg2
 streamlit
 langchain
