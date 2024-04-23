@@ -79,9 +79,9 @@ Set the following environment variables in your Lambda function configuration:
 - **S3_FILE_KEY**: The key (path) of your data file in the S3 bucket.
 
 ## File Structure
+- **Architecture**: Contains the architecture diagram for the current workflow.
 - **Cloud Agent**: Contains the AWS Lambda version of the code.
 - **Local Agent**: Contains the local version of the code.
-- **old**: Contains older versions or experimental code.
 - **.gitignore**: Specifies intentionally untracked files to ignore.
 - **README.md**: This file.
 - **requirements.txt**: Lists the required Python packages for installation.
