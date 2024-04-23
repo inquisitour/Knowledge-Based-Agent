@@ -1,6 +1,6 @@
 import os
 import psycopg2
-from psycopg2 import pool
+from psycopg2 import pool, extras
 from hashlib import sha256
 import pickle
 import numpy as np
@@ -51,53 +51,32 @@ class DBops:
         return sha256(file_content).hexdigest()
 
     def process_local_file(self, file_content):
-        # Ensure file_content is bytes, essential for the next step
         file_content = pickle.dumps(file_content)
         file_hash = self.calculate_file_hash(file_content)
         if not self.check_data_hash(file_hash):
             print("Data hash mismatch found. Updating database...")
+            
             csv_data = pickle.loads(file_content)
             if 'questions' in csv_data.columns and 'answers' in csv_data.columns:
                 questions = csv_data['questions'].tolist()
                 answers = csv_data['answers'].tolist()
-                embeddings = [self.embeddings.embed_documents([q])[0] for q in questions]
-                #for emb in embeddings:
-                    #print(np.array(emb).shape)
+                embeddings = self.embeddings.embed_documents(questions)  # Batch processing
                 self.insert_data(questions, answers, embeddings)
                 self.delete_all_data_hashes()
                 self.update_data_hash(file_hash)
                 print("Database updated with new data and data hash")
             else:
-                raise ValueError("CSV does not contain the required 'question' and 'answer' columns")
+                raise ValueError("CSV does not contain the required 'questions' and 'answers' columns")
         else:
             print("Data is up to date")
-    
+
     @with_connection
     def insert_data(self, questions, answers, embeddings, conn):
         print("Inserting data into database")
         with conn.cursor() as cur:
             cur.execute("DELETE FROM faq_embeddings")
-            conn.commit()
-            for question, answer, embedding in zip(questions, answers, embeddings):
-                # Ensure embedding is a numpy array
-                if not isinstance(embedding, np.ndarray):
-                    embedding = np.array(embedding)
-                #print("Embedding shape:", embedding.shape)  # Print the shape of the numpy array
-                #print("Total bytes:", embedding.size * embedding.itemsize)  # Print total bytes should be multiple of 4
-    
-                # Serialize to bytes
-                binary_embedding = embedding.astype(np.float32).tobytes()
-                #print("Length of binary embedding before (bytes):", len(binary_embedding))  # Should match the above total bytes
-    
-                cur.execute(
-                    "INSERT INTO faq_embeddings (question, answer, embedding) VALUES (%s, %s, %s)",
-                    (question, answer, psycopg2.Binary(binary_embedding))
-                )
-                #cur.execute("SELECT embedding FROM faq_embeddings LIMIT 1")
-                #embedding_data = cur.fetchone()[0]
-                #embedding_array = np.frombuffer(embedding_data, dtype=np.float32)
-                #print("Retrieved embedding shape:", embedding_array.shape)
-                #print("Length of binary embedding after (bytes):", len(embedding_data))
+            args = [(q, a, psycopg2.Binary(np.array(emb).astype(np.float32).tobytes())) for q, a, emb in zip(questions, answers, embeddings)]
+            extras.execute_batch(cur, "INSERT INTO faq_embeddings (question, answer, embedding) VALUES (%s, %s, %s)", args)
             conn.commit()
 
     @with_connection
@@ -115,7 +94,7 @@ class DBops:
     @with_connection
     def delete_all_data_hashes(self, conn):
         with conn.cursor() as cur:
-            cur.execute("DELETE FROM data_hash")  
+            cur.execute("DELETE FROM data_hash")
             conn.commit()
             print("Deleted all data hashes from the database.")
 
