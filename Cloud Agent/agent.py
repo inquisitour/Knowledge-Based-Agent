@@ -58,7 +58,7 @@ class OpenAIops:
         context = self.chat_model(messages=messages) 
         print("Finishing up..!")
         output_section = context.content
-
+        
         # Search for both 'Answer:' and 'Output:'
         answer_index = output_section.find('Answer:')
         output_index = output_section.find('Output:')
