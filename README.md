@@ -43,7 +43,7 @@ Database credentials in the environment or configuration file.
 ### Local Setup
 Setup your database environment and navigate to the local folder:
 ```bash
-cd Local Agent
+cd 'Local Agent'
 ```
 Start the Streamlit application:
 ```bash
@@ -54,7 +54,7 @@ Navigate to http://localhost:8501 in your browser to view the application.
 ### AWS Lambda Setup
 Setup your database environment and navigate to the lambda folder:
 ```bash
-cd Cloud Agent
+cd 'Cloud Agent'
 ```
 Review the contents of the lambda folder:
 ```bash
