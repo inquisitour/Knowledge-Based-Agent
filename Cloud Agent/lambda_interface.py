@@ -1,6 +1,6 @@
 import os
-from data_preprocessing import DBops
-from inference_engine import ResponseAgent
+from data_processing import DBops
+from agent import ResponseAgent
 
 # Setup environment variables
 S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME")

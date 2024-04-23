@@ -2,7 +2,7 @@ import os
 import numpy as np
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain_community.chat_models import ChatOpenAI
-from data_preprocessing import get_database_connection
+from data_processing import get_database_connection
 from langchain.schema import SystemMessage, HumanMessage, AIMessage
 
 # Securely fetch the API key

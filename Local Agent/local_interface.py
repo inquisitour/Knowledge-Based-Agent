@@ -1,6 +1,6 @@
 import streamlit as st
-from inference_engine import ResponseAgent
-from data_preprocessing import DBops
+from agent import ResponseAgent
+from data_processing import DBops
 import pandas as pd
 import os
 
