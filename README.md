@@ -47,7 +47,7 @@ cd 'Local Agent'
 ```
 Start the Streamlit application:
 ```bash
-streamlit run ui.py
+streamlit run local_interface.py
 ```
 Navigate to http://localhost:8501 in your browser to view the application.
 
