@@ -15,6 +15,7 @@ Knowledge based agent is powered by sophisticated integrations with OpenAI, Lang
 - PostgreSQL
 - Streamlit
 - LangChain
+- AWS
 
 ## Installation
 
@@ -40,7 +41,7 @@ Database credentials in the environment or configuration file.
 
 ## Usage
 ### Local Setup
-Navigate to the local folder:
+Setup your database environment and navigate to the local folder:
 ```bash
 cd local
 ```
@@ -51,7 +52,7 @@ streamlit run ui.py
 Navigate to http://localhost:8501 in your browser to view the application.
 
 ### AWS Lambda Setup
-Navigate to the lambda folder:
+Setup your database environment and navigate to the lambda folder:
 ```bash
 cd lambda
 ```
@@ -78,8 +79,8 @@ Set the following environment variables in your Lambda function configuration:
 - **S3_FILE_KEY**: The key (path) of your data file in the S3 bucket.
 
 ## File Structure
-- **lambda**: Contains the AWS Lambda version of the code.
-- **local**: Contains the local version of the code.
+- **Cloud Agent**: Contains the AWS Lambda version of the code.
+- **Local Agent**: Contains the local version of the code.
 - **old**: Contains older versions or experimental code.
 - **.gitignore**: Specifies intentionally untracked files to ignore.
 - **README.md**: This file.
