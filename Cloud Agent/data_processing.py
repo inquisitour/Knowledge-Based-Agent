@@ -1,8 +1,8 @@
 import os
 import psycopg2
-from psycopg2 import pool
+from psycopg2 import pool, extras
 from hashlib import sha256
-import boto3
+import pickle
 import numpy as np
 import pandas as pd
 from io import BytesIO
@@ -51,6 +51,7 @@ class DBops:
         return sha256(file_content).hexdigest()
 
     def process_file_from_s3(self, bucket_name, file_key):
+        file_content = pickle.dumps(file_content)
         s3_client = boto3.client('s3')
         obj = s3_client.get_object(Bucket=bucket_name, Key=file_key)
         file_content = obj['Body'].read()
