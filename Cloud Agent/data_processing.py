@@ -3,6 +3,7 @@ import psycopg2
 from psycopg2 import pool, extras
 from hashlib import sha256
 import pickle
+import boto3
 import numpy as np
 import pandas as pd
 from io import BytesIO
@@ -51,10 +52,10 @@ class DBops:
         return sha256(file_content).hexdigest()
 
     def process_file_from_s3(self, bucket_name, file_key):
-        file_content = pickle.dumps(file_content)
         s3_client = boto3.client('s3')
         obj = s3_client.get_object(Bucket=bucket_name, Key=file_key)
         file_content = obj['Body'].read()
+        file_content = pickle.dumps(file_content)
         file_hash = self.calculate_file_hash(file_content)
         if not self.check_data_hash(file_hash):
             print("Data hash mismatch found. Updating database...")
