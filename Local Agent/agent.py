@@ -14,6 +14,7 @@ class EmbeddingRetriever:
     def __init__(self, db_connection):
         self.embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY, model="text-embedding-ada-002")
         self.db_connection = db_connection
+
         print("Embedding retriever initialized")
 
     def retrieve_similar_questions(self, query, k=5):
@@ -26,6 +27,13 @@ class EmbeddingRetriever:
             for result in results:
                 question, answer, embedding = result
                 embedding = np.frombuffer(embedding, dtype=np.float32)
+
+                # Reshape the embeddings to match dimensionality
+                if len(embedding) < len(query_vec):
+                    embedding = np.pad(embedding, (0, len(query_vec) - len(embedding)), mode='constant')
+                elif len(embedding) > len(query_vec):
+                    query_vec = np.pad(query_vec, (0, len(embedding) - len(query_vec)), mode='constant')
+
                 similarity = np.dot(embedding, query_vec) / (np.linalg.norm(embedding) * np.linalg.norm(query_vec))
                 similar_questions.append({'question': question, 'answer': answer, 'similarity': similarity})
             similar_questions.sort(key=lambda x: x['similarity'], reverse=True)

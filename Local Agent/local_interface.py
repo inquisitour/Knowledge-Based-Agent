@@ -3,8 +3,6 @@ from agent import ResponseAgent
 from data_processing import DBops
 import pandas as pd
 import os
-
-# Import for Lottie animations
 from streamlit_lottie import st_lottie
 import requests
 
@@ -15,7 +13,7 @@ def load_lottie_url(url: str):
     return r.json()
 
 def main():
-    st.set_page_config(page_title="Document Genie", layout="wide")
+    st.set_page_config(page_title="Ophthal Agent", layout="wide")
 
     # Adding custom CSS for blurring input fields
     st.markdown("""
@@ -35,12 +33,15 @@ def main():
     db_ops = DBops()
     db_ops.setup_database()
 
-    uploaded_file = st.file_uploader("Upload your data file", type=['csv'])
-    
-    if uploaded_file is not None:
-        data = pd.read_csv(uploaded_file)
-        db_ops.process_local_file(data)
-    
+    # Two file uploaders for Excel and CSV files
+    uploaded_excel = st.file_uploader("Upload your Excel data file", type=['xlsx'], key='excel')
+    uploaded_csv = st.file_uploader("Upload your CSV data file", type=['csv'], key='csv')
+
+    if uploaded_excel is not None and uploaded_csv is not None:
+        data_excel = pd.read_excel(uploaded_excel)
+        data_csv = pd.read_csv(uploaded_csv)
+        db_ops.process_local_file(data_excel, data_csv)
+
     agent = ResponseAgent()
     print("Agent initialised!")
 
