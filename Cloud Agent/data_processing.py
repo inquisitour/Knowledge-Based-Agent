@@ -2,7 +2,6 @@ import os
 import psycopg2
 from psycopg2 import pool, extras
 from hashlib import sha256
-import pickle
 import boto3
 import numpy as np
 import pandas as pd
@@ -55,12 +54,10 @@ class DBops:
         s3_client = boto3.client('s3')
         obj = s3_client.get_object(Bucket=bucket_name, Key=file_key)
         file_content = obj['Body'].read()
-        file_content = pickle.dumps(file_content)
         file_hash = self.calculate_file_hash(file_content)
         if not self.check_data_hash(file_hash):
             print("Data hash mismatch found. Updating database...")
             
-            csv_data = pickle.loads(file_content)
             if 'questions' in csv_data.columns and 'answers' in csv_data.columns:
                 questions = csv_data['questions'].tolist()
                 answers = csv_data['answers'].tolist()
