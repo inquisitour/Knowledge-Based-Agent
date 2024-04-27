@@ -48,7 +48,7 @@ class OpenAIops:
                     Answer Generation:
                     If relevant information is available: Use the retrieved question-answer pairs to generate a comprehensive and detailed response. The answer should integrate all relevant information from the context, ensuring that it addresses all aspects of the user's question. The system should synthesize the information in a coherent and informative manner.
                     If no relevant information is available: The system should return "Answer not available in the context" to indicate that it cannot provide an accurate answer based on the existing database.
-                    Output: Output should be preseted here. Present the answer to the user in a clear and concise format. If multiple question-answer pairs are relevant, synthesize the information into a single unified response to avoid redundancy and ensure clarity. """
+                    Output: Output should be presented here. Present the answer to the user in a clear and concise format. If multiple question-answer pairs are relevant, synthesize the information into a single unified response to avoid redundancy and ensure clarity. """
 
         messages = [
             SystemMessage(content=sysmsg),
