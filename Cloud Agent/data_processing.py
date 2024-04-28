@@ -2,7 +2,7 @@ import os
 import psycopg2
 from psycopg2 import pool, extras
 from hashlib import sha256
-import boto3
+import boto3 # type: ignore
 import numpy as np
 import pandas as pd
 from io import BytesIO
