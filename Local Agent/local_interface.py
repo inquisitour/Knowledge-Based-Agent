@@ -2,7 +2,6 @@ import streamlit as st
 from agent import ResponseAgent
 from data_processing import DBops
 import pandas as pd
-import os
 from streamlit_lottie import st_lottie
 import requests
 
@@ -34,13 +33,14 @@ def main():
     db_ops.setup_database()
 
     # Two file uploaders for Excel and CSV files
-    uploaded_excel = st.file_uploader("Upload your Excel data file", type=['xlsx'], key='excel')
+    #uploaded_excel = st.file_uploader("Upload your Excel data file", type=['xlsx'], key='excel')
     uploaded_csv = st.file_uploader("Upload your CSV data file", type=['csv'], key='csv')
 
-    if uploaded_excel is not None and uploaded_csv is not None:
-        data_excel = pd.read_excel(uploaded_excel)
+    #if uploaded_excel is not None and uploaded_csv is not None:
+        #data_excel = pd.read_excel(uploaded_excel)
+    if uploaded_csv is not None:
         data_csv = pd.read_csv(uploaded_csv)
-        db_ops.process_local_file(data_excel, data_csv)
+        db_ops.process_local_file(data_csv)
 
     agent = ResponseAgent()
     print("Agent initialised!")

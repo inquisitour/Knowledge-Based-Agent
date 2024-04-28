@@ -1,0 +1,21 @@
+** Improvement possibilities for retrieval agent**
+
+1. Improve the Embedding Model [DONE]
+The choice of embedding model has a significant impact on the quality of the semantic search. We were previously using "text-embedding-ada-002" from OpenAI, which is a decent model but might not capture the nuances of medical or technical queries.
+Upgrade to a More Powerful Model: Models like "text-embedding-3-large" or "text-embedding-3-small" may provide more accurate embeddings due to their larger scale and training data.
+
+2. Improve Similarity Calculation [DONE]
+Refining how similarity is calculated can also affect the relevance of results.
+Adjust the Similarity Threshold: Along with the top k results, using results which are above a certain similarity score threshold to ensure relevance.
+
+3. Refine Query and Document Processing
+Proper preprocessing of both the query and the document texts can enhance the accuracy of semantic matches.
+Enhanced Preprocessing: Include steps like lemmatization, removal of stop words, and handling of synonyms. For medical queries, consider using specialized NLP tools that understand medical terminology.
+
+4. Use of Advanced Retrieval Techniques
+Beyond simple vector searches, more sophisticated retrieval mechanisms can be employed.
+Hybrid Retrieval Systems: Combine keyword search with vector search to narrow down the candidate pool before vector similarity scoring.
+
+5. Feedback Loop
+Implementing a feedback mechanism where the system learns from past queries and their relevance assessments can continually improve the accuracy.
+Active Learning: Use user feedback on the relevance of returned answers to fine-tune the embeddings or the retrieval process and adjust the ranking based on which answers users find most helpful.

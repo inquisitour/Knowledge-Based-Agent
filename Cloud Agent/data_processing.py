@@ -54,6 +54,7 @@ class DBops:
         s3_client = boto3.client('s3')
         obj = s3_client.get_object(Bucket=bucket_name, Key=file_key)
         file_content = obj['Body'].read()
+        file_hash = self.calculate_file_hash(file_content)
         if not self.check_data_hash(file_hash):
             print("Data hash mismatch found. Updating database...")
             

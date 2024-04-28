@@ -50,7 +50,7 @@ def with_connection(func):
 
 class DBops:
     def __init__(self):
-        self.embeddings = OpenAIEmbeddings(api_key=os.getenv("OPENAI_API_KEY"), model="text-embedding-ada-002")
+        self.embeddings = OpenAIEmbeddings(api_key=os.getenv("OPENAI_API_KEY"), model="text-embedding-3-large")
 
     def calculate_file_hash(self, file_content):
         try:
@@ -58,7 +58,36 @@ class DBops:
         except Exception as e:
             print(f"Error calculating file hash: {e}")
 
-    def process_local_file(self, excel_file_content, csv_file_content):
+    def process_local_file(self, data_csv):
+        file_content = pickle.dumps(data_csv)
+        file_hash = self.calculate_file_hash(file_content)
+        if not self.check_data_hash(file_hash):
+            print("Data hash mismatch found. Updating database...")
+            
+            csv_data = pickle.loads(file_content)
+            if 'questions' in csv_data.columns and 'answers' in csv_data.columns:
+                questions = csv_data['questions'].tolist()
+                answers = csv_data['answers'].tolist()
+                embeddings = self.embeddings.embed_documents(questions)  # Batch processing
+                self.insert_data(questions, answers, embeddings)
+                self.delete_all_data_hashes()
+                self.update_data_hash(file_hash)
+                print("Database updated with new data and data hash")
+            else:
+                raise ValueError("CSV does not contain the required 'questions' and 'answers' columns")
+        else:
+            print("Data is up to date")
+    
+    @with_connection
+    def insert_data(self, questions, answers, embeddings, conn):
+        print("Inserting data into database")
+        with conn.cursor() as cur:
+            cur.execute("DELETE FROM faq_embeddings")
+            args = [(q, a, psycopg2.Binary(np.array(emb).astype(np.float32).tobytes())) for q, a, emb in zip(questions, answers, embeddings)]
+            extras.execute_batch(cur, "INSERT INTO faq_embeddings (question, answer, embedding) VALUES (%s, %s, %s)", args)
+            conn.commit()
+
+    '''def process_local_file(self, excel_file_content, csv_file_content):
         try:
             excel_file_content = pickle.dumps(excel_file_content)
             excel_file_hash = self.calculate_file_hash(excel_file_content)
@@ -152,7 +181,7 @@ class DBops:
                 print("Data inserted into database successfully")
                 conn.commit()
         except Exception as e:
-            print(f"Error inserting data into database: {e}")
+            print(f"Error inserting data into database: {e}")'''
 
     @with_connection
     def check_data_hash(self, file_hash, conn):

@@ -21,28 +21,32 @@ class EmbeddingRetriever(BaseModel):
 
     def __init__(self, db_connection):
         super().__init__(db_connection=db_connection)
-        self.embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY, model="text-embedding-ada-002")
+        self.embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY, model="text-embedding-3-large")
         print("Embedding retriever initialized")
 
-    def retrieve_similar_questions(self, query, k=5):
+    def retrieve_similar_questions(self, query, k=20, min_similarity=0.1):
         query_vec = self.embeddings.embed_documents(query)[0]
-        query_vec = np.array(query_vec) if isinstance(query_vec, list) else query_vec
+        query_vec = np.array(query_vec)  # Ensure the query vector is writable
+        query_vec /= np.linalg.norm(query_vec)
         similar_questions = []
         with self.db_connection.cursor() as cursor:
             cursor.execute("SELECT question, answer, embedding FROM faq_embeddings")
             results = cursor.fetchall()
             for result in results:
                 question, answer, embedding = result
-                embedding = np.frombuffer(embedding, dtype=np.float32)
+                embedding = np.frombuffer(embedding, dtype=np.float32).copy()  # Make a writable copy of the embedding
+                embedding /= np.linalg.norm(embedding)
 
                 # Reshape the embeddings to match dimensionality
-                if len(embedding) < len(query_vec):
-                    embedding = np.pad(embedding, (0, len(query_vec) - len(embedding)), mode='constant')
-                elif len(embedding) > len(query_vec):
-                    query_vec = np.pad(query_vec, (0, len(embedding) - len(query_vec)), mode='constant')
+                #if len(embedding) < len(query_vec):
+                    #embedding = np.pad(embedding, (0, len(query_vec) - len(embedding)), mode='constant')
+                #elif len(embedding) > len(query_vec):
+                    #query_vec = np.pad(query_vec, (0, len(embedding) - len(query_vec)), mode='constant')
 
-                similarity = np.dot(embedding, query_vec) / (np.linalg.norm(embedding) * np.linalg.norm(query_vec))
-                similar_questions.append({'question': question, 'answer': answer, 'similarity': similarity})
+                similarity = np.dot(embedding, query_vec)
+                #print(similarity)
+                if similarity >= min_similarity:
+                    similar_questions.append({'question': question, 'answer': answer, 'similarity': similarity})
             similar_questions.sort(key=lambda x: x['similarity'], reverse=True)
         return similar_questions[:k]
     
@@ -90,8 +94,8 @@ class OpenAIops:
         print("OpenAI operations with LangChain agent initialized")
 
     def answer_question(self, user_question):
-        context = self.retriever.retrieve_similar_questions(user_question)
-        formatted_context = "\n\n".join([f"Q: {q['question']}, A: {q['answer']}" for q in context])
+        context = self.retriever.get_relevant_documents(user_question)
+        formatted_context = "\n\n".join([f"Q: {doc.metadata['question']}, A: {doc.page_content}" for doc in context])
         prompt = f"Context:\n{formatted_context}\n\nQuestion: \n{user_question}\nAnswer:"
 
         # Execute the agent with the dynamically formatted prompt
