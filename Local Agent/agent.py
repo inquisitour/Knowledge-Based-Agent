@@ -103,7 +103,7 @@ class OpenAIops:
         print("OpenAI operations with LangChain agent initialized")
 
     def answer_question(self, user_question):
-        # Use LangChain to process the user query and generate a Cypher query
+        '''# Use LangChain to process the user query and generate a Cypher query
         instructions = """Given the query, consider following schema used to create the knowledge graph:
                     MERGE (c:Category {name: $category})
                     MERGE (q:Question {id: $index, text: $question, category: $category})
@@ -117,11 +117,12 @@ class OpenAIops:
         print(query)
         cypher_query = query.content
         results = graph.query(cypher_query)
-        print(results)
+        print(results)'''
 
         context = self.retriever.get_relevant_documents(user_question)
         formatted_context = "\n\n".join([f"Q: {doc.metadata['question']}, A: {doc.page_content}" for doc in context])
-        prompt = f"Knowledge Graph:\n{results}\n\nContext:\n{formatted_context}\n\nQuestion: \n{user_question}\nAnswer:"
+        prompt = f"Context:\n{formatted_context}\n\nQuestion: \n{user_question}\nAnswer:"
+        #prompt = f"Knowledge Graph:\n{results}\n\nContext:\n{formatted_context}\n\nQuestion: \n{user_question}\nAnswer:"
 
         # Execute the agent with the dynamically formatted prompt
         response = self.agent_executor({"input": prompt}) 
