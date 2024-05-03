@@ -4,16 +4,25 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain_community.chat_models import ChatOpenAI
 from data_processing import get_database_connection
 from typing import List, Any
-from langchain.schema import Document
+from langchain.schema import Document, HumanMessage
 from langchain.agents import AgentExecutor, create_openai_tools_agent
 from langchain.tools import Tool
 from pydantic import BaseModel, Field
+from langchain_community.graphs import Neo4jGraph
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 
 # Securely fetch the API key
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
     raise ValueError("OPENAI_API_KEY is not set in environment variables")
+
+# Set environment variables
+os.environ["NEO4J_URI"] = "bolt://localhost:7687"
+os.environ["NEO4J_USERNAME"] = "neo4j"
+os.environ["NEO4J_PASSWORD"] = "gravitas@123"
+
+# Initialize the Neo4j Graph connection
+graph = Neo4jGraph(url=os.getenv("NEO4J_URI"), username=os.getenv("NEO4J_USERNAME"), password=os.getenv("NEO4J_PASSWORD"))
 
 class EmbeddingRetriever(BaseModel):
     db_connection: Any = Field(..., description="Database connection for retrieving embeddings")
@@ -94,9 +103,25 @@ class OpenAIops:
         print("OpenAI operations with LangChain agent initialized")
 
     def answer_question(self, user_question):
+        # Use LangChain to process the user query and generate a Cypher query
+        instructions = """Given the query, consider following schema used to create the knowledge graph:
+                    MERGE (c:Category {name: $category})
+                    MERGE (q:Question {id: $index, text: $question, category: $category})
+                    MERGE (a:Answer {id: $index, text: $answer, category: $category})
+                    MERGE (q)-[:HAS_ANSWER]->(a)
+                    MERGE (c)-[:INCLUDES]->(q)
+                    MERGE (c)-[:INCLUDES]->(a)
+                    and generate a Cypher query to retrieve the relevant information from the Neo4j knowledge graph. Ensure that the generated query only use and adheres to this schema and retrieves the desired information accurately. No other things must be generated than Cypher query."""
+        messages = HumanMessage(content=user_question + instructions)
+        query = self.chat_model([messages])
+        print(query)
+        cypher_query = query.content
+        results = graph.query(cypher_query)
+        print(results)
+
         context = self.retriever.get_relevant_documents(user_question)
         formatted_context = "\n\n".join([f"Q: {doc.metadata['question']}, A: {doc.page_content}" for doc in context])
-        prompt = f"Context:\n{formatted_context}\n\nQuestion: \n{user_question}\nAnswer:"
+        prompt = f"Knowledge Graph:\n{results}\n\nContext:\n{formatted_context}\n\nQuestion: \n{user_question}\nAnswer:"
 
         # Execute the agent with the dynamically formatted prompt
         response = self.agent_executor({"input": prompt}) 

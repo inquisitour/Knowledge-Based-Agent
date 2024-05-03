@@ -1,0 +1,9 @@
+1) question-answer pair save (post)
+2) data hash
+3) In next initialisation question-answer pairs with their embeddings will be saved in postgres
+4) using category column, build knowledge graph and save embeddings in NEo4j
+5) postgres + neo4j + user_question --> response
+6) Repeat
+
+
+text embeddings + graph embeddings + user query = common embeddings
