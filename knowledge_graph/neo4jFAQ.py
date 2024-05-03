@@ -18,36 +18,28 @@ graph = Neo4jGraph(url=os.getenv("NEO4J_URI"), username=os.getenv("NEO4J_USERNAM
 llm = ChatOpenAI(api_key=os.environ["OPENAI_API_KEY"], model='gpt-3.5-turbo')
 embedding_model = OpenAIEmbeddings(api_key=os.environ["OPENAI_API_KEY"], model="text-embedding-3-large")
 
-def get_node_embedding(node_text):
-    if node_text is None:
-        return None
-    
-    # Use OpenAIEmbeddings to generate embeddings for the node text
-    embedding = embedding_model.embed_query(node_text)
-    return embedding
+def batch_embeddings(texts):
+    if not texts:
+        return []
+    embeddings = embedding_model.embed_documents(texts)
+    return embeddings
 
 def cosine_similarity(embedding1, embedding2):
     # Calculate cosine similarity between two embeddings
     similarity = np.dot(embedding1, embedding2) / (np.linalg.norm(embedding1) * np.linalg.norm(embedding2))
     return similarity
 
-def add_node_embedding(label, node_text, node_embedding):
-    if node_embedding is None:
-        return
-
-    query = f"""
-        MERGE (n:{label} {{text: $node_text}})
-        SET n.embedding = $node_embedding
+def update_embeddings_in_graph(nodes_with_embeddings):
+    query = """
+        UNWIND $nodes as node
+        MATCH (n)
+        WHERE id(n) = node.id
+        SET n.embedding = node.embedding
     """
-    print(f"Executing query: {query}")
-    print(f"With parameters: node_text={node_text}, node_embedding={node_embedding}")
-
-    graph.query(query, params={
-        "node_text": node_text,
-        "node_embedding": node_embedding
-    })
+    graph.query(query, params={"nodes": nodes_with_embeddings})
 
 def create_knowledge_graph(csv_data):
+    # Create nodes and relationships in the graph
     for index, row in csv_data.iterrows():
         question = row['questions']
         answer = row['answers']
@@ -67,65 +59,30 @@ def create_knowledge_graph(csv_data):
             "category": category
         })
 
-    # Add embeddings to the nodes
-    all_nodes = graph.query("MATCH (n) RETURN n.text, labels(n)")
-    for node in all_nodes:
-        node_text = node['n.text']
-        node_labels = list(node['labels(n)'])
-        node_embedding = get_node_embedding(node_text)
-
-        if node_embedding is not None:
-            if 'Question' in node_labels:
-                add_node_embedding('Question', node_text, node_embedding)
-            elif 'Answer' in node_labels:
-                add_node_embedding('Answer', node_text, node_embedding)
-            elif 'Category' in node_labels:
-                add_node_embedding('Category', node_text, node_embedding)
+    # Fetch nodes and their labels for embedding
+    all_nodes = graph.query("MATCH (n) RETURN id(n) as id, n.text as text")
+    texts = [node['text'] for node in all_nodes if node['text']]
+    embeddings = batch_embeddings(texts)
+    nodes_with_embeddings = [{'id': node['id'], 'embedding': emb} for node, emb in zip(all_nodes, embeddings) if emb is not None]
+    update_embeddings_in_graph(nodes_with_embeddings)
 
 def query_knowledge_graph(user_query):
-    # Use LangChain to process the user query and generate a preliminary Cypher query
     prompt = f"Given the user query: {user_query}, generate a Cypher query to retrieve relevant information from the Neo4j knowledge graph."
     messages = HumanMessage(content=prompt)
     response = llm([messages])
     cypher_query = response.content
 
-    # Check if candidate_results is empty
     candidate_results = graph.query(cypher_query)
     if not candidate_results:
-        # If candidate_results is empty, perform graph vector similarity operation directly
-        user_query_embedding = get_node_embedding(user_query)
-        if user_query_embedding is not None:
-            all_nodes = graph.query("MATCH (n) RETURN n.text")
-            ranked_results = []
-            for node in all_nodes:
-                node_text = node['n.text']
-                node_embedding = get_node_embedding(node_text)
-                if node_embedding is not None:
-                    similarity_score = cosine_similarity(user_query_embedding, node_embedding)
-                    ranked_results.append((node_text, similarity_score))
-
-            # Sort the results based on similarity scores in descending order
-            ranked_results.sort(key=lambda x: x[1], reverse=True)
-
-            # Return the top-ranked nodes as the answer
-            return [result[0] for result in ranked_results]
-        else:
-            return []
-    else:
-        # If candidate_results is not empty, follow the original flow
-        user_query_embedding = get_node_embedding(user_query)
-        ranked_results = []
-        for node in candidate_results:
-            node_text = node['text']
-            node_embedding = get_node_embedding(node_text)
-            if node_embedding is not None:
-                similarity_score = cosine_similarity(user_query_embedding, node_embedding)
-                ranked_results.append((node, similarity_score))
-
-        # Sort the results based on similarity scores in descending order
+        user_query_embedding = embedding_model.embed_query(user_query)
+        all_nodes = graph.query("MATCH (n) RETURN n.text as text, n.embedding as embedding")
+        ranked_results = [(node['text'], cosine_similarity(user_query_embedding, node['embedding'])) for node in all_nodes if node['embedding'] is not None]
         ranked_results.sort(key=lambda x: x[1], reverse=True)
-
-        # Return the top-ranked nodes or paths as the answer
+        return [result[0] for result in ranked_results]
+    else:
+        user_query_embedding = embedding_model.embed_query(user_query)
+        ranked_results = [(node['text'], cosine_similarity(user_query_embedding, node['embedding'])) for node in candidate_results if node['embedding'] is not None]
+        ranked_results.sort(key=lambda x: x[1], reverse=True)
         return [result[0] for result in ranked_results]
 
 # Load data from CSV
