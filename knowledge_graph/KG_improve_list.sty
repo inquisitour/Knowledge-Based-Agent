@@ -1,0 +1,28 @@
+** Improvement list for Knowledge Graph operations **
+
+1. Utilize More Efficient Graph Operations
+For operations that require graph traversal or similarity comparisons, consider using Neo4j's built-in procedures like apoc.algo.similarity if available, or ensure your indexes and model are optimized for the type of queries you perform most often.
+
+Example:
+# Use a single query to get all nodes and their embeddings, then process in Python
+all_nodes = graph.query("MATCH (n) RETURN n.text as text, n.embedding as embedding")
+# Calculate similarities in batch if possible
+
+2. Optimize Cypher Queries
+Make sure your Cypher queries are as efficient as possible. This includes using appropriate indexing, minimizing the number of MATCH and MERGE operations per query, and using WITH to pipeline operations within a single query where applicable.
+
+3. Asynchronous Operations
+Where possible, use asynchronous operations to perform non-blocking data processing. This could mean asynchronous API calls for embeddings, or handling database operations asynchronously to improve throughput.
+
+4. Caching Frequently Accessed Data
+If your application often queries the same nodes, consider implementing a caching strategy for node data and embeddings. This reduces the need to compute embeddings for the same node texts repeatedly or to fetch them from the database.
+
+Example:
+cache = {}  # Simple dictionary for caching; consider more robust solutions for production
+
+def get_node_embedding(node_text):
+    if node_text in cache:
+        return cache[node_text]
+    embedding = embedding_model.embed_query(node_text)
+    cache[node_text] = embedding
+    return embedding

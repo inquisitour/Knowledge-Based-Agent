@@ -1,0 +1,11 @@
+** The current application loop **
+
+1. Saving question-answer pairs as a post processing operation.
+2. Generating a data hash to check the data changes.
+3. During the next initialization, store question-answer pairs along with their embeddings in PostgreSQL.
+4. Utilize the 'category' column to construct a knowledge graph and store embeddings in Neo4j.
+5. Employing a combination of PostgreSQL, Neo4j, and user queries to generate a response.
+6. Iteratively repeat the process leveraging text embeddings, graph embeddings, and user queries to derive a relevant response.
+
+
+text embeddings + graph embeddings + user query = common embeddings ?
