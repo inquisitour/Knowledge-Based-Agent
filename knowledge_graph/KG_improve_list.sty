@@ -15,7 +15,7 @@ Make sure Cypher queries are as efficient as possible. This includes using appro
 Where possible, use asynchronous operations to perform non-blocking data processing. This could mean asynchronous API calls for embeddings, or handling database operations asynchronously to improve throughput.
 
 4. Caching Frequently Accessed Data
-If your application often queries the same nodes, consider implementing a caching strategy for node data and embeddings. This reduces the need to compute embeddings for the same node texts repeatedly or to fetch them from the database.
+If application often queries the same nodes, consider implementing a caching strategy for node data and embeddings. This reduces the need to compute embeddings for the same node texts repeatedly or to fetch them from the database.
 
 Example:
 cache = {}  # Simple dictionary for caching; consider more robust solutions for production
