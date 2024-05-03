@@ -19,6 +19,9 @@ llm = ChatOpenAI(api_key=os.environ["OPENAI_API_KEY"], model='gpt-3.5-turbo')
 embedding_model = OpenAIEmbeddings(api_key=os.environ["OPENAI_API_KEY"], model="text-embedding-3-large")
 
 def get_node_embedding(node_text):
+    if node_text is None:
+        return None
+    
     # Use OpenAIEmbeddings to generate embeddings for the node text
     embedding = embedding_model.embed_query(node_text)
     return embedding
@@ -27,6 +30,22 @@ def cosine_similarity(embedding1, embedding2):
     # Calculate cosine similarity between two embeddings
     similarity = np.dot(embedding1, embedding2) / (np.linalg.norm(embedding1) * np.linalg.norm(embedding2))
     return similarity
+
+def add_node_embedding(label, node_text, node_embedding):
+    if node_embedding is None:
+        return
+
+    query = f"""
+        MERGE (n:{label} {{text: $node_text}})
+        SET n.embedding = $node_embedding
+    """
+    print(f"Executing query: {query}")
+    print(f"With parameters: node_text={node_text}, node_embedding={node_embedding}")
+
+    graph.query(query, params={
+        "node_text": node_text,
+        "node_embedding": node_embedding
+    })
 
 def create_knowledge_graph(csv_data):
     for index, row in csv_data.iterrows():
@@ -55,12 +74,13 @@ def create_knowledge_graph(csv_data):
         node_labels = list(node['labels(n)'])
         node_embedding = get_node_embedding(node_text)
 
-        if 'Question' in node_labels:
-            graph.add_node_embedding('Question', node_text, node_embedding)
-        elif 'Answer' in node_labels:
-            graph.add_node_embedding('Answer', node_text, node_embedding)
-        elif 'Category' in node_labels:
-            graph.add_node_embedding('Category', node_text, node_embedding)
+        if node_embedding is not None:
+            if 'Question' in node_labels:
+                add_node_embedding('Question', node_text, node_embedding)
+            elif 'Answer' in node_labels:
+                add_node_embedding('Answer', node_text, node_embedding)
+            elif 'Category' in node_labels:
+                add_node_embedding('Category', node_text, node_embedding)
 
 def query_knowledge_graph(user_query):
     # Use LangChain to process the user query and generate a preliminary Cypher query
@@ -74,19 +94,23 @@ def query_knowledge_graph(user_query):
     if not candidate_results:
         # If candidate_results is empty, perform graph vector similarity operation directly
         user_query_embedding = get_node_embedding(user_query)
-        all_nodes = graph.query("MATCH (n) RETURN n.text")
-        ranked_results = []
-        for node in all_nodes:
-            node_text = node['n.text']
-            node_embedding = get_node_embedding(node_text)
-            similarity_score = cosine_similarity(user_query_embedding, node_embedding)
-            ranked_results.append((node_text, similarity_score))
+        if user_query_embedding is not None:
+            all_nodes = graph.query("MATCH (n) RETURN n.text")
+            ranked_results = []
+            for node in all_nodes:
+                node_text = node['n.text']
+                node_embedding = get_node_embedding(node_text)
+                if node_embedding is not None:
+                    similarity_score = cosine_similarity(user_query_embedding, node_embedding)
+                    ranked_results.append((node_text, similarity_score))
 
-        # Sort the results based on similarity scores in descending order
-        ranked_results.sort(key=lambda x: x[1], reverse=True)
+            # Sort the results based on similarity scores in descending order
+            ranked_results.sort(key=lambda x: x[1], reverse=True)
 
-        # Return the top-ranked nodes as the answer
-        return [result[0] for result in ranked_results]
+            # Return the top-ranked nodes as the answer
+            return [result[0] for result in ranked_results]
+        else:
+            return []
     else:
         # If candidate_results is not empty, follow the original flow
         user_query_embedding = get_node_embedding(user_query)
@@ -94,8 +118,9 @@ def query_knowledge_graph(user_query):
         for node in candidate_results:
             node_text = node['text']
             node_embedding = get_node_embedding(node_text)
-            similarity_score = cosine_similarity(user_query_embedding, node_embedding)
-            ranked_results.append((node, similarity_score))
+            if node_embedding is not None:
+                similarity_score = cosine_similarity(user_query_embedding, node_embedding)
+                ranked_results.append((node, similarity_score))
 
         # Sort the results based on similarity scores in descending order
         ranked_results.sort(key=lambda x: x[1], reverse=True)
