@@ -1,10 +1,14 @@
 import os
+import json
+import warnings
 import numpy as np
 import pandas as pd
 from langchain.schema import HumanMessage
 from langchain_community.graphs import Neo4jGraph
 from langchain_community.chat_models import ChatOpenAI
 from langchain.embeddings.openai import OpenAIEmbeddings
+
+warnings.filterwarnings('ignore')
 
 # Set environment variables
 os.environ["NEO4J_URI"] = "bolt://localhost:7687"
@@ -72,29 +76,55 @@ def query_knowledge_graph(user_query):
     response = llm([messages])
     cypher_query = response.content
 
+    results_dict = {}
     candidate_results = graph.query(cypher_query)
     if not candidate_results:
         user_query_embedding = embedding_model.embed_query(user_query)
         all_nodes = graph.query("MATCH (n) RETURN n.text as text, n.embedding as embedding")
-        ranked_results = [(node['text'], cosine_similarity(user_query_embedding, node['embedding'])) for node in all_nodes if node['embedding'] is not None]
-        ranked_results.sort(key=lambda x: x[1], reverse=True)
-        return [result[0] for result in ranked_results]
+        for node in all_nodes:
+            if node['embedding'] is not None:
+                score = cosine_similarity(user_query_embedding, node['embedding'])
+                if score > 0.2:
+                    results_dict[node['text']] = score
     else:
         user_query_embedding = embedding_model.embed_query(user_query)
-        ranked_results = [(node['text'], cosine_similarity(user_query_embedding, node['embedding'])) for node in candidate_results if node['embedding'] is not None]
-        ranked_results.sort(key=lambda x: x[1], reverse=True)
-        return [result[0] for result in ranked_results]
+        for node in candidate_results:
+            if node['embedding'] is not None:
+                score = cosine_similarity(user_query_embedding, node['embedding'])
+                if score > 0.2:
+                    results_dict[node['text']] = score
+
+    return results_dict
+
+def output_parser(user_query, results):
+    # Open or create the JSON file and load existing data if any
+    try:
+        with open('query_results.json', 'r') as file:
+            data = json.load(file)
+    except (FileNotFoundError, json.JSONDecodeError):
+        data = {}
+
+    # Update the data dictionary with the new results
+    data[user_query] = results
+
+    # Write updated data back to the JSON file
+    with open('query_results.json', 'w') as file:
+        json.dump(data, file, indent=4)
 
 # Load data from CSV
 csv_data = pd.read_csv('categorized_qa_pairs.csv')
-
 # Create knowledge graph
 create_knowledge_graph(csv_data)
 
 # Example usage
-user_query = input("Please enter your question: ")
-result = query_knowledge_graph(user_query)
-if result:
-    print("Query Results:", result)
-else:
-    print("No results found.")
+while True:
+    user_query = input("Please enter your question or type 'exit' to quit: ")
+    if user_query.lower() == 'exit':
+        break
+    results = query_knowledge_graph(user_query)
+    if results:
+        print("Query Results:", results)
+        output_parser(user_query, results)
+    else:
+        print("No results found.")
+
