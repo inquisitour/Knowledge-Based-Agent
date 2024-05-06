@@ -175,6 +175,11 @@ def output_parser(user_query: str, results: List[Dict[str, any]]) -> None:
     with open('query_results.json', 'w') as file:
         json.dump(data, file, indent=4)
 
+# Load data from CSV
+#csv_data = pd.read_csv('categorized_qa_pairs.csv') # Uncomment
+# Create knowledge graph
+#create_knowledge_graph(csv_data) # Uncomment
+
 # Example usage
 while True:
     user_query = input("Please enter your question or type 'exit' to quit: ")
@@ -186,8 +191,3 @@ while True:
         output_parser(user_query, results)
     else:
         print("No results found.")
-
-# Load data from CSV
-csv_data = pd.read_csv('categorized_qa_pairs.csv')
-# Create knowledge graph
-create_knowledge_graph(csv_data)
