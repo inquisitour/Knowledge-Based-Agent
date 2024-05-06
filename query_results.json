@@ -1,1648 +1,1510 @@
 {
-    "what is glaucoma": [
-        {
-            "text": "Cost of lasik surgery",
-            "score": 0.5791197738471233,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "I\u00e2\u20ac\u2122m a diabetic patient since the last ten years. Is it possible for me to undergo cataract surgery?",
-            "score": 0.5275309347391289,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "My cataract has not matured yet. Should I be considering surgery at the moment?",
-            "score": 0.45224974767047055,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Loss of ability to read.</br> Difficulty in viewing a computer screen.</br> Holding objects farther away to read.</br> Holding objects farther away to read",
-            "score": 0.4293816521162162,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Glistening - these are fluid filled microvacuoles in the IOL optic which is surrounded by aqueous environment in the eye.</br> These lenses are associated with higher rate of glistening however it can be reduced by increasing the refractive index (1.54) and water content 4% of acryclic material",
-            "score": 0.4212778086005537,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "It is likely you have optic nerve head drusen, which are calcified lesions that sit directly in front of the optic nerve, which enters in the back of the eye. Optic nerve head drusen often form spontaneously, but can also be inherited. No treatment is necessary, as they typically remain asymptomatic. Very rarely they may cause changes in the eye that can cause vision loss, however this is extremely uncommon.",
-            "score": 0.4132379997774938,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Standard Monofocal or Multifocal IOLs can improve vision by replacing cataractous natural lens of the eye but need glasses or contact lens to correct astigmatism.</br> Toric IOLs , like monofocal or multifocal IOLs replace eyes cataractous lens but also help to correct astigmatism at the same time.</br> Special Techniques and preoperative examination are done to find the amount and axis of astigmatis.</br> The Toric IOLs have marking of axis on their anterior surface which should be aligned during the surgery with pre-operative marking placed over cornea at the axis of astigmatism thereby neutralising the amount of corneal astigmatism with toril IOLs",
-            "score": 0.4007042803828999,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "plus number",
-            "score": 0.3999012838412931,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Itching is commonly associated with allergies. Allergic itching can be effectively treated with over-the-counter eye drops or pills. Tears often help dilute irritants and may also be effective.</br>Another common cause of itching along the lid margin is blocked oil glands, or blepharitis. Regular eyelid hygiene with hot packs and baby shampoo can be effective for this type of problem.</br>See your ophthalmologist for an examination to diagnose and treat your specific issue.",
-            "score": 0.37374801523357576,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Do Eye exercices really help ?",
-            "score": 0.36953720137449486,
-            "label": "Question",
-            "category": "Eye Exercises and Vision"
-        },
-        {
-            "text": "watering of the eye",
-            "score": 0.3624371157397683,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Red Eye",
-            "score": 0.3525483002807252,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What is color blindness?",
-            "score": 0.34340919809441495,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Presbyopia",
-            "score": 0.34105995222248703,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "eye pain",
-            "score": 0.33850871722310744,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Astigmatism",
-            "score": 0.3346651570408728,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "minus refractive error",
-            "score": 0.33417058774320846,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "I\u00e2\u20ac\u2122m a perfectly healthy individual with no problems with my eyesight. Do I still need regular eye checkups?",
-            "score": 0.33417058774320846,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "What is the morpholigcal classification of cataract",
-            "score": 0.32786501091251974,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Can I get my cataract surgery done during the summers or rainy season?",
-            "score": 0.3248249086838011,
-            "label": "Question",
-            "category": "Opthalmologist, Eye Disease Prevention Tips"
-        },
-        {
-            "text": "Why is smile said to be Ultra-gentle on the eyes\u00c2\u00a0",
-            "score": 0.32386854878527976,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "my right eye is red",
-            "score": 0.3225642544081039,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": " My father lost his eyesight a couple of years ago due to glaucoma. Can an eye transplant restore his vision?",
-            "score": 0.3216916994589368,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What type of lens are recommended after cataract surgery",
-            "score": 0.3201359364043935,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Does smoking affect my eye or vision?",
-            "score": 0.3168709839762665,
-            "label": "Question",
-            "category": "Lifestyle Factors Affecting Eye"
-        },
-        {
-            "text": "How does smoking impact eye health and vision?",
-            "score": 0.31685740022007497,
-            "label": "Question",
-            "category": "Lifestyle Factors Affecting Eye"
-        },
-        {
-            "text": "What are the effects of smoking on the eyes and vision?",
-            "score": 0.31685740022007497,
-            "label": "Question",
-            "category": "Lifestyle Factors Affecting Eye"
-        },
-        {
-            "text": "Can smoking affect eyesight or eye health?",
-            "score": 0.31685740022007497,
-            "label": "Question",
-            "category": "Lifestyle Factors Affecting Eye"
-        },
-        {
-            "text": "Redness in eye",
-            "score": 0.31636325480130384,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "Why do patients prefer SMILE",
-            "score": 0.31469176024350826,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Am I a suitable candidate for ReLEx SmILE",
-            "score": 0.31321996440931793,
-            "label": "Question",
-            "category": "Ophthalmologist"
-        },
-        {
-            "text": "watery eyes",
-            "score": 0.30933397167420246,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "I have redness in my eyes",
-            "score": 0.30923239118415885,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "I have plus number on my spectacles",
-            "score": 0.3080845242443502,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "there is redness in my eyes",
-            "score": 0.3053889675480718,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Who can opt for LASIK treatment",
-            "score": 0.30318264964771985,
-            "label": "Question",
-            "category": "Ophthalmologist"
-        },
-        {
-            "text": "Painful left eye",
-            "score": 0.3010927564939629,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What is ECCE",
-            "score": 0.29943155933068927,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "How much time the LASIK procedure will take",
-            "score": 0.2960094027994965,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "This is also known as cylindrical refractive error, it can be in both minus and plus forms. It can be treated with glasses, toric contact lenses and with refractive error surgeries.",
-            "score": 0.29547750831565067,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "When we get near number around the age of 40 years, it is known as Presbyopia. It can be treated with glasses and contact lenses.",
-            "score": 0.29547750831565067,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What are the complications of LASIK",
-            "score": 0.29437427927011534,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Why is an eye exam important in hindi",
-            "score": 0.2940707148219456,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What is PRK and Lasek",
-            "score": 0.2934540064111395,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "I have watery eyes",
-            "score": 0.2934030545678906,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "my left eye is red",
-            "score": 0.2930321794291028,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
+    "what is cataract": [
         {
             "text": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/SlJPfdENaCM\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>",
-            "score": 0.29182575830503615,
+            "score": 0.7305311400100011,
             "label": "Answer",
             "category": "Opthalmologist"
         },
         {
             "text": "what is cataract in hindi",
-            "score": 0.2918128644241135,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Can all refractive errors be corrected with ReLEx SMILE",
-            "score": 0.29168178762894303,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "This is a modern cataract surgical technique, most commonly performed all over the world.</br>This technique is fast, best, safe, painless with speedy recovery and have low rate of infection.</br>It is performed by world class higher end Phaco Machine with better control of parameters, through 2.2 to 2.8mm of very small incision and with tropical anaesthetic drops without having infection</br>This technique is preferred in patients having diabetes, asthma, glaucoma, thyroid, hypertension, heart diseases.</br>This technique is performed in all types and all grades of cataract particularly soft cataract, posterior polar, mature cataract, cataract in small pupil and complicated cataract.</br>There is no need to take stitches/sutures to close the incision as they are self-sealing, they eventually will close by themselves overtime.</br>Patient will have to rest for about 15-30 minutes and then can go home.",
-            "score": 0.29031176093704725,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "my eyes are red",
-            "score": 0.28872153080537266,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "This is known as myopia. It can be treated with glasses, contact lenses and with refrative surgeries.",
-            "score": 0.2875681245232203,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Many conditions that affect the eye, like glaucoma, have no symptoms at all, and are detected incidentally on routine examination. Regular eye checkups help to diagnose such problems early, so that adequate treatment measures can be taken timely, which may help minimize loss of vision.",
-            "score": 0.2875681245232203,
-            "label": "Answer",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "Minus number",
-            "score": 0.2867299548705199,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Is there any age limit for SMILE ReLEx LASER treatment",
-            "score": 0.2863841906199944,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What strategies should be implemented to prevent pinguecula and pterygium from returning?\n\n\n",
-            "score": 0.2861474815241227,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "How can one minimize the likelihood of pinguecula and pterygium reappearing?",
-            "score": 0.28604870531727533,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "What preventive measures are effective in reducing the recurrence of pinguecula and pterygium?",
-            "score": 0.28604870531727533,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "How can I reduce the chance of corneal opacity?",
-            "score": 0.28604870531727533,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "What steps can I take to minimize the risk of developing corneal opacity?",
-            "score": 0.28604870531727533,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "Flush the eyes out with cool water for at least 15 minutes</br>As you rinse, use your fingers to hold your eye open as wide as possible and roll your eye to ensure the greatest coverage</br>Remove contact lenses, if applicable, if they do not come out during flushing </br>Go to emergency (if you can continue flushing the eye out) flush your eyes out until help arrives",
-            "score": 0.28604870531727533,
-            "label": "Answer",
-            "category": "Medication and Eye Care"
-        },
-        {
-            "text": "Can multifocal cataract lenses be implanted in just one eye?",
-            "score": 0.2852434125025285,
-            "label": "Question",
-            "category": "Ophthalmologist"
-        },
-        {
-            "text": "The symptoms of early cataract are treated with new eyeglasses, bright lighting, anti-glare glasses or magnifying glasses.</br> However cataract surgery is the only effective treatment of cataract in which cloudy lense is removed & replaced with artificial lens (IOL).\r\n",
-            "score": 0.2848387054748957,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What should I do if I feel I have something in my eye",
-            "score": 0.28336325618568314,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "I got my left eye operated for cataract last week, and since then have been sitting in a dark room away from light. For how much more time do I need to avoid light?",
-            "score": 0.282877172243861,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What preventive measures are effective in lowering the chance of corneal opacity?",
-            "score": 0.2827756261521139,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "How can one reduce the likelihood of corneal opacity occurring?",
-            "score": 0.28271414460721644,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "How to prevent vision loss from diabetic retinopathy?",
-            "score": 0.28271414460721644,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "How can one minimize the risk of vision loss associated with diabetic retinopathy?",
-            "score": 0.28271414460721644,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "How to prevent dry eye",
-            "score": 0.28271414460721644,
-            "label": "Question",
-            "category": "This question-answer pair belongs to the category of Lifestyle Factors Affecting Eye."
-        },
-        {
-            "text": "What strategies should be adopted to decrease the risk of corneal opacity?\n\n\n",
-            "score": 0.2826722029012896,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "What should I do if I have retinal detachment",
-            "score": 0.2807578077101059,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/0pEtsl4yQeo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>",
-            "score": 0.27916896687123055,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Keratoconus in hindi",
-            "score": 0.2791543259444773,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Retinal detachment is a serious condition. You need repeated visits to the doctor and follow his advice.",
-            "score": 0.2760988723258155,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "As the number of corneal nerves affected during the procedure is far lower than that in LASIK, the resulting dry eye symptoms are significantly lesser or near zero in patients undergoing ReLEx SmILE.",
-            "score": 0.2758280828907379,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Yes, it is possible to remove multifocal cataract lens with surgery.",
-            "score": 0.27570765206961134,
-            "label": "Answer",
-            "category": "Ophthalmologist"
-        },
-        {
-            "text": "Usually, health insurance does not cover the cost to upgrade to multifocal lens. You can always check with your insurance provider to be sure.",
-            "score": 0.27570765206961134,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Define CVS",
-            "score": 0.2753589092498039,
-            "label": "Question",
-            "category": "Screen Time and Eye Strain"
-        },
-        {
-            "text": "Yes, patients over the age of 50 years can choose multifocal cataract lens implants to eliminate the need of glasses for both near and far sight. Multifocal cataract lens implants also eliminate the risk of developing cataract at a later age.",
-            "score": 0.27383411827551085,
-            "label": "Answer",
-            "category": "Ophthalmologist"
-        },
-        {
-            "text": "The need for LASIK differs from patient to patient and also depends on how much better one wants to see without glasses.",
-            "score": 0.2738170245702519,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "ReLEX SmILE was born to address the problem of ectasia which came from LASIK. So any laser eye surgery which has a\u00c2\u00a0flap has higher chances of ectasia. Hence, SmILE\u00c2\u00a0is safer with very very\u00c2\u00a0low chances of ectasia,\u00c2\u00a0near zero.",
-            "score": 0.2738170245702519,
-            "label": "Answer",
-            "category": "Ophthalmologist"
-        },
-        {
-            "text": "What is Lasik",
-            "score": 0.27339399674734766,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "what is the treatment of cataract in hindi",
-            "score": 0.27279074659441843,
-            "label": "Question",
-            "category": "Ophthalmologist"
-        },
-        {
-            "text": "Cost depends on the treatment plan you have opted for as well as your doctor's opinion after all tests are done. For more details, please connect with the hospital reception.",
-            "score": 0.27276513957785886,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "robotic cataract surgery",
-            "score": 0.2711166777974518,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Is SMILE accurate",
-            "score": 0.27103943629025834,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What should I do if I have got chemical in my eye",
-            "score": 0.27050919437928306,
-            "label": "Question",
-            "category": "Medication and Eye Care"
-        },
-        {
-            "text": "How much will my eye exam cost?",
-            "score": 0.26890916694174144,
+            "score": 0.7304588693018411,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
             "text": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/KlTzfkij4HU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>",
-            "score": 0.26888255205107264,
+            "score": 0.6830538107632295,
             "label": "Answer",
             "category": "Opthalmologist"
         },
         {
             "text": "What is cataract in marathi",
-            "score": 0.26888255205107264,
+            "score": 0.6830538107632295,
             "label": "Question",
             "category": "Ophthalmologist"
         },
         {
-            "text": "What is Extra capsular cataract extraction",
-            "score": 0.267846966219202,
+            "text": "Who can opt for LASIK treatment",
+            "score": 0.6496718930670377,
+            "label": "Question",
+            "category": "Ophthalmologist"
+        },
+        {
+            "text": "What are the complications of LASIK",
+            "score": 0.6446645237384535,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
-            "text": "Im experiencing intense itching mostly on the lower inner lid of one eye. This has been going on for about a month. What could it be?",
-            "score": 0.26779987465362204,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "I have minus number on my spectacles",
-            "score": 0.267451243997459,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "It is motiyabind",
-            "score": 0.2674134416953761,
+            "text": "Cost depends on the treatment plan you have opted for as well as your doctor's opinion after all tests are done. For more details, please connect with the hospital reception.",
+            "score": 0.6017958554379009,
             "label": "Answer",
             "category": "Opthalmologist"
         },
         {
-            "text": "Information about Eye allergy in hindi",
-            "score": 0.26739802156904074,
+            "text": "what is the treatment of cataract in hindi",
+            "score": 0.6017399735829023,
             "label": "Question",
-            "category": "Eye Disease Prevention Tips"
+            "category": "Ophthalmologist"
         },
         {
-            "text": "MEL 80 Excimer Laser machine from CARL ZEISS, Germany have many benefits as compared to all the other alternatives",
-            "score": 0.267092015377702,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Who are the candidates for Toric IOL Surgery",
-            "score": 0.2660318178406169,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Who can not go for LASIK treatment",
-            "score": 0.2657860802996456,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Who is an ophthalmologist?",
-            "score": 0.2636671484945962,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "An ophthalmologist is a medical doctor who specializes in eye and vision care and are licensed to practice medicine and surgery.",
-            "score": 0.26364173899049637,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Is an ophthalmologist an eye doctor?",
-            "score": 0.263618434341478,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What does an ophthalmologist treat?",
-            "score": 0.263618434341478,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What does an ophthalmologist do?",
-            "score": 0.26359476602776283,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Lasik has been performed on millions of patients in India in the past 15 years and the overall rate of complications is low and most Lasik complications can be treated without any vision loss.</br> 1) Infection and inflammation-These can usually be cleaned up with medications</br> 2) Problems with the corneal Flap - Might need additional surgery</br> 3) Ectasia or bulging of cornea</br> 4) Over or under-correction of the refractive errors, in such instances person might need to wear corrective lenses for some activities or need a refractive surgery to get desired results.",
-            "score": 0.26314116108796265,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Normally, Cornea is round in shape, like a baseball. Astigmatism occurs when the cornea is shape more like an egg or american baseball. When light passes through a cornea with astigmatism the image doesn't focus sharply on the retina causing blurred vision.",
-            "score": 0.2627179185240343,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Color vision deficiency is the inability to distinguish certain shades of color. Very few people are completely color blind.</br></br>Color deficiency</br>Most people with color vision deficiency can see colors, but they have difficulty differentiating between the following colors:</br></br>People who are totally color blind (achromatopsia), can only see things as black and white or in shades of gray.</br></br>Color vision deficiency can range from mild to severe, depending on the cause. It affects both eyes if it is inherited and usually just one if it is caused by injury or illness.</br></br>Color vision is possible due to photoreceptors in the retina of the eye known as cones.  The most common form of color deficiency is red-green. These patients have a harder time differentiating between them deoending on the darkness or lightness of the colors.</br></br>Another form of color deficiency is blue-yellow. This is a rarer and more severe form of color vision loss than red-green,",
-            "score": 0.2622264739184414,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What does an ophthalmologist mean?",
-            "score": 0.262211277254634,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What is lasik procedure",
-            "score": 0.2615244771210676,
+            "text": "What should I do if I feel I have something in my eye",
+            "score": 0.5776719656302203,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
             "text": "Why MEL 80 Excimer Lasr Lasik Machine & AASTHA Laser Center",
-            "score": 0.26112804807959406,
+            "score": 0.5715939328236687,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
-            "text": "Cataracts are removed during the surgery and replace with an Intraocular Lens.</br> There are different types of Lenses (IOLs) available.</br> (A) Monofocal Lens (IOLs):- Lens that treat only cataracts are called Monofocal Lenses. These lenses provide good distance vision but require reading glasses to see up close.</br> (B) Multificoal Lens (IOLs):- The Lens that treat cataract as well as Presbyopia are called Multifocal Lens. These Lenses provide full range of vision for distance - for viewing computer screen and near - for viewing mobile phone</br> (C) Toric Lenses (IOLs):- The lens that treat cataracts, as well as astigmatism are called Toric Lens. If it treat presbyopia along with cataract and astigmatism it is called Toric Multifocal IOL<br> These lenses provide sharper vision for distance in monofocal toric IOLs and for full range of vision in Multifcoal Toric IOLs",
-            "score": 0.2610483939835659,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "what is CVS",
-            "score": 0.2607314703295286,
+            "text": "How much time the LASIK procedure will take",
+            "score": 0.5575206544629034,
             "label": "Question",
-            "category": "Screen Time and Eye Strain"
+            "category": "Opthalmologist"
         },
         {
             "text": "When is cataract removed",
-            "score": 0.26017875202119295,
+            "score": 0.5551787996462582,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
-            "text": "Diabetic Retinopathy - Risk factors, etiopathogenesis, clinical features, classification & treatment",
-            "score": 0.259673712208253,
+            "text": "Painful left eye",
+            "score": 0.5536539231713372,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
-            "text": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/k6YzMzcv8AI\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>",
-            "score": 0.25963233377205674,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Preventing vision loss from diabetic retinopathy If you have diabetes, talk with your primary care doctor about controlling your blood sugar. High blood sugar damages retinal blood vessels. That causes vision loss. Do you have high blood pressure or kidney problems? Ask your doctor about ways to manage and treat these problems. See your ophthalmologist regularly for dilated eye exams. Diabetic retinopathy may be found before you even notice any vision problems. If you notice vision changes in one or both eyes, call your ophthalmologist right away. Get treatment for diabetic retinopathy as soon as possible. This is the best way to prevent vision loss.",
-            "score": 0.25917050265451874,
-            "label": "Answer",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "Redness in eye can be caused due to infection, allergies, inflammations like conjunctivitis, iritis, scleritis etc or due to simple dryness.",
-            "score": 0.2587162885030431,
-            "label": "Answer",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "Wearing Sunglasses and a hat to block ultraviolet sunlight which will delay the Cataract.</br> Studies highlighted, to have good nutrition and  quit smoking reduce the rate of age related cataract formation.</br> After the age of 60 years, you should have dilated eye examination every two years to check for the signs of age related macular degeneration, Glaucoma and other vision disorders along with Cataract.",
-            "score": 0.25833152900657025,
-            "label": "Answer",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "What are the different types of Cataract surgery",
-            "score": 0.25827455527394727,
+            "text": "Who should not go for LASIK treatment",
+            "score": 0.5466279425812468,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
-            "text": "Eyelids are irritating",
-            "score": 0.2577820136502424,
-            "label": "Question",
-            "category": "This question-answer pair belongs to the category of Ophthalmologist."
-        },
-        {
-            "text": "The cause of Astigmatism is not known, It may be present since birth as may also result post eye surgery or trauma",
-            "score": 0.2566447128424465,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What eye protection Can I wear?",
-            "score": 0.25647062814871824,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "Why do we need SMILE when other procedures are doing fine",
-            "score": 0.2558151424927544,
+            "text": "Who can not go for LASIK treatment",
+            "score": 0.5394214764384252,
             "label": "Question",
             "category": "Opthalmologist"
-        },
-        {
-            "text": "distorted images",
-            "score": 0.2554948401741555,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "cost of glaucoma surgery",
-            "score": 0.25519838962704955,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "how to clean my eyes",
-            "score": 0.2550884886762751,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/N0MNxGTlQeg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>",
-            "score": 0.2550721824816735,
-            "label": "Answer",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "In a Robotic Cataract Surgery, a femtosecond laser machine is docked on to the eye and images of the eye are caught by an imaging system attached to it. The incision of the cornea, the opening of the lens capsule and disintegration of the lens is done robotically.",
-            "score": 0.25493739257140197,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "How much will an eye exam cost",
-            "score": 0.25452767616356686,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What causes Colour Blindness?",
-            "score": 0.2542335882763666,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "An ophthalmologist is a medical doctor who specializes in eye and vision care.and are licensed to practice medicine and surgery.",
-            "score": 0.25414687077593756,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Itching of the eyes can be due to allergies or infections",
-            "score": 0.25400429846377165,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What are the type of IOLs",
-            "score": 0.25389898912891495,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Why spectacles are uncomfortable fro some people",
-            "score": 0.25389437916916185,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "How laser works",
-            "score": 0.2536374847094929,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "The cost of eye exam differs from patient to patient and will depend on the complexity of your condition",
-            "score": 0.2519248336301233,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "How should one correctly instill eye drops into the eyes?",
-            "score": 0.25173905081667336,
-            "label": "Question",
-            "category": "Medication and Eye Care"
-        },
-        {
-            "text": "PMMA (Poly Methyl Metha Acrylate) - If the Acrylic Co-polymer material used in manufacturing of IOL (lens) having temperature below glass transition temperature than it has rigid properties, and so called as rigid acrylic IOLs .",
-            "score": 0.25013624426801634,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "My brother recently developed \u00e2\u20ac\u0153eye-flu\u00e2\u20ac\u009d. Will the infection spread to me if I look directly into his eyes?",
-            "score": 0.2500415176552548,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "Color deficiency can be diagnosed through comprehensive eye examination. The patient is shown a series of specially designed pictures composed of colored dots, called pseudoisochromatic plates and asked to look for numbers among the various colored dots. Individuals with normal color vision see a number, while those with a deficiency do not. On some plates, a person with normal color vision sees one number, while a person with a deficiency sees a different number.</br></br>Pseudoisochromatic plate testing can determine if a color vision deficiency exists and the type of deficiency. However, additional testing may be needed to determine the exact nature and degree of deficiency. </br></br>A person could have poor color vision and not know it. Often, people with red-green deficiency aren't aware of their problem because they've learned to see the right color.</br> Early detection of color deficiency is vital since many learning materials rely heavily on color perception or color coding.",
-            "score": 0.24953692756509305,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What are the different types of cataract",
-            "score": 0.24945214509596508,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Distorted images can be a retinal problem and need to be ruled out at hospital with dilated eye examination.",
-            "score": 0.24840169670141715,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Watering of the eyes can be due to dryness, change in refractive errors, digital eye strain or blocked tear glands",
-            "score": 0.24780388103757528,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "I work on my laptop for 8 to 10 hours a day. What can do to prevent it from reducing my eyesight?",
-            "score": 0.2473228075327356,
-            "label": "Question",
-            "category": "Screen Time and Eye Strain"
-        },
-        {
-            "text": "My diabetes is well under control with medicines and exercise. Can my eyes still get affected by diabetes?",
-            "score": 0.2471560553628916,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What steps can be taken to prevent vision loss caused by diabetic retinopathy?",
-            "score": 0.24595972190214738,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "What preventive measures are effective in preserving vision in diabetic retinopathy?",
-            "score": 0.24595972190214738,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "What strategies should individuals adopt to prevent vision loss resulting from diabetic retinopathy?",
-            "score": 0.24595972190214738,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "What can I do to protect my vision?",
-            "score": 0.24595972190214738,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "What actions can I take to safeguard my vision?",
-            "score": 0.2456149207294938,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "This is an old technique of cataract surgery, not used now a days.</br>In this technique the cataract is removed in one piece through 9-10 mm large incision and the incision is closed with 5-6 s</br>Healing and stabilisation of vision will take 6-8 weeks after surgery, chances of infection and eye glasses for distance and near are there",
-            "score": 0.2456149207294938,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "I've been diagnosed with calcium deposits behind my eyes. What causes this and what is the treatment, if any?",
-            "score": 0.24553765411437034,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "I have hurt my eye. what should I do",
-            "score": 0.24512192479449063,
-            "label": "Question",
-            "category": "Ophthalmologist"
-        },
-        {
-            "text": "Itchy eyelid",
-            "score": 0.24456311227822922,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Prevention</br>To help reduce your chance of corneal opacity:</br></br>Take care to avoid injuring the eye. Wear eye protection during any potentially dangerous activity. Make sure safety goggles are worn tight against the face, otherwise a foreign body can fly up under the goggles and injure the eye.</br>Take proper care of contact lenses. Follow your doctors recommendations regarding wear and cleaning them.</br>Keep your eyes from drying out by using saline eye drops.</br>See your doctor right away if you think you have an eye infection, if you injured your eye, or if you develop any pain or change in vision.",
-            "score": 0.2439672379464679,
-            "label": "Answer",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "Eye is made numb with a few drops of tropical anesthesia</br>The patient is reclined under a excimer/laik machine</br>An eyelid speculum is placed between the eyelids to keep them open</br>A suction ring is placed on the eye which lifts and flattens the cornea \r\nand prevents the eye form moving</br>Microkeratome balde or fematolaser is used to create a hinged flap of paper-thin\r\ncorneal issue</br>The corenal flap is lifted and folded back</br>The laser sculpts the exposed corenal tissue, which is pre-programmed with the\r\nmeasurement of your eye</br>This flap is replaced in position and the edges are smoother</br>Vision is restored in a few minutes and you cna get abck to your work shortly without glasses\r\n",
-            "score": 0.24350604936269846,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "How is cataract treated",
-            "score": 0.2431888019891553,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What happens after cataract surgery",
-            "score": 0.24307148219686725,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Studies show smoking increases the risk of age-related macular degeneration, cataracts, glaucoma and diabetic retinopathy and dry eye syndrome.</br></br>Age Related Macular Degeneration (AMD): Smokers are three to four times more likely to develop AMD than nonsmokers. </br>Cataract: Heavy smokers have up to three times the risk of cataract as nonsmokers.</br>Glaucoma: There is a strong link between smoking and high blood pressure, cataracts and diabetes all of which are risk factors for glaucoma.</br>Diabetic Retinopathy: Smoking can increase the chances of getting diabetes. It can also make managing diabetes more difficult for those who already have it. Complications of diabetes made worse by smoking include retinopathy, heart disease, stroke, vascular disease, kidney disease, nerve damage, foot problems and many others.</br>Dry Eye Syndrome: Dry Eye Syndrome is more than twice as likely to impact smokers as non-smokers.",
-            "score": 0.24216627652084532,
-            "label": "Answer",
-            "category": "Lifestyle Factors Affecting Eye"
-        },
-        {
-            "text": "PMMA (Poly Methyl Metha Acrylate) - If the Acrylic Co-polymer material used in manufacturing of IOL (lens) having temperature below glass transition temperature than it has rigid properties, and so called as rigid acrylic IOLs .</br> Foldable Acrylic IOLs :- The temperature of co-polymer is above glass transition temperature than it has flexible properties, and called Foldable Acryclic IOLs</br> Hydrophilic Acrylic IOLs (Hydrogels) :- If foldable Acrylic Co-polymer having high water content of about 18 to 38 percent than it becomes Hydrophilic Acrylic IOLs. It has refractive index of 1.47 which makes it thinner makes it thinner than silicone(1.41) lenses</br> These lenses are associated with higher rate of reaction and PCO due to its low uveal and capsular biocompatibility</br> Hydrophobic Acrylic IOLs :- If foldable acrylic co polymers having lower water content of about 1 percent than it becomes hydrophobic Acrylic IOLs.",
-            "score": 0.2416091472324438,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "SmILE is FLAPLESS. No flap means</br>No complications</br>No weak cornea</br>Less Dry eye</br>No nerves are cut",
-            "score": 0.2415217123478327,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "How is color vision deficiency/color blindness diagnosed?",
-            "score": 0.23782078729068268,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Cataract : Make a decision to get opearted sooner than later. Delays increase the risk of compliactions of Cataract Surgery. Recovery is.....",
-            "score": 0.2370115871880475,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "When are you most likely to have a cataract",
-            "score": 0.2366746066125171,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "How to prevent vision loss from diabetic retinopathy",
-            "score": 0.2364537439737104,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "Can I have multifocal cataract lens implants without cataracts?",
-            "score": 0.2362717149278733,
-            "label": "Question",
-            "category": "Ophthalmologist"
-        },
-        {
-            "text": "What is a trifocal lens",
-            "score": 0.23610608435819547,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "I have a headache",
-            "score": 0.23566489925490777,
-            "label": "Question",
-            "category": ": Opthalmologist"
-        },
-        {
-            "text": "Can the multifocal cataract lens be removed if I don't like it?",
-            "score": 0.23510157996255468,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Morphological classification of cataract are as follows: </br> Soft Cataract or Cortical</br>Anterior and Posterior Subcapsular Cataract</br>Posterior Polar Cataract</br>Mature Cataract</br>Hypermature Cataract</br>Brown/Hard Cataract</br>Black Cataract</br>Rate of complica`on, failure of surgery and vision loss increases with the advancement of Cataract",
-            "score": 0.23499496825607372,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "It is said that the actual recovery (physical tissue recovery) from Relex smile is quicker. This is because there is no\u00c2\u00a0cut\u00c2\u00a0or\u00c2\u00a0flap\u00c2\u00a0made. The small incision through which the lenticule is removed\u00c2\u00a0heals very quickly, by end of the day or next. And as there is no risk of flap related issues, one can resume activities like swimming, outdoor sports etc within the first week itself post smile procedures. In LASIK such energetic activities are usually allowed after 15 days to a month.\u00c2\u00a0",
-            "score": 0.23488006397036576,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Itching in eyelid",
-            "score": 0.23443600564025932,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "There is no irrefutable evidence that eye exercises can affect uncorrected visual acuity (sharpness of vision). Eye exercises may be of benefit for some eye misalignment or squint conditions. Discuss your questions about eye exercises with your ophthalmologist.",
-            "score": 0.23424052379674531,
-            "label": "Answer",
-            "category": "Eye Exercises and Vision"
-        },
-        {
-            "text": "Can the multifocal cataract lens be removed",
-            "score": 0.2335818709443096,
-            "label": "Question",
-            "category": "Ophthalmologist"
-        },
-        {
-            "text": "I have a very bad headache",
-            "score": 0.233451247361177,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "</br>Contact lenses that are old or that do not fit well can scratch your eye. They can also cause blood vessels to grow into your cornea, a dangerous condition that threatens your vision.</br></br>Eye drops can cause problems with your contact lenses. It is best to avoid using any kind of eye drop when wearing contacts. However, you can use wetting drops or preservative-free lubricating drops as recommended by your eye doctor.</br></br>Remove your contact lenses and call your eye doctor right away if your eyes are very red, painful, watery or sensitive to light. Do the same if you have blurry vision or notice discharge (ooze or pus) coming from your eye. These can be symptoms of serious eye problems.",
-            "score": 0.23251168923780727,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What is the recovery time of this laser eye procedure",
-            "score": 0.23174682902944085,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "This is known as hypermetropia, it can be treated with glasses, contact lenses and with refractive error surgeries",
-            "score": 0.23158852854160875,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What eye protection gear is recommended for different environments or tasks?",
-            "score": 0.23111488435213426,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
         },
         {
             "text": "What are the side effects of LASIK",
-            "score": 0.2309095920517542,
+            "score": 0.5305024083056391,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
-            "text": "Dry Eye Prevention Tips</br>Try not to use a hair dryer, if possible.</br>Stay away from very warm rooms. In the winter, add moisture to the air with a humidifier. Or put a pan of water near your heater or radiator.</br>Protect your eyes from drying wind by wearing wrap-around glasses outside.</br>Talk to your ophthalmologist about adding omega-3 fatty acids to your diet for dry eye relief. They are found naturally in oily fish (such as salmon, sardines, tuna, trout, and anchovies), and in flaxseeds. Omega-3 fatty acids can be added as a dietary supplement (pill or tablet).</br>Do you wake up with dry and scratchy eyes? Use artificial tear ointment or thick eye drops just before you go to bed.",
-            "score": 0.23058921809025645,
-            "label": "Answer",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "How often should I get my eyes checked",
-            "score": 0.23047036427647596,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "If it feels like something is rubbing against your eyes when you blink it is called a foreign body sensation. Although it could be caused by a particle on the surface of the eyes, the two most common causes are dry eyes, or an inflammation in the eyelids called blepharitis. Other causes include conjunctivitis or other inflammatory conditions of the eye's surface that happen on the eyelids, eyelashes, conjunctiva, episclera, sclera, or cornea. The simplest way to treat this is with artificial tears.</br></br>Other initial treatments include warm compresses with a warm washcloth, or eyelid scrubs with cotton tip applicator and some baby shampoo in warm water.</br></br>Of course if you believe there is actually something in your eye like a foreign particle, then you should have a complete eye exam by an ophthalmologist.</br></br>Also, if your symptoms don't get better after trying these methods, then you should also see an ophthalmologist promptly.",
-            "score": 0.2298474284181996,
+            "text": "People with the below issues should not go for LASIK </br> 1) Dry eye - patients with severe dry eye,older person and menopausal woman,patients with immune system disorders, hormone replacement therapy and modification like antidepressants or blood pressure lowering agents. </br> 2) Large Pupil size - In lower light, large pupil causes durbing visual symptoms like glare and halos</br> 3) Keratoconus and thin corneas - Patients with this degenerative corneal condition, or a family history of this disorder.</br> 4) Degree of refractive errors- Very high levels of refractive error (Myopia, hypermetropia, Astigmatism or certain combinations of these errors) may not be compatible with lasik.</br> 5) Age- The ideal age for Lasik is over 18 years, since the refractive error is more likely to be changing below this age.</br> 6) Pregnancy- Pregnant or nursing woman are not a good candidate for Lasik.</br> 7) Cataract, Glaucoma or any retinal diseases are contraindicated for Lasik procedure.\r\n",
+            "score": 0.5149946493258585,
             "label": "Answer",
             "category": "Opthalmologist"
         },
         {
             "text": "CVS",
-            "score": 0.22975662799742352,
+            "score": 0.5011622272927954,
             "label": "Question",
             "category": "Screen Time and Eye Strain"
         },
         {
-            "text": "You must clean and disinfect any contact lens you remove from your eye before you put the lens back in. There are many types of cleansing systems. The choice depends on the type of lens you use, if you have allergies or if your eyes tend to form protein deposits. Ask your eye doctor what kind of cleaning solutions you should use.</br></br>Take special care to clean and store your lenses correctly to avoid dangerous eye infections.</br></br>Here is what you should do:</br></br>Follow the schedule your eye doctor gives you for wearing and replacing your lenses. You should not wear daily wear lenses while you sleep.</br>Remove contact lenses before taking a shower, using a hot tub, swimming, or doing anything where water gets in your eyes.</br>Before touching your contact lenses, wash your hands with soap and water and dry them with a lint-free towel.</br>Never put contacts in your mouth to wet them. Saliva (spit) is not a sterile solution.</br>Do not rinse or store contacts in water (tap or sterile water). Also, never use a homemade saline solution.</br>Do not use saline solution or rewetting drops to disinfect your lenses. They are not disinfectants.</br>Follow directions from your doctor and from the lens cleaning solution manufacturer to clean and store your lenses.</br>No matter what type of lens cleaning solution you buy, use a rub and rinse cleaning method. Rub your contact lenses with clean fingers, then rinse the lenses with solution before soaking them. Use this method even if the solution you are using is a no-rub type.</br>Use new solution each time you clean and disinfect your contact lenses. Never reuse or top off with old solution. Also, do not pour contact lens solution into a different bottle. The solution will no longer be sterile.</br>Make sure the tip of the solution bottle does not touch any surface. Keep the bottle tightly closed when you are not using it.</br>Rinse your contact lens case with sterile contact lens solution (not tap water). Then leave the empty case open to air dry.</br>Keep your contact lens case clean. Replace the case at least every 3 months, or right away if it gets cracked or damaged.</br>If you store your lenses in the case for a long time, check the contact lens instructions or the lens solution directions to see if you should re-disinfect them before wearing them. Never wear your contact lenses if they have been stored for 30 days or longer without re-disinfecting.</br>Contact lenses can warp over time, and your cornea can change shape. To make sure your lenses fit properly and the prescription is right for you, see your eye doctor regularly.",
-            "score": 0.22975536370904903,
-            "label": "Answer",
-            "category": "Opthalmologist, Eye Care and Health"
-        },
-        {
-            "text": "If foldable Acrylic Co-polymer having high water content of about 18 to 38 percent than it becomes Hydrophilic Acrylic IOLs. It has refractive index of 1.47 which makes it thinner makes it thinner than silicone(1.41) lenses</br> These lenses are associated with higher rate of reaction and PCO due to its low uveal and capsular biocompatibility",
-            "score": 0.2295312477591026,
-            "label": "Answer",
-            "category": "Ophthalmologist"
-        },
-        {
-            "text": "What is the difference between an ophthalmologist, orthoptist opticians andoptometrist?",
-            "score": 0.22952888612706285,
+            "text": "How is cataract treated",
+            "score": 0.49575178313684015,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
-            "text": "Cataract surgery can be performed anytime when it causes difficulty in vision. The concept of a cataract reaching the stage of maturity (or becoming ripe) is a very old one, and dates back about thirty years to the 1980s when surgery used to be performed manually with large incisions, and required stitches. In present times, cataract surgery is generally stitch-less. It is actually best to get a cataract operated before the stage of maturity.  The surgery at this stage is easier to perform, and much less likely to cause complications.",
-            "score": 0.22906720211845613,
+            "text": "MEL 80 Excimer Laser machine from CARL ZEISS, Germany have many benefits as compared to all the other alternatives",
+            "score": 0.49154471663476396,
             "label": "Answer",
             "category": "Opthalmologist"
         },
         {
-            "text": "ICL Technique for removal of Spectacles in hindi",
-            "score": 0.22865964209453077,
+            "text": "What are trifocal lens",
+            "score": 0.48307296302029323,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
-            "text": "Yes, the PanOptix Lens is available in a toric option to correct astigmatism. Toric lenses sharpen vision and clear the distortion caused by astigmatism. They may even help free you from glasses and contacts for distance vision. Discuss with your eye doctor whether this is the right choice for your vision goals. ",
-            "score": 0.22842794913284095,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Pain in the eye",
-            "score": 0.2282813559131796,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What is Manual small incision cataract surgery ",
-            "score": 0.22779420828532607,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What is Phacoemulsification",
-            "score": 0.22724526150332314,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "plus refractive error",
-            "score": 0.2261546641549097,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "It will take hardly ten to fifteen minutes in which both eyes are treated together in one sitting. </br> This procedure is done without injection by only using eye drops to anesthetise the eye and is not painful. You may feel a little irritation and foreign body sensation in the eyes for few hours after the procedure",
-            "score": 0.22518492457766479,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Does sitting close to the television damage one\u00e2\u20ac\u2122s eyesight?",
-            "score": 0.22518092164432346,
-            "label": "Question",
-            "category": "Screen Time and Eye Strain"
-        },
-        {
-            "text": "Eye-healthy foods</br>Dark leafy greens, yellow fruits and vegetables, fish, and a balanced, nutrient-rich diet have been shown beneficial for people with AMD. Age-related macular degeneration doesn't affect your side (peripheral) vision and usually doesn't cause total blindness. But it can reduce or eliminate your central vision \u00e2\u201a\u00ac\u00e2\u20ac\u009d which is necessary for driving, reading and recognizing people's faces. It may be beneficial for you to work with a low vision rehabilitation specialist, an occupational therapist, your eye doctor and others trained in low vision rehabilitation. They can help you find ways to adapt to your changing vision.",
-            "score": 0.22333170005483044,
-            "label": "Answer",
-            "category": "Nutrition and Eye Health"
-        },
-        {
-            "text": "Given my -3 prescription glasses worn for the last 15 years as a thirty-year-old woman, can a healthy diet or medications assist in reducing or eliminating my need for glasses?\n\n\n",
-            "score": 0.22331301136267986,
-            "label": "Question",
-            "category": "Nutrition and Eye Health"
-        },
-        {
-            "text": "Types of eye protection include:</br>Nonprescription and prescription safety glasses.Safety glasses may look like normal dress eyewear, they are designed to provide significantly more eye protection.</br>Safety glasses provide eye protection for general working conditions where there may be dust, chips or flying particles. </br>Safety lenses are available in plastic, polycarbonate and other materials. While all four types must meet or exceed the minimum requirements for protecting your eyes, polycarbonate lenses provide the highest level of protection from impact.</br>Goggles provide protection from impact, dust and chemical splash.Safety goggles are highly impact-resistant  and can be worn over prescription glasses and contact lenses.</br>Full face shields protect workers exposed to chemicals, heat or blood-borne pathogens. Helmets are used for welding or working with molten materials.</br>Helmets or goggles with special filters to protect the eyes from optical radiation exposure.",
-            "score": 0.22331301136267986,
-            "label": "Answer",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "How can I prevent pinguecula and pterygium from coming back",
-            "score": 0.22328682952896609,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "It differes from person to person but the most probable reasosn are as below</br>It casue inflammation and infection</br>It is expensive and needs to be changed periodically</br>Not suitable for certain professions like sports, army, raliwlays and pilots</br> requires extra care to handle it</br>Causes corneal vascularization after long usage</br>An alternative visual aid or procedure is required to overcome above advnatages. Laser vision correction (LASIK) procedures fulfill the need amd desire of galsses or contact lenses free vision by some extent removing the loopholes of glasses and contact lenses\r\n",
-            "score": 0.22284785672512492,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Could you explain the correct procedure for administering eye drops?\n\n\n",
-            "score": 0.22282624912815097,
-            "label": "Question",
-            "category": "Medication and Eye Care"
-        },
-        {
-            "text": "Around the age of 40, the natural human lens of eye begins to harden and become less flexible, which reduce from near, far in\u0002between and back again.",
-            "score": 0.222516547658901,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "The laser excimer laser is used to chnage the shape of the cornea by selective tissue ablation(removal) and surface polishing, reslting in chanfing of the focusing pwer of eye and eliminate the refractive error of the eye</br>A hinged flap is created using the top layer of your cornea</br>An FDA approved laser reshapes you cornea to correct your vision</br>The flap is folded back over your cornea</br>Excimer laser is used in laser vision correction procedure. it is cold , safe and superficial laser which causes little damage to the cornea",
-            "score": 0.22238205463091604,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "It is an outpatient surgical procedure used to treat near sightedness(myopia), farsightedness(hypermetropia) and astimagtism to get normal vision. In Lasik, laser is used to reshape the cornea, which is located at the front of the eye and the eye can properly focus the light rays on the retina at the back for better vision",
-            "score": 0.22236983433061597,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What are the risks of Contact Lens ?",
-            "score": 0.22064040720192757,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What are the type of lenses",
-            "score": 0.21965761025377706,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Both these procedures are less popular, casue pain and gave slower visual recovery than lasik, but some patients are more benefitted from these procedure and it is recommended for such patients</br>Ask the doctor or our center for further information and advise,which procedure is appropirate for you</br>Step 1: Alongsde numbing drops, an alcohal solution is placed on the eye to help soften the cornea</br>Step 2: The surgeon then smooths the surface of the cornea with a special surgical instrument</br>Step 3: An excimer laser is then used to precisely reshape the curvature of the cornea's surface</br>Step 4: A bandage-like soft contact lense is then palced on the cornea to help protect the eye it heals",
-            "score": 0.21960326442787292,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What are the types of eye protection?",
-            "score": 0.21931701531935938,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "What diet should I take to prevent AMD",
-            "score": 0.21925955069778205,
-            "label": "Question",
-            "category": "Nutrition and Eye Health"
-        },
-        {
-            "text": "Can you tell me about CVS?",
-            "score": 0.21810103136749492,
-            "label": "Question",
-            "category": "Screen Time and Eye Strain"
-        },
-        {
-            "text": "What are the benefits of a PanOptix\u00c2\u00a0IOL",
-            "score": 0.218076947197203,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Following people can go for LASIK:</br>Person having more than 18 years of age</br> Glasses or eye prescription has not changed in past one year</br> Normal and clear cornea</br> Refractive errors within the range of Lasik for example spherical-0 to -12.0D and +0.0 to +5.0D, Cylindrical +/-0 to 5.0 D",
-            "score": 0.21799954292044418,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Headache is not always eye related. It can be because of certain eye related things such as change in refractive errors, eye muscle inabilities to focus enough on near and far things.",
-            "score": 0.2179889744032464,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "People with the below issues should not go for LASIK </br> 1) Dry eye - patients with severe dry eye,older person and menopausal woman,patients with immune system disorders, hormone replacement therapy and modification like antidepressants or blood pressure lowering agents. </br> 2) Large Pupil size - In lower light, large pupil causes durbing visual symptoms like glare and halos</br> 3) Keratoconus and thin corneas - Patients with this degenerative corneal condition, or a family history of this disorder.</br> 4) Degree of refractive errors- Very high levels of refractive error (Myopia, hypermetropia, Astigmatism or certain combinations of these errors) may not be compatible with lasik.</br> 5) Age- The ideal age for Lasik is over 18 years, since the refractive error is more likely to be changing below this age.</br> 6) Pregnancy- Pregnant or nursing woman are not a good candidate for Lasik.</br> 7) Cataract, Glaucoma or any retinal diseases are contraindicated for Lasik procedure.\r\n",
-            "score": 0.2179632711694018,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "You may experience temporary effects like dizziness and blurred vision. If you are heavy or often drinker, you are at much higher risk for short term and permanent damages. </br></br>Short term effects</br>Dryness \u00e2\u201a\u00ac\u00e2\u20ac\u0153 little amount of alcohol can intensify dry eyes</br></br>Damaged Contrast \u00e2\u201a\u00ac\u00e2\u20ac\u0153 Too much alcohol can impair ability to make distinctions between different objects </br>Migraines \u00e2\u201a\u00ac\u00e2\u20ac\u0153 Possibly accompanied by sensitivity to light and other related vision problem, migraines can be caused by drinking too much.</br>Rapid Eye Movement \u00e2\u201a\u00ac\u00e2\u20ac\u0153 , it increases non-REM sleep and decreases REM sleep.</br>Long term effects</br>Optic neuropathy \u00e2\u201a\u00ac\u00e2\u20ac\u0153 It can cause loss of vision. </br>Vitamin Deficiency - can affect the livers intake of vitamins.</br></br>Cataract Formation \u00e2\u201a\u00ac\u00e2\u20ac\u0153 There is an increased cataract formation chances.</br>Age-Related Macular Degeneration \u00e2\u201a\u00ac\u00e2\u20ac\u0153 Heavy drinking could cause oxidative damage to the retina, potentially leading to Age-Related Macular Degeneration (AMD).</br>",
-            "score": 0.2175417807121955,
-            "label": "Answer",
-            "category": "Lifestyle Factors Affecting Eye"
-        },
-        {
-            "text": "What is Poly Methyl Metha Acrylate",
-            "score": 0.21742293191357065,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Cataract or other surgeries on the eye can be performed at any time of the year. The weather conditions (heat or humidity or excessive cold) have no effect whatsoever on the outcome or performance of the surgical procedure.",
-            "score": 0.21703217682531567,
-            "label": "Answer",
-            "category": "Opthalmologist, Eye Disease Prevention Tips"
-        },
-        {
-            "text": "There are may reasons why people feel uncomfortable using spectacles</br>Image minification or maginfication</br>Cosmetic Stigma</br>Frequent breackage or loss leads to financial burden</br>Difficulty in peripheral vision</br>Difficulty of vision in rainy and foggy atnosphere</br>\r\n\r\n\r\n",
-            "score": 0.2157885905066487,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "How does alcohol consumption impact eye health and vision?",
-            "score": 0.215270074265494,
-            "label": "Question",
-            "category": "Lifestyle Factors Affecting Eye"
-        },
-        {
-            "text": "Can alcohol affect eyesight or eye health?",
-            "score": 0.215270074265494,
-            "label": "Question",
-            "category": "Lifestyle Factors Affecting Eye"
-        },
-        {
-            "text": "What are the effects of alcohol on the eyes and vision?",
-            "score": 0.215270074265494,
-            "label": "Question",
-            "category": "Lifestyle Factors Affecting Eye"
-        },
-        {
-            "text": "Does smoking have any detrimental effects on eye health or vision?",
-            "score": 0.2152618226086372,
-            "label": "Question",
-            "category": "Lifestyle Factors Affecting Eye"
-        },
-        {
-            "text": "Does Alcohol affect my eye or vision?",
-            "score": 0.2152618226086372,
-            "label": "Question",
-            "category": "Lifestyle Factors Affecting Eye"
-        },
-        {
-            "text": "Cost of cataract surgery",
-            "score": 0.21456992642968686,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "How can I prevent pinguecula and pterygium from coming back?",
-            "score": 0.2144010270051895,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "How can one avoid experiencing dry eyes?",
-            "score": 0.2143874269349944,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "What steps should be taken to minimize the risk of developing dry eye?",
-            "score": 0.2143874269349944,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "What strategies can individuals employ to prevent dry eye symptoms from occurring?\n\n\n",
-            "score": 0.2143874269349944,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "What steps can be taken to prevent the recurrence of pinguecula and pterygium?",
-            "score": 0.2143874269349944,
-            "label": "Question",
-            "category": "Eye Disease Prevention Tips"
-        },
-        {
-            "text": "Show a doctor immediately",
-            "score": 0.2143874269349944,
-            "label": "Answer",
-            "category": "Ophthalmologist"
-        },
-        {
-            "text": "Eye pain can be because of uncorrected refractive error, sinusitis, raised intra ocular pressure(IOP), eye fatigue",
-            "score": 0.21407629480605017,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "I see distorted images",
-            "score": 0.21401281587733703,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "It gives clear distance vision, It means one should see clearly sign board on road, images in cinema or Television from distance.</br> You will need glasses for intermediate vision tasks such as reading, writing or seeing telephone fonts</br> You may need glasses for near vision activities such as working on computer or i-pads, doing painting , seeing speedometer while driving, putting on make-up or shaving.",
-            "score": 0.213064705662128,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "The LENSAR Laser System is the only femtosecond cataract laser built specifically for refractive cataract surgery. Because it was designed from the ground up, every aspect of the laser has been purposefully designed to meet the needs of cataract surgeons.",
-            "score": 0.21288676591658037,
+            "text": "Lasik has been performed on millions of patients in India in the past 15 years and the overall rate of complications is low and most Lasik complications can be treated without any vision loss.</br> 1) Infection and inflammation-These can usually be cleaned up with medications</br> 2) Problems with the corneal Flap - Might need additional surgery</br> 3) Ectasia or bulging of cornea</br> 4) Over or under-correction of the refractive errors, in such instances person might need to wear corrective lenses for some activities or need a refractive surgery to get desired results.",
+            "score": 0.479322834476743,
             "label": "Answer",
             "category": "Opthalmologist"
         },
         {
             "text": "I have a twelve-year-old daughter who wears spectacles since the last four years. Her number has changed twice. What can I do to make sure that it does not change again?",
-            "score": 0.21185952930778304,
+            "score": 0.4776951344835142,
             "label": "Question",
             "category": "Category: Opthalmologist"
         },
         {
-            "text": "What is the proper technique for administering eye drops?",
-            "score": 0.21165419388172413,
+            "text": "What are the different types of Cataract surgery",
+            "score": 0.47456943995657985,
             "label": "Question",
-            "category": "Medication and Eye Care"
+            "category": "Opthalmologist"
         },
         {
-            "text": "If you are 20-39 Years Old</br>you should get a complete eye exam every 2-4 years. </br></br>If you are 20-39 years of age you should get a complete eye exam every 3-5 years. </br></br>40-64 Years Old</br>If you are 40-64 years of age , you should get a complete eye exam every 2-4 years. </br></br>65 Years Old or Older</br>You should get a complete eye exam every 1-2 years.</br></br>People with special risks, such as diabetes, a previous eye trauma, surgery or a family history of glaucoma, may need an eye exam more frequently.</br></br>People with symptoms of eye trouble should see an eye doctor right away.",
-            "score": 0.21161735715197302,
+            "text": "Distorted images can be a retinal problem and need to be ruled out at hospital with dilated eye examination.",
+            "score": 0.47132231717568107,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "what is CVS",
+            "score": 0.47107895249397175,
+            "label": "Question",
+            "category": "Screen Time and Eye Strain"
+        },
+        {
+            "text": "Side effects are very few which disappear within three to six months after the surgery.</br> Discomfort or pain</br> Dry Eye</br> Discomfort or pain</br> Hazy or blurry vision</br> Poor night Vision</br> Ghalos or star burst around lights</br> Small pink or red Patches on the white or red patches",
+            "score": 0.469417508237219,
             "label": "Answer",
             "category": "Opthalmologist"
         },
         {
             "text": "What is LENS",
-            "score": 0.21140021923392793,
+            "score": 0.46281597970245736,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
-            "text": "What causes astigmatism",
-            "score": 0.21078191487063502,
+            "text": "What is Extra capsular cataract extraction",
+            "score": 0.4564400641390745,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
-            "text": "Why am I experiencing an intense itchy eyelid?",
-            "score": 0.21071508088346497,
+            "text": "What is Foldable Acrylic IOL",
+            "score": 0.44458871918886755,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
-            "text": "Yes, there are other types of IOL available and you should discuss the best option for you with your eye doctor.",
-            "score": 0.21028392685792444,
+            "text": "What are Hydrophilic Acrylic IOLs",
+            "score": 0.44458871918886755,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "When are you most likely to have a cataract",
+            "score": 0.4378339050752949,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What actions can I take to safeguard my vision?",
+            "score": 0.43348710853852945,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "What steps can be taken to prevent vision loss caused by diabetic retinopathy?",
+            "score": 0.43313235358020596,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "What preventive measures are effective in preserving vision in diabetic retinopathy?",
+            "score": 0.43313235358020596,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "What strategies should individuals adopt to prevent vision loss resulting from diabetic retinopathy?",
+            "score": 0.43313235358020596,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "What can I do to protect my vision?",
+            "score": 0.43313235358020596,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "Glistening - these are fluid filled microvacuoles in the IOL optic which is surrounded by aqueous environment in the eye.</br> These lenses are associated with higher rate of glistening however it can be reduced by increasing the refractive index (1.54) and water content 4% of acryclic material",
+            "score": 0.43069394484316054,
             "label": "Answer",
             "category": "Opthalmologist"
         },
         {
-            "text": "Can dry eyes cause double vision, especially when tired?",
-            "score": 0.2101005604864044,
+            "text": "This is an old technique of cataract surgery, not used now a days.</br>In this technique the cataract is removed in one piece through 9-10 mm large incision and the incision is closed with 5-6 s</br>Healing and stabilisation of vision will take 6-8 weeks after surgery, chances of infection and eye glasses for distance and near are there",
+            "score": 0.43006393780837177,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Morphological classification of cataract are as follows: </br> Soft Cataract or Cortical</br>Anterior and Posterior Subcapsular Cataract</br>Posterior Polar Cataract</br>Mature Cataract</br>Hypermature Cataract</br>Brown/Hard Cataract</br>Black Cataract</br>Rate of complica`on, failure of surgery and vision loss increases with the advancement of Cataract",
+            "score": 0.42813830810661496,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "distorted images",
+            "score": 0.42573015768140043,
             "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Does sitting close to the television damage one\u00e2\u20ac\u2122s eyesight?",
+            "score": 0.42506850973185034,
+            "label": "Question",
+            "category": "Screen Time and Eye Strain"
+        },
+        {
+            "text": "What causes cataract",
+            "score": 0.42470409537238085,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "I have a headache",
+            "score": 0.42455691456399625,
+            "label": "Question",
+            "category": ": Opthalmologist"
+        },
+        {
+            "text": "It will take hardly ten to fifteen minutes in which both eyes are treated together in one sitting. </br> This procedure is done without injection by only using eye drops to anesthetise the eye and is not painful. You may feel a little irritation and foreign body sensation in the eyes for few hours after the procedure",
+            "score": 0.4232642841928883,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Loss of ability to read.</br> Difficulty in viewing a computer screen.</br> Holding objects farther away to read.</br> Holding objects farther away to read",
+            "score": 0.4224360138415925,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "It is likely you have optic nerve head drusen, which are calcified lesions that sit directly in front of the optic nerve, which enters in the back of the eye. Optic nerve head drusen often form spontaneously, but can also be inherited. No treatment is necessary, as they typically remain asymptomatic. Very rarely they may cause changes in the eye that can cause vision loss, however this is extremely uncommon.",
+            "score": 0.4187013243193249,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "These are used to remove glasses for distance and near.</br> The light distributed in to two focal points one for distance and one for near to see the objects clearly at distance and near. However intermediate vision is compromise.</br> Due to multiple rings, the light is divided in to two focal points, so that the patient feel low contrast, halos, glare and starburst</br> These lenses provide sharper vision for distance in monofocal toric IOLs and for full range of vision in Multifocal Toric IOLs",
+            "score": 0.41777687013005493,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "The Lens is a clear part of the eye that focus light, or  an image on the rena. (In a normal eye, once the  light reaches the rena, it is changed into nerve  signals that are sent to the brain) </br>If the Len is cloudy from a cataract , the image received by the rena will be blurred.",
+            "score": 0.41776823633835647,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What is the morpholigcal classification of cataract",
+            "score": 0.4171526449678106,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "If it feels like something is rubbing against your eyes when you blink it is called a foreign body sensation. Although it could be caused by a particle on the surface of the eyes, the two most common causes are dry eyes, or an inflammation in the eyelids called blepharitis. Other causes include conjunctivitis or other inflammatory conditions of the eye's surface that happen on the eyelids, eyelashes, conjunctiva, episclera, sclera, or cornea. The simplest way to treat this is with artificial tears.</br></br>Other initial treatments include warm compresses with a warm washcloth, or eyelid scrubs with cotton tip applicator and some baby shampoo in warm water.</br></br>Of course if you believe there is actually something in your eye like a foreign particle, then you should have a complete eye exam by an ophthalmologist.</br></br>Also, if your symptoms don't get better after trying these methods, then you should also see an ophthalmologist promptly.",
+            "score": 0.41689005855097044,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "1)Extra Capsular Cataract extraction (ECCE)</br>This is an old technique of cataract surgery, not used now a days.</br>In this technique the cataract is removed in one piece through 9-10 mm large incision and the incision is closed with 5-6 s</br>Healing and stabilisation of vision will take 6-8 weeks after surgery</br></br>2) Manual small incision Cataract surgery (MSICS) This method/technique is low cost, quick or fast associated with higher chances of infection and astigmatism and most commonly performed in underdeveloped and developing countries</br>3) Phacoemulsification</br>This is a modern cataract surgical technique, most commonly performed all over the world.</br>This technique is fast, best, safe, painless with speedy recovery and have low rate of infection.</br>It is performed by world class higher end Phaco Machine with better control of parameters</br>This technique is preferred in patients having diabetes, asthma, glaucoma, thyroid, hypertension, heart diseases",
+            "score": 0.40254564528604514,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Eye pain can be because of uncorrected refractive error, sinusitis, raised intra ocular pressure(IOP), eye fatigue",
+            "score": 0.4001443028263705,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Following people can go for LASIK:</br>Person having more than 18 years of age</br> Glasses or eye prescription has not changed in past one year</br> Normal and clear cornea</br> Refractive errors within the range of Lasik for example spherical-0 to -12.0D and +0.0 to +5.0D, Cylindrical +/-0 to 5.0 D",
+            "score": 0.39967981331216546,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "In these type of IOLs the light is distributed into two (bifocal), three (trifocal), four (quadrifocal) or contionous range of (EDOF) according to the name of IOLs.</br> We use USFDA approved lenses",
+            "score": 0.3956597860574783,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "The images I see are distorted",
+            "score": 0.3953902106071516,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "For most of the patients, multifocal lens implants will not completely eliminate eyeglasses. There may be situations where the print or the images are too small or too far away to see without the help of glasses.",
+            "score": 0.39340011402087416,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "eye pain",
+            "score": 0.3911627505622371,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Strabismus can be diagnosed during a routine eye exam. It is recommended that all children between 3 and 3\u00c2\u00bd years of age have their vision checked by an ophthalmologist.</br></br>If there is a family history of strabismus or amblyopia, or a family history of wearing thick eyeglasses, an ophthalmologist should check vision even earlier than age 3. After a complete eye examination, an ophthalmologist can recommend appropriate treatment.",
+            "score": 0.3895418150978399,
+            "label": "Answer",
+            "category": "Ophthalmologist"
+        },
+        {
+            "text": "What are bifocal IOLs",
+            "score": 0.38804278456974306,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Most cataract are related to aging, cataract are very common in older people</br>Cataract also occcur due to</br>1) Genetic Inheritence </br>2) Eye injuries and eye surgeries</br>3)Dieseases like diabetes,kindney diseases etc.</br>4)Prolonged use of certain medications like steriods",
+            "score": 0.38702670903633846,
+            "label": "Answer",
             "category": "Opthalmologist"
         },
         {
             "text": "People with increasing age, diseases like diabetes, kidney diseases, habits of smoking and prolonged exposure to ultraviolet sunlight are at more risk of cataract",
-            "score": 0.20984007403758226,
+            "score": 0.38702496790894875,
             "label": "Answer",
             "category": "Eye Disease Prevention Tips"
         },
         {
-            "text": "Most cataract are related to aging, cataract are very common in older people</br>Cataract also occcur due to</br>1) Genetic Inheritence </br>2) Eye injuries and eye surgeries</br>3)Dieseases like diabetes,kindney diseases etc.</br>4)Prolonged use of certain medications like steriods",
-            "score": 0.20981283328494582,
+            "text": "Normally, Cornea is round in shape, like a baseball. Astigmatism occurs when the cornea is shape more like an egg or american baseball. When light passes through a cornea with astigmatism the image doesn't focus sharply on the retina causing blurred vision.",
+            "score": 0.38491395763517355,
             "label": "Answer",
             "category": "Opthalmologist"
         },
         {
-            "text": "It is not possible to reduce or eliminate ones refractive error (\u00e2\u20ac\u0153number\u00e2\u20ac\u009d) by any dietary supplement or medicines. Green leafy vegetables, carrots and other food products are otherwise healthy for your eyes, but they do not help in reducing the number. It can only be removed or reduced by refractive surgery like LASIK.",
-            "score": 0.20970250601780852,
-            "label": "Answer",
-            "category": "Nutrition and Eye Health"
-        },
-        {
-            "text": "What is EDOF",
-            "score": 0.20967673480579038,
+            "text": "Will I see halos?",
+            "score": 0.384420839283128,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
-            "text": "How do instill eye drops?",
-            "score": 0.2093186787914216,
-            "label": "Question",
-            "category": "Medication and Eye Care"
-        },
-        {
-            "text": "Who should not go for LASIK treatment",
-            "score": 0.20901105580223736,
-            "label": "Question",
+            "text": "It gives clear distance vision, It means one should see clearly sign board on road, images in cinema or Television from distance.</br> You will need glasses for intermediate vision tasks such as reading, writing or seeing telephone fonts</br> You may need glasses for near vision activities such as working on computer or i-pads, doing painting , seeing speedometer while driving, putting on make-up or shaving.",
+            "score": 0.38428996607498345,
+            "label": "Answer",
             "category": "Opthalmologist"
         },
         {
-            "text": "The best way to keep pinguecula and pterygium from coming back is to avoid sunlight, dryness and dust.",
-            "score": 0.20828958542937748,
-            "label": "Answer",
+            "text": "What should I do if my Uveitis symptoms are reappearing",
+            "score": 0.3740800852279144,
+            "label": "Question",
             "category": "Eye Disease Prevention Tips"
         },
         {
-            "text": "Yes. Double vision can happen when the brain gets two different images either from each eye or from within the same eye. While double vision is not the most common symptom of dry eye syndrome, the drier the eyes are, the fuzzier the image is. Sometimes this happens when a patient has subtle eye misalignment, but with the additional blur from dry eyes, now they notice their double vision. This can also be worsened with fatigue, which can affect the eye muscles.",
-            "score": 0.20653748552773113,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Whatr are the available LASIK options",
-            "score": 0.20643406635678876,
+            "text": "Will multifocal lens eliminate the need for glasses?",
+            "score": 0.3694390149944656,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
-            "text": "What are the steps involved in applying eye drops effectively?",
-            "score": 0.20515713319094342,
-            "label": "Question",
-            "category": "Medication and Eye Care"
-        },
-        {
-            "text": "These are used to remove glasses for distance and near.</br> The light distributed in to two focal points one for distance and one for near to see the objects clearly at distance and near. However intermediate vision is compromise.</br> Due to multiple rings, the light is divided in to two focal points, so that the patient feel low contrast, halos, glare and starburst</br> These lenses provide sharper vision for distance in monofocal toric IOLs and for full range of vision in Multifocal Toric IOLs",
-            "score": 0.20394859664330467,
+            "text": "Different type of cataract are as follows:</br>1)Secondary Cataract - \u00c2\u00a0Cataract occur after surgery for other eye problems such as\u00c2\u00a0glaucoma, retina surgery, after diseases like diabetes or prolonged use of steroid</br> 2)Traumatic Cataract </br> 3) Congenital Cataract : Some babies are born with cataract or develop them in childhood, often in both eyes, these cataract are to small that they do not affect vision, if they do, the lenses may need to be removed</br>4) Radiation Cataract",
+            "score": 0.36151967054565304,
             "label": "Answer",
             "category": "Opthalmologist"
         },
         {
-            "text": "Cataract should be removed when vision loss does not improve even with spectacles, interferes with your everyday activities, such as driving, reading or watching television.</br>Sometimes cataract should be removed if it prevents examination or treatment of another eye condition such as glaucoma , age related macular degeneration or diabetic retinopathy",
-            "score": 0.20362996396115898,
+            "text": "Itching is commonly associated with allergies. Allergic itching can be effectively treated with over-the-counter eye drops or pills. Tears often help dilute irritants and may also be effective.</br>Another common cause of itching along the lid margin is blocked oil glands, or blepharitis. Regular eyelid hygiene with hot packs and baby shampoo can be effective for this type of problem.</br>See your ophthalmologist for an examination to diagnose and treat your specific issue.",
+            "score": 0.3612291161790441,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "People can have an age-related cataract in their 40s and 50s, but during middle age,  most cataracts are small and do not affect vision, over the age 60 light passing through the lens  gets reduced upto 50%, and that cause problem with a persons vision. If the cataract  interferes with your regular acvies, one can go for surgery.",
+            "score": 0.3585746798983644,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What causes astigmatism",
+            "score": 0.3573182410318911,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "How can Strabismus be diagnosed",
+            "score": 0.356159022486,
+            "label": "Question",
+            "category": "Ophthalmologist"
+        },
+        {
+            "text": "What are quadrfocal lens",
+            "score": 0.353137480414496,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Do Eye exercices really help ?",
+            "score": 0.35051407324704503,
+            "label": "Question",
+            "category": "Eye Exercises and Vision"
+        },
+        {
+            "text": "Depending upon the size of your pupils, you may see linear halos at night, which appear as thin circles within a light source. These halos are different from, and much less problematic than those caused by cataracts. ",
+            "score": 0.3362057758553893,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "All these lenses are recently invented by using modern manufacturing technology, which gives clear & sharp vision for all distance.</br> The light distributed in three focal points in trifocal IOLs, four focal points in quadrufocal IOLs and continuous range in EDOF/Sypmfony(Extended Depth of Focus) IOLs, to give clear vision at distance, Intermediate and near.</br> Some patients s need glasses for very near vision / close work at 25 cm.</br> It give good vision in low light conditions and it has been observed in studies that these lenses cause less amount of halos, glare and starburst.",
+            "score": 0.33285564855866084,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Endophthalmitis is very rare, but if it occurs, its an urgent medical emergency.",
+            "score": 0.3287160637264768,
             "label": "Answer",
             "category": "Opthalmologist"
         },
         {
             "text": "what should I do if I have Endophthalmitis",
-            "score": 0.203628558056051,
+            "score": 0.32748677662398057,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
-            "text": "Ectropion. Wipe your eyes carefully. Constantly wiping watery eyes can make your under-eye muscles and tendons stretch even further, worsening your ectropion. Wipe from the outer eye up and in toward the nose.",
-            "score": 0.20339005386509418,
+            "text": "Uveitis can come back. Make an appointment with your doctor if any of your symptoms reappear after successful treatment.",
+            "score": 0.3227224909499434,
             "label": "Answer",
             "category": "Eye Disease Prevention Tips"
         },
         {
-            "text": "In case of eye injury, visit your nearest ophthalmologist immediately",
-            "score": 0.20334634562939802,
+            "text": "Redness in eye",
+            "score": 0.3175997061938129,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "What are multifocal IOLs",
+            "score": 0.31671821054806787,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "watering of the eye",
+            "score": 0.306341835493544,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What happens after cataract surgery",
+            "score": 0.29862559657363325,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Cost of lasik surgery",
+            "score": 0.2978193663012433,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Im experiencing intense itching mostly on the lower inner lid of one eye. This has been going on for about a month. What could it be?",
+            "score": 0.29766715967429397,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What type of lens are recommended after cataract surgery",
+            "score": 0.29731413125456735,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "ICL Technique for removal of Spectacles in hindi",
+            "score": 0.2972449771543837,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "plus number",
+            "score": 0.29273561371562773,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "My right eye is watering",
+            "score": 0.2903938556222133,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Cataract should be removed when vision loss does not improve even with spectacles, interferes with your everyday activities, such as driving, reading or watching television.</br>Sometimes cataract should be removed if it prevents examination or treatment of another eye condition such as glaucoma , age related macular degeneration or diabetic retinopathy",
+            "score": 0.28891457524442415,
             "label": "Answer",
             "category": "Opthalmologist"
         },
         {
-            "text": "What causes cataract",
-            "score": 0.2031629194998563,
+            "text": "What are the different types of cataract",
+            "score": 0.2871754808621376,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
-            "text": "What are spherical IOLs",
-            "score": 0.20237305207843903,
-            "label": "Question",
+            "text": "PMMA (Poly Methyl Metha Acrylate) - If the Acrylic Co-polymer material used in manufacturing of IOL (lens) having temperature below glass transition temperature than it has rigid properties, and so called as rigid acrylic IOLs .</br> Foldable Acrylic IOLs :- The temperature of co-polymer is above glass transition temperature than it has flexible properties, and called Foldable Acryclic IOLs</br> Hydrophilic Acrylic IOLs (Hydrogels) :- If foldable Acrylic Co-polymer having high water content of about 18 to 38 percent than it becomes Hydrophilic Acrylic IOLs. It has refractive index of 1.47 which makes it thinner makes it thinner than silicone(1.41) lenses</br> These lenses are associated with higher rate of reaction and PCO due to its low uveal and capsular biocompatibility</br> Hydrophobic Acrylic IOLs :- If foldable acrylic co polymers having lower water content of about 1 percent than it becomes hydrophobic Acrylic IOLs.",
+            "score": 0.28410167298478933,
+            "label": "Answer",
             "category": "Opthalmologist"
         },
         {
-            "text": "What happens before cataract surgery",
-            "score": 0.20202564970942385,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Will I see halos?",
-            "score": 0.20162573674585846,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "The images I see are distorted",
-            "score": 0.20154110185632496,
-            "label": "Question",
+            "text": "This is a modern cataract surgical technique, most commonly performed all over the world.</br>This technique is fast, best, safe, painless with speedy recovery and have low rate of infection.</br>It is performed by world class higher end Phaco Machine with better control of parameters, through 2.2 to 2.8mm of very small incision and with tropical anaesthetic drops without having infection</br>This technique is preferred in patients having diabetes, asthma, glaucoma, thyroid, hypertension, heart diseases.</br>This technique is performed in all types and all grades of cataract particularly soft cataract, posterior polar, mature cataract, cataract in small pupil and complicated cataract.</br>There is no need to take stitches/sutures to close the incision as they are self-sealing, they eventually will close by themselves overtime.</br>Patient will have to rest for about 15-30 minutes and then can go home.",
+            "score": 0.2834644448425793,
+            "label": "Answer",
             "category": "Opthalmologist"
         },
         {
             "text": "What is PMMA",
-            "score": 0.20140654267735594,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Injury in the eye",
-            "score": 0.20140520660818423,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "Sitting at a very close distance to the television set may cause eyestrain and headache, but is not known to damage the eyes or cause deterioration of vision. Sitting close and watching, however, may be a symptom of myopia or near-sightedness.",
-            "score": 0.20102386584084475,
-            "label": "Answer",
-            "category": "Screen Time and Eye Strain"
-        },
-        {
-            "text": "CVS is computer vision syndrome, which occurs in people with long term use of digital devices such as PC, laptops, tabs and mobiles etc. Blinking at regular intervals with proper sitting postures relives digital strain on eyes. Smallest refractive error also should be corrected while working on such devices. 20-20-20 rule is important: after every 20 minutes of digital use, look far away at around 20 feet for 20 seconds and blink 20 times.",
-            "score": 0.20102386584084475,
-            "label": "Answer",
-            "category": "Screen Time and Eye Strain"
-        },
-        {
-            "text": "Following a vitrectomy or pneumatic retinopexy, it is recommended to wait until a gas bubble clears from the eye before getting a new eyeglasses prescription to ensure you get the correct prescription. Waiting for the gas to clear also allows your retina time to heal and for vision to recover from surgery. If it is an emergency (such as your current pair breaks), then it is fine to proceed with a new prescription.",
-            "score": 0.20078423177323193,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "What is robotic cataract surgery",
-            "score": 0.2007394119424215,
-            "label": "Question",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "An optometrist is not a medical doctor. They are licensed to practice optometry, which primarily involves performing eye exams and vision tests, prescribing and dispensing corrective lenses, detecting certain eye abnormalities Orthoptists are the experts in diagnosing and treating defects in eye movement and problems with how the eyes work together, called binocular vision. These can be caused by issues with the muscles around the eyes or defects in the nerves enabling the brain to communicate with the eyes. Opticians are technicians trained to design, verify and fit eyeglass lenses and frames, contact lenses, and other devices to correct eyesight. They use prescriptions supplied by ophthalmologists or optometrists",
-            "score": 0.20071316471537468,
-            "label": "Answer",
-            "category": "Opthalmologist"
-        },
-        {
-            "text": "itching of the eye",
-            "score": 0.20057923678833367,
+            "score": 0.2833087331205113,
             "label": "Question",
             "category": "Opthalmologist"
         },
         {
             "text": "Vitamins A, C, and E are all good for eye health. These vitamins have antioxidant properties that may decrease the risk of macular degeneration or AMD</br>A varied, balanced diet, rich in fruits and vegetables is recommended. Good sources of vitamins A, C, and E include: broccoli,oranges, papaya, sweet potato,</br>spinach, carrots, red peppers, pumpkin, almonds, peanut butter, sunflower seeds.</br>Studies also suggest omega-3 fatty acids, such as docosahexaenoic acid and eicosapentaenoic acid, play a role in eye health and reduce the risk of age-related eye disease. Foods rich in omega-3s include fish, nuts, seeds, and beans. Carotenoids are present in the retina and may help to limit oxidative damage.</br></br>Green, leafy vegetables are rich in lutein and zeaxanthin, but a person can also take them in supplement form. A range of dietary supplements containing lutein and zeaxanthin are also available. A healthy balanced diet also delays the onset of Cataract.",
-            "score": 0.20031562518297263,
+            "score": 0.28317064811675846,
             "label": "Answer",
             "category": "Nutrition and Eye Health"
         },
         {
-            "text": "The decision about the type of artificial lens implant to have will have an effect the ability to see without glasses following cataract surgery. With both standard and multifocal lens implants, most people will see reasonably well in the distance without any glasses. Multifocal lens implants generally provides the added ability to read many things without glasses. Please consult your doctor for the recommendation of best suited lens for you.",
-            "score": 0.2001483182943505,
+            "text": "Does smoking affect my eye or vision?",
+            "score": 0.2807608376842399,
+            "label": "Question",
+            "category": "Lifestyle Factors Affecting Eye"
+        },
+        {
+            "text": "How does smoking impact eye health and vision?",
+            "score": 0.28074164592965983,
+            "label": "Question",
+            "category": "Lifestyle Factors Affecting Eye"
+        },
+        {
+            "text": "What are the effects of smoking on the eyes and vision?",
+            "score": 0.28074164592965983,
+            "label": "Question",
+            "category": "Lifestyle Factors Affecting Eye"
+        },
+        {
+            "text": "Can smoking affect eyesight or eye health?",
+            "score": 0.28074164592965983,
+            "label": "Question",
+            "category": "Lifestyle Factors Affecting Eye"
+        },
+        {
+            "text": "Why is an eye exam important in hindi",
+            "score": 0.2782351048131477,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What is color blindness?",
+            "score": 0.2735161084361724,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "It is motiyabind",
+            "score": 0.27166847953676965,
             "label": "Answer",
             "category": "Opthalmologist"
         },
         {
-            "text": "Workplace eye protection is needed when the following potential eye hazards are present:</br>Projectiles (dust, concrete, metal, wood and other particles)</br>Chemicals (splashes and fumes)</br>Radiation (especially visible light, ultraviolet radiation, heat or infrared radiation, and lasers)</br>Bloodborne pathogens (hepatitis or HIV) from blood and body fluids</br>Some working conditions include multiple eye hazards. The proper eye protection takes all hazards into account.</br>The type of safety eye protection you should wear depends on the hazards in your workplace:</br>If you are working in an area that has particles, flying objects or dust, you must at least wear safety glasses with side protection (side shields).</br>If you are working with chemicals, you must wear goggles.</br>If you are working near hazardous radiation (welding, lasers or fiber optics) you must use special-purpose safety glasses, goggles, face shields or helmets designed for that task.",
-            "score": 0.20012336236824574,
+            "text": "Information about Eye allergy in hindi",
+            "score": 0.27165062926411077,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "What are monofocal IOLs",
+            "score": 0.2677056052797705,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/0pEtsl4yQeo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>",
+            "score": 0.2666174740046697,
             "label": "Answer",
-            "category": "Lifestyle Factors Affecting Eye"
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Keratoconus in hindi",
+            "score": 0.2665762209568403,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "My brother recently developed \u00e2\u20ac\u0153eye-flu\u00e2\u20ac\u009d. Will the infection spread to me if I look directly into his eyes?",
+            "score": 0.2661330415461766,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "minus refractive error",
+            "score": 0.2659457082062145,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "I\u00e2\u20ac\u2122m a perfectly healthy individual with no problems with my eyesight. Do I still need regular eye checkups?",
+            "score": 0.2659457082062145,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "If foldable Acrylic Co-polymer having high water content of about 18 to 38 percent than it becomes Hydrophilic Acrylic IOLs. It has refractive index of 1.47 which makes it thinner makes it thinner than silicone(1.41) lenses</br> These lenses are associated with higher rate of reaction and PCO due to its low uveal and capsular biocompatibility",
+            "score": 0.2657624086482403,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What should I do if I have got chemical in my eye",
+            "score": 0.2657423476090241,
+            "label": "Question",
+            "category": "Medication and Eye Care"
+        },
+        {
+            "text": "What is Manual small incision cataract surgery ",
+            "score": 0.26527394713647595,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "The symptoms of early cataract are treated with new eyeglasses, bright lighting, anti-glare glasses or magnifying glasses.</br> However cataract surgery is the only effective treatment of cataract in which cloudy lense is removed & replaced with artificial lens (IOL).\r\n",
+            "score": 0.26261355166852685,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "If foldable acrylic co polymers having lower water content of about 1 percent than it becomes hydrophobic Acrylic IOLs.</br>These lenses are associated with lesser rate of reaction and PCO formation due to its higher uveal and capsular biocompatibility",
+            "score": 0.25763928096119887,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What is ECCE",
+            "score": 0.2575129467931502,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "watery eyes",
+            "score": 0.2574650429472715,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Redness in eye can be caused due to infection, allergies, inflammations like conjunctivitis, iritis, scleritis etc or due to simple dryness.",
+            "score": 0.255283743420666,
+            "label": "Answer",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "The decision about the type of artificial lens implant to have will have an effect the ability to see without glasses following cataract surgery. With both standard and multifocal lens implants, most people will see reasonably well in the distance without any glasses. Multifocal lens implants generally provides the added ability to read many things without glasses. Please consult your doctor for the recommendation of best suited lens for you.",
+            "score": 0.25501030153920423,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Can I get my cataract surgery done during the summers or rainy season?",
+            "score": 0.2548206766249732,
+            "label": "Question",
+            "category": "Opthalmologist, Eye Disease Prevention Tips"
+        },
+        {
+            "text": "What are the type of lenses",
+            "score": 0.2545348486963952,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Can I have multifocal cataract lens implants without cataracts?",
+            "score": 0.25446341190334537,
+            "label": "Question",
+            "category": "Ophthalmologist"
+        },
+        {
+            "text": "Red Eye",
+            "score": 0.2543904726491189,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "As the number of corneal nerves affected during the procedure is far lower than that in LASIK, the resulting dry eye symptoms are significantly lesser or near zero in patients undergoing ReLEx SmILE.",
+            "score": 0.2539735765274255,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "In a Robotic Cataract Surgery, a femtosecond laser machine is docked on to the eye and images of the eye are caught by an imaging system attached to it. The incision of the cornea, the opening of the lens capsule and disintegration of the lens is done robotically.",
+            "score": 0.2539708211291317,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Yes, it is possible to remove multifocal cataract lens with surgery.",
+            "score": 0.25390085870396173,
+            "label": "Answer",
+            "category": "Ophthalmologist"
+        },
+        {
+            "text": "Usually, health insurance does not cover the cost to upgrade to multifocal lens. You can always check with your insurance provider to be sure.",
+            "score": 0.25390085870396173,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "The best way to keep pinguecula and pterygium from coming back is to avoid sunlight, dryness and dust.",
+            "score": 0.25339607544490167,
+            "label": "Answer",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "What strategies should be implemented to prevent pinguecula and pterygium from returning?\n\n\n",
+            "score": 0.2517233204198579,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "How can one minimize the likelihood of pinguecula and pterygium reappearing?",
+            "score": 0.2516167767419656,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "What preventive measures are effective in reducing the recurrence of pinguecula and pterygium?",
+            "score": 0.2516167767419656,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "How can I reduce the chance of corneal opacity?",
+            "score": 0.2516167767419656,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "What steps can I take to minimize the risk of developing corneal opacity?",
+            "score": 0.2516167767419656,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "Flush the eyes out with cool water for at least 15 minutes</br>As you rinse, use your fingers to hold your eye open as wide as possible and roll your eye to ensure the greatest coverage</br>Remove contact lenses, if applicable, if they do not come out during flushing </br>Go to emergency (if you can continue flushing the eye out) flush your eyes out until help arrives",
+            "score": 0.2516167767419656,
+            "label": "Answer",
+            "category": "Medication and Eye Care"
+        },
+        {
+            "text": "Astigmatism",
+            "score": 0.24840868266140242,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What are the type of IOLs",
+            "score": 0.24712791563451586,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "The temperature of co-polymer above glass transition temperature than it has flexible properties, and so called Foldable Acryclic IOLs",
+            "score": 0.24672574535790112,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Define CVS",
+            "score": 0.24589504581164012,
+            "label": "Question",
+            "category": "Screen Time and Eye Strain"
+        },
+        {
+            "text": "Yes, patients over the age of 50 years can choose multifocal cataract lens implants to eliminate the need of glasses for both near and far sight. Multifocal cataract lens implants also eliminate the risk of developing cataract at a later age.",
+            "score": 0.24409694065006757,
+            "label": "Answer",
+            "category": "Ophthalmologist"
+        },
+        {
+            "text": "The need for LASIK differs from patient to patient and also depends on how much better one wants to see without glasses.",
+            "score": 0.24409150748207742,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "ReLEX SmILE was born to address the problem of ectasia which came from LASIK. So any laser eye surgery which has a\u00c2\u00a0flap has higher chances of ectasia. Hence, SmILE\u00c2\u00a0is safer with very very\u00c2\u00a0low chances of ectasia,\u00c2\u00a0near zero.",
+            "score": 0.24409150748207742,
+            "label": "Answer",
+            "category": "Ophthalmologist"
+        },
+        {
+            "text": "What is MSICS",
+            "score": 0.24363744770171564,
+            "label": "Question",
+            "category": "Ophthalmologist"
+        },
+        {
+            "text": "What are the potential effects on eyesight if someone habitually sits close to the television?",
+            "score": 0.2435658912106844,
+            "label": "Question",
+            "category": "Screen Time and Eye Strain"
+        },
+        {
+            "text": "Eye is made numb with a few drops of tropical anesthesia</br>The patient is reclined under a excimer/laik machine</br>An eyelid speculum is placed between the eyelids to keep them open</br>A suction ring is placed on the eye which lifts and flattens the cornea \r\nand prevents the eye form moving</br>Microkeratome balde or fematolaser is used to create a hinged flap of paper-thin\r\ncorneal issue</br>The corenal flap is lifted and folded back</br>The laser sculpts the exposed corenal tissue, which is pre-programmed with the\r\nmeasurement of your eye</br>This flap is replaced in position and the edges are smoother</br>Vision is restored in a few minutes and you cna get abck to your work shortly without glasses\r\n",
+            "score": 0.24239821010778834,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What is a trifocal lens",
+            "score": 0.2421959733302004,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Cataracts are removed during the surgery and replace with an Intraocular Lens.</br> There are different types of Lenses (IOLs) available.</br> (A) Monofocal Lens (IOLs):- Lens that treat only cataracts are called Monofocal Lenses. These lenses provide good distance vision but require reading glasses to see up close.</br> (B) Multificoal Lens (IOLs):- The Lens that treat cataract as well as Presbyopia are called Multifocal Lens. These Lenses provide full range of vision for distance - for viewing computer screen and near - for viewing mobile phone</br> (C) Toric Lenses (IOLs):- The lens that treat cataracts, as well as astigmatism are called Toric Lens. If it treat presbyopia along with cataract and astigmatism it is called Toric Multifocal IOL<br> These lenses provide sharper vision for distance in monofocal toric IOLs and for full range of vision in Multifcoal Toric IOLs",
+            "score": 0.24079912964341582,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What is Lasik",
+            "score": 0.24056526137013015,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What is glistening",
+            "score": 0.2403352803304133,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Sitting at a very close distance to the television set may cause eyestrain and headache, but is not known to damage the eyes or cause deterioration of vision. Sitting close and watching, however, may be a symptom of myopia or near-sightedness.",
+            "score": 0.2386899296530166,
+            "label": "Answer",
+            "category": "Screen Time and Eye Strain"
+        },
+        {
+            "text": "CVS is computer vision syndrome, which occurs in people with long term use of digital devices such as PC, laptops, tabs and mobiles etc. Blinking at regular intervals with proper sitting postures relives digital strain on eyes. Smallest refractive error also should be corrected while working on such devices. 20-20-20 rule is important: after every 20 minutes of digital use, look far away at around 20 feet for 20 seconds and blink 20 times.",
+            "score": 0.2386899296530166,
+            "label": "Answer",
+            "category": "Screen Time and Eye Strain"
+        },
+        {
+            "text": "What type of lens material are used in eye",
+            "score": 0.23630785746442606,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "I\u00e2\u20ac\u2122m a diabetic patient since the last ten years. Is it possible for me to undergo cataract surgery?",
+            "score": 0.23610561333148278,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "How much will an eye exam cost",
+            "score": 0.2360143581476389,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "I've been diagnosed with calcium deposits behind my eyes. What causes this and what is the treatment, if any?",
+            "score": 0.23598443605886782,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Pain in the eye",
+            "score": 0.23591645916537707,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Preventing vision loss from diabetic retinopathy If you have diabetes, talk with your primary care doctor about controlling your blood sugar. High blood sugar damages retinal blood vessels. That causes vision loss. Do you have high blood pressure or kidney problems? Ask your doctor about ways to manage and treat these problems. See your ophthalmologist regularly for dilated eye exams. Diabetic retinopathy may be found before you even notice any vision problems. If you notice vision changes in one or both eyes, call your ophthalmologist right away. Get treatment for diabetic retinopathy as soon as possible. This is the best way to prevent vision loss.",
+            "score": 0.2345813477587402,
+            "label": "Answer",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "Mainly two types of lens materials are used in eye</br>1)Silicone - Made up of Poly Dimethyl Siloxane</br>2) PMMA (Poly Methyl Metha Acrylate) ",
+            "score": 0.234458298722271,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "cost of glaucoma surgery",
+            "score": 0.23432164511224218,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Who is at risk for cataract",
+            "score": 0.23409392968211704,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "Painful eye",
+            "score": 0.23375366967740432,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Standard Monofocal or Multifocal IOLs can improve vision by replacing cataractous natural lens of the eye but need glasses or contact lens to correct astigmatism.</br> Toric IOLs , like monofocal or multifocal IOLs replace eyes cataractous lens but also help to correct astigmatism at the same time.</br> Special Techniques and preoperative examination are done to find the amount and axis of astigmatis.</br> The Toric IOLs have marking of axis on their anterior surface which should be aligned during the surgery with pre-operative marking placed over cornea at the axis of astigmatism thereby neutralising the amount of corneal astigmatism with toril IOLs",
+            "score": 0.23342542277835057,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Why spectacles are uncomfortable fro some people",
+            "score": 0.23324534946810138,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "My diabetes is well under control with medicines and exercise. Can my eyes still get affected by diabetes?",
+            "score": 0.2331370306252884,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "there is redness in my eyes",
+            "score": 0.2329339679654507,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What can I do to protect my vision",
+            "score": 0.23218320824009026,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": " My father lost his eyesight a couple of years ago due to glaucoma. Can an eye transplant restore his vision?",
+            "score": 0.23202697655130014,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": " What are the risks and problems of Cataract Surgery",
+            "score": 0.23196804665039672,
+            "label": "Question",
+            "category": "Opthalmologist, Eye Disease Prevention Tips"
+        },
+        {
+            "text": "What are spherical IOLs",
+            "score": 0.23189908472631154,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "This method/technique is low cost, quick or fast associated with higher chances of infection and astigmatism and most commonly performed in underdeveloped and developing countries.<br/>This technique is performed in brown/black cataract, small pupil, sublocated/dislocated cataract with posterior capsular rent</br>In this technique injection of anaesthetic agent is given to do the surgery and sometimes stiches/sutures are taken to close the incision</br>In this technique, cataract is removed through 6 mm of scleral incision manually without phaco machine and lens/IOL is inserted through same stitches are taken to close it.",
+            "score": 0.23153676081229618,
+            "label": "Answer",
+            "category": "Ophthalmologist"
+        },
+        {
+            "text": "Wha are the types of acrylic lenses",
+            "score": 0.23130741049178882,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Can the multifocal cataract lens be removed",
+            "score": 0.23098798942029722,
+            "label": "Question",
+            "category": "Ophthalmologist"
+        },
+        {
+            "text": "Cost of cataract surgery",
+            "score": 0.23090487636125218,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Around the age of 40, the natural human lens of eye begins to harden and become less flexible, which reduce from near, far in\u0002between and back again.",
+            "score": 0.23062271989001687,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Why do we need SMILE when other procedures are doing fine",
+            "score": 0.23056754423522588,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Presbyopia",
+            "score": 0.23037804732818706,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What should I do if I have retinal detachment",
+            "score": 0.22995764556484682,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Itching in eyelid",
+            "score": 0.22814298439556452,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "eye injury",
+            "score": 0.22720909755977578,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Prevention</br>To help reduce your chance of corneal opacity:</br></br>Take care to avoid injuring the eye. Wear eye protection during any potentially dangerous activity. Make sure safety goggles are worn tight against the face, otherwise a foreign body can fly up under the goggles and injure the eye.</br>Take proper care of contact lenses. Follow your doctors recommendations regarding wear and cleaning them.</br>Keep your eyes from drying out by using saline eye drops.</br>See your doctor right away if you think you have an eye infection, if you injured your eye, or if you develop any pain or change in vision.",
+            "score": 0.22672942496388532,
+            "label": "Answer",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "SmILE is FLAPLESS. No flap means</br>No complications</br>No weak cornea</br>Less Dry eye</br>No nerves are cut",
+            "score": 0.22670672988461882,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Headache is not always eye related. It can be because of certain eye related things such as change in refractive errors, eye muscle inabilities to focus enough on near and far things.",
+            "score": 0.22667798954829727,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Eyelids are irritating",
+            "score": 0.22661719458890234,
+            "label": "Question",
+            "category": "This question-answer pair belongs to the category of Ophthalmologist."
+        },
+        {
+            "text": "What precautions should I take if I have Stye",
+            "score": 0.2252978402376838,
+            "label": "Question",
+            "category": "This question-answer pair belongs to the category \"Eye Disease Prevention Tips\"."
+        },
+        {
+            "text": "my right eye is red",
+            "score": 0.22469986807639586,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Dry eyes in hindi",
+            "score": 0.2238880064967281,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "It is motiyabindu",
+            "score": 0.2238743951087145,
+            "label": "Answer",
+            "category": "Ophthalmologist"
+        },
+        {
+            "text": "Injury in the eye",
+            "score": 0.22324569274195558,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "PMMA (Poly Methyl Metha Acrylate) - If the Acrylic Co-polymer material used in manufacturing of IOL (lens) having temperature below glass transition temperature than it has rigid properties, and so called as rigid acrylic IOLs .",
+            "score": 0.222545978106662,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "my eyes are red",
+            "score": 0.22184563072528332,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Itchy eyelid",
+            "score": 0.22101642771516736,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "It is said that the actual recovery (physical tissue recovery) from Relex smile is quicker. This is because there is no\u00c2\u00a0cut\u00c2\u00a0or\u00c2\u00a0flap\u00c2\u00a0made. The small incision through which the lenticule is removed\u00c2\u00a0heals very quickly, by end of the day or next. And as there is no risk of flap related issues, one can resume activities like swimming, outdoor sports etc within the first week itself post smile procedures. In LASIK such energetic activities are usually allowed after 15 days to a month.\u00c2\u00a0",
+            "score": 0.2208257821189847,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Retinal detachment is a serious condition. You need repeated visits to the doctor and follow his advice.",
+            "score": 0.2200644113780579,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "The human eyes Natural lens is aspheric (not spherical).</br>Spherical IOLs have spherical optical design in which the front/anterior surface of IOL is uniformly curved from the center of lens to its periphery. This design does not mimic the shape of natural human lens inside the eye.</br>A Spherical Intraocular lens can induce minor optical imperfections called higher order aberrations (HOA), which can affect quality of vision, particularly in low light condition such as driving at night or working in evening or low light.",
+            "score": 0.21960513811230709,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": " It is important to check-up your eyes to establish the diagnosis and to rule out other eye associated eye conditions</br> Your doctor will do some tests before surgery which include measuring the curvature and size and shape of your eye, this information will help to choose the right Intraocular Lens (IOL) to restore your Vision.</br> Your doctor may ask for complete retinal examination before surgery if needed</br> A thorough physical examination by physician to rule out diabetes, hypertension, Asthma, Heart & Rental problems, Chest Diseases or Drug allergies, If it needed by ophthalmologist and alert anaesthetist to these medical risks.",
+            "score": 0.21955880091273364,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": " You may be asked not to eat or drink before your surgery.</br>At the hospital, drops will be put into your eye to dilate the pupil one hour before the surgery, and other drops are put 5 minutes before and during surgery to numb your eye. </br>The operation usually lasts less than one hour and is almost painless.</br>You will see bright light and hear different sounds of phaco machine during the  surgery but dont be afraid of this. </br>After the operation a patch is placed over your eye, rest for a while and then can go  home same day. You will need someone to drive home. ",
+            "score": 0.21955880091273364,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "This is known as myopia. It can be treated with glasses, contact lenses and with refrative surgeries.",
+            "score": 0.21941419178757793,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Many conditions that affect the eye, like glaucoma, have no symptoms at all, and are detected incidentally on routine examination. Regular eye checkups help to diagnose such problems early, so that adequate treatment measures can be taken timely, which may help minimize loss of vision.",
+            "score": 0.21941419178757793,
+            "label": "Answer",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "What is PRK and Lasek",
+            "score": 0.2177358544567221,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What is Phacoemulsification",
+            "score": 0.21702299495065888,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Headache",
+            "score": 0.2167246411316456,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Can all refractive errors be corrected with ReLEx SMILE",
+            "score": 0.21624582635038542,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "With intraocular simply meaning, inside the eye, an IOL is an artificial lens used to replace the natural lens of your eye. In cataract surgery, the surgeon will remove the cloudy lens affected by the cataracts and replace it with a clear IOL that should last you for the rest of your life. An IOL may also be implanted before cataracts emerge, to correct refractive errors.",
+            "score": 0.21600545913753033,
+            "label": "Answer",
+            "category": "Ophthalmologist"
+        },
+        {
+            "text": "It is not possible to reduce or eliminate ones refractive error (\u00e2\u20ac\u0153number\u00e2\u20ac\u009d) by any dietary supplement or medicines. Green leafy vegetables, carrots and other food products are otherwise healthy for your eyes, but they do not help in reducing the number. It can only be removed or reduced by refractive surgery like LASIK.",
+            "score": 0.21592800940676463,
+            "label": "Answer",
+            "category": "Nutrition and Eye Health"
+        },
+        {
+            "text": "What is EDOF",
+            "score": 0.21588356228917407,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "how to clean my eyes",
+            "score": 0.21576820360697868,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/N0MNxGTlQeg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>",
+            "score": 0.21576011201279363,
+            "label": "Answer",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "In case of eye injury, visit your nearest ophthalmologist immediately",
+            "score": 0.21569265820067812,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "I have redness in my eyes",
+            "score": 0.21513155205284257,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Why do patients prefer SMILE",
+            "score": 0.21488044809371354,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "I have a very bad headache",
+            "score": 0.21464556910635443,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What eye protection Can I wear?",
+            "score": 0.2145234775627419,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "How laser works",
+            "score": 0.21447210320333784,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What is lasik procedure",
+            "score": 0.2144412404863482,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "The cost of eye exam differs from patient to patient and will depend on the complexity of your condition",
+            "score": 0.21415360009257592,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "My cataract has not matured yet. Should I be considering surgery at the moment?",
+            "score": 0.21400177120948558,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Who can go for LASIK treatment",
+            "score": 0.21375152341848072,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Does sitting near the television screen have any adverse effects on eye health or vision?\n\n\n",
+            "score": 0.2132104370469336,
+            "label": "Question",
+            "category": "Screen Time and Eye Strain"
+        },
+        {
+            "text": "It is an outpatient surgical procedure used to treat near sightedness(myopia), farsightedness(hypermetropia) and astimagtism to get normal vision. In Lasik, laser is used to reshape the cornea, which is located at the front of the eye and the eye can properly focus the light rays on the retina at the back for better vision",
+            "score": 0.2122390694029032,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "The laser excimer laser is used to chnage the shape of the cornea by selective tissue ablation(removal) and surface polishing, reslting in chanfing of the focusing pwer of eye and eliminate the refractive error of the eye</br>A hinged flap is created using the top layer of your cornea</br>An FDA approved laser reshapes you cornea to correct your vision</br>The flap is folded back over your cornea</br>Excimer laser is used in laser vision correction procedure. it is cold , safe and superficial laser which causes little damage to the cornea",
+            "score": 0.2121361827960111,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "my left eye is red",
+            "score": 0.2119541101804612,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What are Hydrophobic Acrylic IOLs ",
+            "score": 0.21111044335720067,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Minus number",
+            "score": 0.21106235474055976,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Color vision deficiency is the inability to distinguish certain shades of color. Very few people are completely color blind.</br></br>Color deficiency</br>Most people with color vision deficiency can see colors, but they have difficulty differentiating between the following colors:</br></br>People who are totally color blind (achromatopsia), can only see things as black and white or in shades of gray.</br></br>Color vision deficiency can range from mild to severe, depending on the cause. It affects both eyes if it is inherited and usually just one if it is caused by injury or illness.</br></br>Color vision is possible due to photoreceptors in the retina of the eye known as cones.  The most common form of color deficiency is red-green. These patients have a harder time differentiating between them deoending on the darkness or lightness of the colors.</br></br>Another form of color deficiency is blue-yellow. This is a rarer and more severe form of color vision loss than red-green,",
+            "score": 0.21052386934786924,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What does an ophthalmologist mean?",
+            "score": 0.21051032465535058,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "An ophthalmologist is a medical doctor who specializes in eye and vision care and are licensed to practice medicine and surgery.",
+            "score": 0.21039996376442602,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Eye-healthy foods</br>Dark leafy greens, yellow fruits and vegetables, fish, and a balanced, nutrient-rich diet have been shown beneficial for people with AMD. Age-related macular degeneration doesn't affect your side (peripheral) vision and usually doesn't cause total blindness. But it can reduce or eliminate your central vision \u00e2\u201a\u00ac\u00e2\u20ac\u009d which is necessary for driving, reading and recognizing people's faces. It may be beneficial for you to work with a low vision rehabilitation specialist, an occupational therapist, your eye doctor and others trained in low vision rehabilitation. They can help you find ways to adapt to your changing vision.",
+            "score": 0.2102754399145672,
+            "label": "Answer",
+            "category": "Nutrition and Eye Health"
+        },
+        {
+            "text": "How can I prevent pinguecula and pterygium from coming back",
+            "score": 0.2102561171129171,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "migraine in hindi",
+            "score": 0.20998829058505997,
+            "label": "Question",
+            "category": "This question-answer pair belongs to the category of Medication and Eye Care."
+        },
+        {
+            "text": "Cost depends on the surgical package you have opted for as well as your doctor's opinion after all tests are done. For more details, please connect with the hospital reception.",
+            "score": 0.20996746833447946,
+            "label": "Answer",
+            "category": "This question-answer pair belongs to the Opthalmologist category."
+        },
+        {
+            "text": "I have plus number on my spectacles",
+            "score": 0.20987154247296058,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Both these procedures are less popular, casue pain and gave slower visual recovery than lasik, but some patients are more benefitted from these procedure and it is recommended for such patients</br>Ask the doctor or our center for further information and advise,which procedure is appropirate for you</br>Step 1: Alongsde numbing drops, an alcohal solution is placed on the eye to help soften the cornea</br>Step 2: The surgeon then smooths the surface of the cornea with a special surgical instrument</br>Step 3: An excimer laser is then used to precisely reshape the curvature of the cornea's surface</br>Step 4: A bandage-like soft contact lense is then palced on the cornea to help protect the eye it heals",
+            "score": 0.2097395163081092,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "robotic cataract surgery",
+            "score": 0.2096596029615037,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What eye protection gear is recommended for different environments or tasks?",
+            "score": 0.20943543142985482,
+            "label": "Question",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "You will have some itching, mild discomfort and fluid discharge after Cataract Surgery.</br>You may feel some bright light and slight pain while touch your eye after surgery, which will disappear after few days. </br>For few weeks after surgery, your doctor may ask you to use few drops to help healing and  decrease the risk of infection.</br>You will have to use eyeglasses to protect your eye from dust, wind and bright light.</br>Just avoid rubbing or pressing your eye, bending from waist or lifting heavy objects</br>You can walk, climb stairs and do light house hold work.</br> In most cases, healing will be completed within six to eight weeks and your vision should be improved to normal, however you may require glasses for fine vision.",
+            "score": 0.20858226360979937,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Is an ophthalmologist an eye doctor?",
+            "score": 0.20824690668581944,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What does an ophthalmologist treat?",
+            "score": 0.20824690668581944,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Who is an ophthalmologist?",
+            "score": 0.20822964994718945,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What does an ophthalmologist do?",
+            "score": 0.2081888299435233,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Can dry eyes cause double vision, especially when tired?",
+            "score": 0.20794768782078774,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "What happens before cataract surgery",
+            "score": 0.20785789787898473,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Aspheric IOLs because of its special design and prolate anterior surface match more closely the shape and optical quality of human eyes natural \r\nlens, they can provide sharper vision especially in low light condition and for people with large pupils which is also approved by USFDA",
+            "score": 0.20777203963459737,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "A trifocal lens is a type of IOL designed to improve vision at near, intermediate and far distances. This is different from monofocal or bifocal lenses, which correct vision at only one or two focal points. Because of this, trifocal lenses can be implanted to address vision problems such as presbyopia, with or without astigmatism.",
+            "score": 0.20677091033284015,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Whatr are the available LASIK options",
+            "score": 0.20642555284915878,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Why is smile said to be Ultra-gentle on the eyes\u00c2\u00a0",
+            "score": 0.20583058300269635,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Wearing Sunglasses and a hat to block ultraviolet sunlight which will delay the Cataract.</br> Studies highlighted, to have good nutrition and  quit smoking reduce the rate of age related cataract formation.</br> After the age of 60 years, you should have dilated eye examination every two years to check for the signs of age related macular degeneration, Glaucoma and other vision disorders along with Cataract.",
+            "score": 0.20566117456303631,
+            "label": "Answer",
+            "category": "Eye Disease Prevention Tips"
+        },
+        {
+            "text": "Watering of the eyes can be due to dryness, change in refractive errors, digital eye strain or blocked tear glands",
+            "score": 0.2052349786859632,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Is there any age limit for SMILE ReLEx LASER treatment",
+            "score": 0.20332828333848857,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "There are may reasons why people feel uncomfortable using spectacles</br>Image minification or maginfication</br>Cosmetic Stigma</br>Frequent breackage or loss leads to financial burden</br>Difficulty in peripheral vision</br>Difficulty of vision in rainy and foggy atnosphere</br>\r\n\r\n\r\n",
+            "score": 0.2030199697276299,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "I have watery eyes",
+            "score": 0.2020442945182699,
+            "label": "Question",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "Am I a suitable candidate for ReLEx SmILE",
+            "score": 0.2017362037849249,
+            "label": "Question",
+            "category": "Ophthalmologist"
+        },
+        {
+            "text": "Yes, there are other types of IOL available and you should discuss the best option for you with your eye doctor.",
+            "score": 0.20157875244483486,
+            "label": "Answer",
+            "category": "Opthalmologist"
+        },
+        {
+            "text": "plus refractive error",
+            "score": 0.20033768887093248,
+            "label": "Question",
+            "category": "Opthalmologist"
         }
     ]
 }
