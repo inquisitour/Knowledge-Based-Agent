@@ -76,25 +76,28 @@ def query_knowledge_graph(user_query):
     response = llm([messages])
     cypher_query = response.content
 
-    results_dict = {}
+    results_list = []
     candidate_results = graph.query(cypher_query)
     if not candidate_results:
         user_query_embedding = embedding_model.embed_query(user_query)
-        all_nodes = graph.query("MATCH (n) RETURN n.text as text, n.embedding as embedding")
+        all_nodes = graph.query("MATCH (n) RETURN n.text as text, n.embedding as embedding, labels(n) as labels")
         for node in all_nodes:
             if node['embedding'] is not None:
                 score = cosine_similarity(user_query_embedding, node['embedding'])
                 if score > 0.2:
-                    results_dict[node['text']] = score
+                    results_list.append({'text': node['text'], 'score': score, 'label': node['labels'][0] if node['labels'] else 'No Label'})
     else:
         user_query_embedding = embedding_model.embed_query(user_query)
         for node in candidate_results:
             if node['embedding'] is not None:
                 score = cosine_similarity(user_query_embedding, node['embedding'])
                 if score > 0.2:
-                    results_dict[node['text']] = score
+                    results_list.append({'text': node['text'], 'score': score, 'label': node['labels'][0] if node['labels'] else 'No Label'})
 
-    return results_dict
+    # Sort the results by score in descending order
+    results_list.sort(key=lambda x: x['score'], reverse=True)
+
+    return results_list
 
 def output_parser(user_query, results):
     # Open or create the JSON file and load existing data if any
@@ -104,17 +107,12 @@ def output_parser(user_query, results):
     except (FileNotFoundError, json.JSONDecodeError):
         data = {}
 
-    # Update the data dictionary with the new results
+    # Update the data dictionary with the new results directly
     data[user_query] = results
 
     # Write updated data back to the JSON file
     with open('query_results.json', 'w') as file:
         json.dump(data, file, indent=4)
-
-# Load data from CSV
-csv_data = pd.read_csv('categorized_qa_pairs.csv')
-# Create knowledge graph
-create_knowledge_graph(csv_data)
 
 # Example usage
 while True:
@@ -128,3 +126,7 @@ while True:
     else:
         print("No results found.")
 
+# Load data from CSV
+csv_data = pd.read_csv('categorized_qa_pairs.csv')
+# Create knowledge graph
+create_knowledge_graph(csv_data)
