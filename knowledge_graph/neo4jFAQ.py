@@ -176,9 +176,9 @@ def output_parser(user_query: str, results: List[Dict[str, any]]) -> None:
         json.dump(data, file, indent=4)
 
 # Load data from CSV
-#csv_data = pd.read_csv('categorized_qa_pairs.csv') # Uncomment
+#csv_data = pd.read_csv('categorized_qa_pairs.csv') # Uncomment, if needed
 # Create knowledge graph
-#create_knowledge_graph(csv_data) # Uncomment
+#create_knowledge_graph(csv_data) # Uncomment, if needed
 
 # Example usage
 while True:
