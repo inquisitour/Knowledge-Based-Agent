@@ -80,19 +80,33 @@ def query_knowledge_graph(user_query):
     candidate_results = graph.query(cypher_query)
     if not candidate_results:
         user_query_embedding = embedding_model.embed_query(user_query)
-        all_nodes = graph.query("MATCH (n) RETURN n.text as text, n.embedding as embedding, labels(n) as labels")
+        all_nodes = graph.query("""
+            MATCH (n)
+            OPTIONAL MATCH (n)<-[:INCLUDES]-(c:Category)
+            RETURN n.text as text, n.embedding as embedding, labels(n) as labels, coalesce(c.name, 'No Category') as category
+        """)
         for node in all_nodes:
-            if node['embedding'] is not None:
+            if node['embedding'] is not None and node['text'] is not None:
                 score = cosine_similarity(user_query_embedding, node['embedding'])
                 if score > 0.2:
-                    results_list.append({'text': node['text'], 'score': score, 'label': node['labels'][0] if node['labels'] else 'No Label'})
+                    results_list.append({
+                        'text': node['text'],
+                        'score': score,
+                        'label': node['labels'][0] if node['labels'] else 'No Label',
+                        'category': node['category']
+                    })
     else:
         user_query_embedding = embedding_model.embed_query(user_query)
         for node in candidate_results:
-            if node['embedding'] is not None:
+            if node['embedding'] is not None and node['text'] is not None:
                 score = cosine_similarity(user_query_embedding, node['embedding'])
                 if score > 0.2:
-                    results_list.append({'text': node['text'], 'score': score, 'label': node['labels'][0] if node['labels'] else 'No Label'})
+                    results_list.append({
+                        'text': node['text'],
+                        'score': score,
+                        'label': node['labels'][0] if node['labels'] else 'No Label',
+                        'category': node['category'] if 'category' in node else 'No Category'
+                    })
 
     # Sort the results by score in descending order
     results_list.sort(key=lambda x: x['score'], reverse=True)
