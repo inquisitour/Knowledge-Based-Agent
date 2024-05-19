@@ -4,25 +4,17 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain_community.chat_models import ChatOpenAI
 from data_processing import get_database_connection
 from typing import List, Any
-from langchain.schema import Document, HumanMessage
+from langchain.schema import Document
 from langchain.agents import AgentExecutor, create_openai_tools_agent
 from langchain.tools import Tool
 from pydantic import BaseModel, Field
-from langchain_community.graphs import Neo4jGraph
+from neo4jFAQ import GraphEmbeddingRetriever
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 
 # Securely fetch the API key
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
     raise ValueError("OPENAI_API_KEY is not set in environment variables")
-
-# Set environment variables
-os.environ["NEO4J_URI"] = "bolt://localhost:7687"
-os.environ["NEO4J_USERNAME"] = "neo4j"
-os.environ["NEO4J_PASSWORD"] = "gravitas@123"
-
-# Initialize the Neo4j Graph connection
-graph = Neo4jGraph(url=os.getenv("NEO4J_URI"), username=os.getenv("NEO4J_USERNAME"), password=os.getenv("NEO4J_PASSWORD"))
 
 class EmbeddingRetriever(BaseModel):
     db_connection: Any = Field(..., description="Database connection for retrieving embeddings")
@@ -45,13 +37,6 @@ class EmbeddingRetriever(BaseModel):
                 question, answer, embedding = result
                 embedding = np.frombuffer(embedding, dtype=np.float32).copy()  # Make a writable copy of the embedding
                 embedding /= np.linalg.norm(embedding)
-
-                # Reshape the embeddings to match dimensionality
-                #if len(embedding) < len(query_vec):
-                    #embedding = np.pad(embedding, (0, len(query_vec) - len(embedding)), mode='constant')
-                #elif len(embedding) > len(query_vec):
-                    #query_vec = np.pad(query_vec, (0, len(embedding) - len(query_vec)), mode='constant')
-
                 similarity = np.dot(embedding, query_vec)
                 #print(similarity)
                 if similarity >= min_similarity:
@@ -66,7 +51,7 @@ class EmbeddingRetriever(BaseModel):
 
 class OpenAIops:
     def __init__(self):
-        self.chat_model = ChatOpenAI(api_key=os.environ["OPENAI_API_KEY"], model='gpt-3.5-turbo')
+        self.chat_model = ChatOpenAI(api_key=OPENAI_API_KEY, model='gpt-3.5-turbo')
         with get_database_connection() as conn:
             self.retriever = EmbeddingRetriever(conn)
             
@@ -77,52 +62,51 @@ class OpenAIops:
                 description="Retrieves similar questions and answers from the database"
             )
 
-            # Define the prompt template
-            self.prompt_template = ChatPromptTemplate.from_messages([
-                ("system", """Develop a Retrieval-Augmented Generation (RAG) system that uses a structured question-answer database as its context. The system should:
-                Input Processing: Accept a user question and preprocess it to correct any spelling errors and clarify ambiguous terms.
-                Contextual Retrieval: Search the question-answer database to find question-answer pairs that are most relevant to the processed user question. Utilize natural language processing techniques to match the semantics of the question rather than relying solely on keyword matching.
-                Answer Generation: If relevant information is available: Use the retrieved question-answer pairs to generate a comprehensive and detailed response. The answer should integrate all relevant information from the context, ensuring that it addresses all aspects of the user's question. The system should synthesize the information in a coherent and informative manner.
-                If no relevant information is available: The system should return "Answer not available in the context" to indicate that it cannot provide an accurate answer based on the existing database.
-                Output: Output should be presented here. Present the answer to the user in a clear and concise format. If multiple question-answer pairs are relevant, synthesize the information into a single unified response to avoid redundancy and ensure clarity. """
-                ),
-                ("human", "{input}"),
-                MessagesPlaceholder("agent_scratchpad")
-            ])
+        self.graph_retriever = GraphEmbeddingRetriever(
+            neo4j_uri="bolt://localhost:7687",
+            neo4j_username="neo4j",
+            neo4j_password="gravitas@123",
+            openai_api_key=OPENAI_API_KEY
+        )
 
-            # Initialize the agent with the tool
-            tools = [retriever_tool]
+        # Convert the GraphEmbeddingRetriever into a LangChain tool
+        graph_retriever_tool = Tool(
+            name="GraphEmbeddingRetriever",
+            func=self.graph_retriever.query_knowledge_graph,
+            description="Retrieves relevant information from the Neo4j knowledge graph"
+        )
 
-            # Initialize the agent with the tool
-            self.agent = create_openai_tools_agent(
-                llm=self.chat_model,
-                tools=tools,
-                prompt=self.prompt_template
-            )
-            self.agent_executor = AgentExecutor.from_agent_and_tools(self.agent, tools)
+        # Define the prompt template
+        self.prompt_template = ChatPromptTemplate.from_messages([
+            ("system", """Develop a Retrieval-Augmented Generation (RAG) system that uses both a structured question-answer database and a Neo4j knowledge graph as its context. The system should:
+            Input Processing: Accept a user question and preprocess it to correct any spelling errors and clarify ambiguous terms.
+            Contextual Retrieval: Search both the question-answer database and the Neo4j knowledge graph to find relevant information for the processed user question. Utilize natural language processing techniques to match the semantics of the question rather than relying solely on keyword matching.
+            Answer Generation: If relevant information is available: Use the retrieved information from both sources to generate a comprehensive and detailed response. The answer should integrate all relevant information from the context, ensuring that it addresses all aspects of the user's question. The system should synthesize the information in a coherent and informative manner.
+            If no relevant information is available: The system should return "Answer not available in the context" to indicate that it cannot provide an accurate answer based on the existing sources.
+            Output: Output should be presented here. Present the answer to the user in a clear and concise format. If multiple pieces of relevant information are available, synthesize them into a single unified response to avoid redundancy and ensure clarity. """
+            ),
+            ("human", "{input}"),
+            MessagesPlaceholder("agent_scratchpad")
+        ])
+
+        # Tools for the agent
+        tools = [retriever_tool, graph_retriever_tool]
+
+        # Initialize the agent with the tools
+        self.agent = create_openai_tools_agent(
+            llm=self.chat_model,
+            tools=tools,
+            prompt=self.prompt_template
+        )
+        self.agent_executor = AgentExecutor.from_agent_and_tools(self.agent, tools)
         print("OpenAI operations with LangChain agent initialized")
 
     def answer_question(self, user_question):
-        '''# Use LangChain to process the user query and generate a Cypher query
-        instructions = """Given the query, consider following schema used to create the knowledge graph:
-                    MERGE (c:Category {name: $category})
-                    MERGE (q:Question {id: $index, text: $question, category: $category})
-                    MERGE (a:Answer {id: $index, text: $answer, category: $category})
-                    MERGE (q)-[:HAS_ANSWER]->(a)
-                    MERGE (c)-[:INCLUDES]->(q)
-                    MERGE (c)-[:INCLUDES]->(a)
-                    and generate a Cypher query to retrieve the relevant information from the Neo4j knowledge graph. Ensure that the generated query only use and adheres to this schema and retrieves the desired information accurately. No other things must be generated than Cypher query."""
-        messages = HumanMessage(content=user_question + instructions)
-        query = self.chat_model([messages])
-        print(query)
-        cypher_query = query.content
-        results = graph.query(cypher_query)
-        print(results)'''
-
         context = self.retriever.get_relevant_documents(user_question)
+        graph_context = self.graph_retriever.query_knowledge_graph(user_question)
         formatted_context = "\n\n".join([f"Q: {doc.metadata['question']}, A: {doc.page_content}" for doc in context])
-        prompt = f"Context:\n{formatted_context}\n\nQuestion: \n{user_question}\nAnswer:"
-        #prompt = f"Knowledge Graph:\n{results}\n\nContext:\n{formatted_context}\n\nQuestion: \n{user_question}\nAnswer:"
+        formatted_graph_context = "\n\n".join([f"{result['text']} (Score: {result['score']}, Label: {result['label']}, Category: {result['category']})" for result in graph_context])
+        prompt = f"Context:\n{formatted_context}\n\nKnowledge Graph Context:\n{formatted_graph_context}\n\nQuestion: \n{user_question}\nAnswer:"
 
         # Execute the agent with the dynamically formatted prompt
         response = self.agent_executor({"input": prompt}) 

@@ -1,30 +1,46 @@
 import os
 import json
+import faiss
 import warnings
 import numpy as np
 import pandas as pd
-from typing import List, Dict
+from typing import List, Dict, Any
+from pydantic import BaseModel, Field
 from langchain.schema import HumanMessage
 from langchain_community.graphs import Neo4jGraph
 from langchain_community.chat_models import ChatOpenAI
 from langchain.embeddings.openai import OpenAIEmbeddings
-import faiss
 
 warnings.filterwarnings('ignore')
 
-class GraphEmbeddingRetriever:
-    def __init__(self, neo4j_uri, neo4j_username, neo4j_password, openai_api_key):
+class GraphEmbeddingRetriever(BaseModel):
+    neo4j_uri: str = Field(..., description="URI for Neo4j database")
+    neo4j_username: str = Field(..., description="Username for Neo4j database")
+    neo4j_password: str = Field(..., description="Password for Neo4j database")
+    openai_api_key: str = Field(..., description="OpenAI API key for embedding model")
+    graph: Any = Field(None, description="Neo4jGraph instance")
+    llm: Any = Field(None, description="Language model instance")  
+    embedding_model: Any = Field(None, description="Embedding model instance")
+    index: Any = Field(None, description="FAISS index instance")
+    node_id_to_index: dict = Field(None, description="Mapping of node IDs to FAISS index IDs")
+
+    class Config:
+        arbitrary_types_allowed = True
+
+    def __init__(self, **data):
+        super().__init__(**data)
+
         # Set environment variables
-        os.environ["NEO4J_URI"] = neo4j_uri
-        os.environ["NEO4J_USERNAME"] = neo4j_username
-        os.environ["NEO4J_PASSWORD"] = neo4j_password
+        os.environ["NEO4J_URI"] = self.neo4j_uri
+        os.environ["NEO4J_USERNAME"] = self.neo4j_username
+        os.environ["NEO4J_PASSWORD"] = self.neo4j_password
 
         # Initialize the Neo4j Graph connection
         self.graph = Neo4jGraph(url=os.getenv("NEO4J_URI"), username=os.getenv("NEO4J_USERNAME"), password=os.getenv("NEO4J_PASSWORD"))
 
         # Initialize models
-        self.llm = ChatOpenAI(api_key=openai_api_key, model='gpt-3.5-turbo')
-        self.embedding_model = OpenAIEmbeddings(api_key=openai_api_key, model="text-embedding-3-large")
+        self.llm = ChatOpenAI(api_key=self.openai_api_key, model='gpt-3.5-turbo')
+        self.embedding_model = OpenAIEmbeddings(api_key=self.openai_api_key, model="text-embedding-3-large")
 
         # Determine embedding dimension
         sample_embedding = self.embedding_model.embed_query("sample text")
@@ -33,6 +49,8 @@ class GraphEmbeddingRetriever:
         # Initialize FAISS index
         self.index = faiss.IndexFlatL2(embedding_dim)
         self.node_id_to_index = {}
+        
+        print("Graph embedding retriever initialized")
 
     def batch_embeddings(self, texts: List[str]) -> List[List[float]]:
         """
@@ -163,6 +181,63 @@ class GraphEmbeddingRetriever:
 
         return results_list
 
+    def query_knowledge_graph(self, user_query: str) -> List[Dict[str, any]]:
+        """
+        Query the Neo4j knowledge graph based on the user's input and return relevant results.
+
+        Args:
+            user_query (str): User's query.
+
+        Returns:
+            List[Dict[str, any]]: List of relevant results with information like text, score, label, and category.
+        """
+        # Step 1: Generate candidate Cypher queries
+        prompt = f"Given the user query: {user_query}, generate a Cypher query to retrieve relevant information from the Neo4j knowledge graph."
+        messages = HumanMessage(content=prompt)
+        response = self.llm([messages])
+        cypher_query = response.content
+
+        # Step 2: Execute candidate Cypher queries
+        results_list = []
+        seen_texts = set()  # Set to track texts and avoid duplicates
+        try:
+            candidate_results = self.graph.query(cypher_query)
+        except Exception as e:
+            print(f"Error executing Cypher query: {e}")
+            candidate_results = []
+
+        if candidate_results:
+            for node in candidate_results:
+                if node['text'] not in seen_texts:
+                    results_list.append({
+                        'text': node['text'],
+                        'score': 0.2,  # High score for direct matches
+                        'label': node['labels'][0] if node['labels'] else 'No Label',
+                        'category': node['category'] if 'category' in node else 'No Category'
+                    })
+                    seen_texts.add(node['text'])
+
+        # Step 3: FAISS-based embedding similarity search
+        user_query_embedding = self.embedding_model.embed_query(user_query)
+        D, I = self.index.search(np.array([user_query_embedding], dtype=np.float32), k=10)  # Retrieve top 10 matches
+
+        for i in range(len(I[0])):
+            node_index = I[0][i]
+            if node_index >= 0 and node_index in self.node_id_to_index:  # Check if node_index is valid
+                node_id = self.node_id_to_index[node_index]
+                score = 1 - D[0][i]  # Convert distance to similarity score
+                node_data = self.graph.query(f"MATCH (n) WHERE id(n) = {node_id} OPTIONAL MATCH (n)<-[:INCLUDES]-(c:Category) RETURN n.text as text, labels(n) as labels, coalesce(c.name, 'No Category') as category")[0]
+                if node_data['text'] not in seen_texts:
+                    results_list.append({
+                        'text': node_data['text'],
+                        'score': score,
+                        'label': node_data['labels'][0] if node_data['labels'] else 'No Label',
+                        'category': node_data['category']
+                    })
+                    seen_texts.add(node_data['text'])  # Add text to set to track as seen
+
+        return results_list
+
     def output_parser(self, user_query: str, results: List[Dict[str, any]]) -> None:
         """
         Write the query results to a JSON file.
@@ -181,31 +256,3 @@ class GraphEmbeddingRetriever:
 
         with open('query_results.json', 'w') as file:
             json.dump(data, file, indent=4)
-
-# Example usage
-if __name__ == "__main__":
-    # Initialize the GraphEmbeddingRetriever instance
-    retriever = GraphEmbeddingRetriever(
-        neo4j_uri="bolt://localhost:7687",
-        neo4j_username="neo4j",
-        neo4j_password="gravitas@123",
-        openai_api_key=os.environ["OPENAI_API_KEY"]
-    )
-
-    # Load data from CSV
-    csv_data = pd.read_csv('categorized_qa_pairs.csv')
-
-    # Create knowledge graph
-    retriever.create_knowledge_graph(csv_data)
-
-    # Run the query loop
-    while True:
-        user_query = input("Please enter your question or type 'exit' to quit: ")
-        if user_query.lower() == 'exit':
-            break
-        results = retriever.query_knowledge_graph(user_query)
-        if results:
-            print("Query Results:", results)
-            retriever.output_parser(user_query, results)
-        else:
-            print("No results found.")
