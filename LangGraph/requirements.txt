@@ -1,0 +1,12 @@
+langgraph
+langchain
+openai
+streamlit
+streamlit-lottie
+neo4j
+faiss-cpu
+psycopg2
+pydantic
+numpy
+pandas
+pickle
