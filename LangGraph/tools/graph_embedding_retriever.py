@@ -11,10 +11,10 @@ from langchain.schema import HumanMessage
 import pandas as pd
 
 class GraphEmbeddingRetriever:
-    def __init__(self, neo4j_uri, neo4j_username, neo4j_password, openai_api_key, db_path):
+    def __init__(self, neo4j_uri, neo4j_username, neo4j_password, openai_api_key, db_path, embeddings):
         self.driver = GraphDatabase.driver(neo4j_uri, auth=(neo4j_username, neo4j_password))
         self.llm = ChatOpenAI(api_key=openai_api_key, model="gpt-3.5-turbo")
-        self.embedding_model = OpenAIEmbeddings(api_key=openai_api_key, model="text-embedding-ada-002")
+        self.embedding_model = embeddings
         self.memory = SqliteSaver.from_conn_string(f"sqlite:///{db_path}")
         self.graph_manager = MessageGraph(memory=self.memory)
         self._setup_graph()
@@ -24,7 +24,7 @@ class GraphEmbeddingRetriever:
 
         self.index = faiss.IndexFlatL2(embedding_dim)
         self.node_id_to_index = {}
-        
+
         print("Graph embedding retriever initialized")
 
     def _setup_graph(self):
@@ -142,13 +142,17 @@ if __name__ == "__main__":
     openai_api_key = get_env_variable("OPENAI_API_KEY")
     db_path = "graph_embedding_retriever_memory.db"
 
-    retriever = GraphEmbeddingRetriever(neo4j_uri, neo4j_username, neo4j_password, openai_api_key, db_path)
+    from agents.embedding_agent import EmbeddingAgent
+    embedding_agent = EmbeddingAgent(db_path=db_path)
+    retriever = GraphEmbeddingRetriever(neo4j_uri, neo4j_username, neo4j_password, openai_api_key, db_path, embeddings=embedding_agent.embeddings)
+
     data_csv = pd.DataFrame({
         'questions': ["What is AI?", "What is machine learning?"],
         'answers': ["AI is artificial intelligence.", "Machine learning is a subset of AI."],
         'category': ["Technology", "Technology"]
     })
     retriever.process_create_knowledge_graph(data_csv)
+
     user_query = "Tell me about AI."
     results = retriever.process_query_knowledge_graph(user_query)
     print(results)

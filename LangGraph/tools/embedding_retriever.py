@@ -1,22 +1,14 @@
-from pydantic import BaseModel, Field
 import numpy as np
-from typing import List, Any
-from langchain.embeddings.openai import OpenAIEmbeddings
+from typing import List
 from langchain.schema import Document
 from langgraph.graph import MessageGraph
 from langgraph.prebuilt.tool_node import ToolNode
 from langgraph.checkpoint.sqlite import SqliteSaver
-import os
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-
-class EmbeddingRetriever(BaseModel):
-    db_connection: Any = Field(..., description="Database connection for retrieving embeddings")
-    embeddings: Any = Field(None, description="OpenAI embeddings model")
-
-    def __init__(self, db_connection, db_path):
-        super().__init__(db_connection=db_connection)
-        self.embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY, model="text-embedding-ada-002")
+class EmbeddingRetriever:
+    def __init__(self, db_connection, db_path, embeddings):
+        self.db_connection = db_connection
+        self.embeddings = embeddings
         self.memory = SqliteSaver.from_conn_string(f"sqlite:///{db_path}")
         self.graph = MessageGraph(memory=self.memory)
         self._setup_graph()
@@ -42,18 +34,22 @@ class EmbeddingRetriever(BaseModel):
                 similarity = np.dot(embedding, query_vec)
                 if similarity >= min_similarity:
                     similar_questions.append({'question': question, 'answer': answer, 'similarity': similarity})
-            similar_questions.sort(key=lambda x: x['similarity'], reverse=True)
+        similar_questions.sort(key=lambda x: x['similarity'], reverse=True)
         return similar_questions[:k]
-    
+
     def get_relevant_documents(self, query: str) -> List[Document]:
-        similar_questions = self.graph.run("retrieve_similar_questions", query=query)
+        similar_questions = self.retrieve_similar_questions(query)
         documents = [Document(page_content=q['answer'], metadata={"question": q['question'], "similarity": q['similarity']}) for q in similar_questions]
         return documents
+
+    def get_graph(self):
+        return self.graph
 
 # Example usage
 if __name__ == "__main__":
     import psycopg2
-
+    from agents.embedding_agent import EmbeddingAgent
+    import os
     db_path = "embedding_retriever_memory.db"
     db_connection = psycopg2.connect(
         dbname=os.getenv("POSTGRES_DB"),
@@ -62,8 +58,8 @@ if __name__ == "__main__":
         host=os.getenv("POSTGRES_HOST"),
         port=os.getenv("POSTGRES_PORT")
     )
-
-    retriever = EmbeddingRetriever(db_connection=db_connection, db_path=db_path)
+    embedding_agent = EmbeddingAgent(db_path=db_path)
+    retriever = EmbeddingRetriever(db_connection=db_connection, db_path=db_path, embeddings=embedding_agent.embeddings)
     query = "What is artificial intelligence?"
     relevant_docs = retriever.get_relevant_documents(query)
     for doc in relevant_docs:

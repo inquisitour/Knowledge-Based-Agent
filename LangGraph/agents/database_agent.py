@@ -4,7 +4,7 @@ from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.graph import MessageGraph
 from langgraph.prebuilt import ToolNode
 from langgraph.core import messages
-from data_processing.database_ops import DBops, with_connection
+from data_processing.database_ops import DBops
 import pandas as pd
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -15,38 +15,47 @@ class DatabaseAgent:
     def __init__(self, db_path):
         self.db_path = db_path
         self.memory = SqliteSaver.from_conn_string(f"sqlite:///{db_path}")
-        self.embeddings = OpenAIEmbeddings(api_key=os.getenv("OPENAI_API_KEY"), model="text-embedding-3-large")
-        self.db_ops = DBops(db_path=db_path)
-        self.graph = MessageGraph()
+        self.db_ops = None
 
-        self.graph.add_node("initialize", ToolNode(self.db_ops.setup_db_node))
-        self.graph.add_node("fetch_data", ToolNode(self.fetch_data))
-        self.graph.add_node("process_file", ToolNode(self.db_ops.process_file_node))
+    def get_graph(self, embeddings):
+        self.db_ops = DBops(db_path=self.db_path, embeddings=embeddings)
+        graph = MessageGraph()
 
-        self.graph.add_edge("initialize", "fetch_data", messages.ConditionalEdge(self.condition_check))
+        graph.add_node("initialize", ToolNode(self.db_ops.setup_database))
+        graph.add_node("get_db_connection", ToolNode(self.db_ops.get_database_connection))
+        graph.add_node("process_file", ToolNode(self.db_ops.process_local_file))
+        graph.add_node("check_data_hash", ToolNode(self.db_ops.check_data_hash))
+        graph.add_node("delete_all_data_hashes", ToolNode(self.db_ops.delete_all_data_hashes))
+        graph.add_node("update_data_hash", ToolNode(self.db_ops.update_data_hash))
 
-        self.graph.add_edge("fetch_data", "process_file")
+        graph.add_edge("initialize", "get_db_connection")
+        graph.add_edge("get_db_connection", "process_file")
+        graph.add_edge("process_file", "check_data_hash")
+        graph.add_edge("check_data_hash", "delete_all_data_hashes", messages.ConditionalEdge(self.condition_check))
+        graph.add_edge("delete_all_data_hashes", "update_data_hash")
 
-        self.graph.set_entry_point("initialize")
+        graph.set_entry_point("initialize")
 
-    @with_connection
-    def fetch_data(self, params, conn):
-        query = params.get("query")
-        with conn.cursor() as cur:
-            cur.execute(query)
-            result = cur.fetchall()
-        return {"data": result}
+        return graph
 
-    def condition_check(self, params):
-        return True
+    def condition_check(self, state):
+        return not state["check_data_hash"]
 
-    def execute(self, start_node, params):
-        result = self.graph.run(start_node, params)
-        return result
+    def execute(self, params):
+        # Setup the database
+        self.db_ops.setup_database()
+
+        data_csv = params["data_csv"]
+        if data_csv is not None:
+            self.db_ops.process_local_file(data_csv)
+        else:
+            raise ValueError("data_csv parameter is missing")
 
 # Example usage
 if __name__ == "__main__":
     db_agent = DatabaseAgent(db_path="my_database.db")
+    embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY, model="text-embedding-ada-002")
+    graph = db_agent.get_graph(embeddings)
     params = {"data_csv": pd.DataFrame({"questions": ["What is AI?"], "answers": ["AI is artificial intelligence."]})}
-    result = db_agent.execute("initialize", params)
-    print(result)
+    db_agent.execute(params)
+    print(graph)

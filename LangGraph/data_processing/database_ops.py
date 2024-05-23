@@ -12,15 +12,19 @@ from agents.utils_agent import load_db_credentials
 
 # Centralized connection management
 class DBops:
-    def __init__(self, db_path):
+    def __init__(self, db_path, embeddings):
         self.db_config = load_db_credentials('postgres')
         self.memory = SqliteSaver.from_conn_string(f"sqlite:///{db_path}")
         self.graph = MessageGraph(memory=self.memory)
+        self.embeddings = embeddings
         self._setup_graph()
 
     def _setup_graph(self):
         self.graph.add_node("process_local_file", ToolNode(self.process_local_file))
         self.graph.add_node("setup_database", ToolNode(self.setup_database))
+        self.graph.add_node("check_data_hash", ToolNode(self.check_data_hash))
+        self.graph.add_node("delete_all_data_hashes", ToolNode(self.delete_all_data_hashes))
+        self.graph.add_node("update_data_hash", ToolNode(self.update_data_hash))
         self.graph.set_entry_point("setup_database")
 
     @contextmanager
@@ -106,15 +110,5 @@ class DBops:
             cur.execute("INSERT INTO data_hash (file_hash) VALUES (%s)", (file_hash,))
             conn.commit()
 
-    def process_file_node(self, data_csv):
-        return self.graph.run("process_local_file", data_csv=data_csv)
-
-    def setup_db_node(self):
-        return self.graph.run("setup_database")
-
-# Example usage:
-if __name__ == "__main__":
-    db_ops = DBops(db_path="database_ops_memory.db")
-    db_ops.setup_db_node()
-    data_csv = pd.DataFrame({'questions': ["What is AI?"], 'answers': ["AI is the simulation of human intelligence in machines."]})
-    db_ops.process_file_node(data_csv)
+    def get_graph(self):
+        return self.graph

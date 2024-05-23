@@ -40,6 +40,9 @@ class ResponseAgent:
     def process_generate_response(self, context):
         return self.graph.run("generate_response", context=context)
 
+    def get_graph(self):
+        return self.graph
+
 # Example usage:
 if __name__ == "__main__":
     agent = ResponseAgent(db_path="response_memory.db")

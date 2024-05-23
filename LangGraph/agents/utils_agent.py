@@ -52,29 +52,5 @@ class UtilsAgent:
             raise ValueError(f"{variable_name} environment variable is not set.")
         return value
 
-    def process_load_db_credentials(self, db_type):
-        return self.graph.run("load_db_credentials", db_type=db_type)
-
-    def process_save_db_credentials(self, db_type, credentials):
-        return self.graph.run("save_db_credentials", db_type=db_type, credentials=credentials)
-
-    def process_get_env_variable(self, variable_name):
-        return self.graph.run("get_env_variable", variable_name=variable_name)
-
-# Example usage:
-if __name__ == "__main__":
-    utils_agent = UtilsAgent(db_path="utils_memory.db")
-    db_credentials = utils_agent.process_load_db_credentials("postgres")
-    print(db_credentials)
-
-    credentials = {
-        'host': 'localhost',
-        'port': '5432',
-        'database': 'mydb',
-        'user': 'myuser',
-        'password': 'mypassword'
-    }
-    utils_agent.process_save_db_credentials("postgres", credentials)
-    
-    env_variable = utils_agent.process_get_env_variable("POSTGRES_HOST")
-    print(env_variable)
+    def get_graph(self):
+        return self.graph

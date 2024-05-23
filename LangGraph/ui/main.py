@@ -3,7 +3,7 @@ import pandas as pd
 import requests
 from streamlit_lottie import st_lottie
 from agents.response_agent import ResponseAgent
-from langgraph_setup import setup_langgraph
+from parent_agent import AgentState
 from agents.utils_agent import get_env_variable
 
 def load_lottie_url(url: str):
@@ -37,12 +37,10 @@ def main():
 
     openai_api_key = get_env_variable("OPENAI_API_KEY")
 
-    langgraph = setup_langgraph(openai_api_key)
-
     user_question = st.text_input("Enter a question:", key="user_question")
     if user_question:
         with st.spinner('Processing...'):
-            response = langgraph.run(user_question)
+            response = AgentState(openai_api_key)
             st.write("Response:", response)
 
     lottie_url = 'https://assets1.lottiefiles.com/packages/lf20_vykpwt8b.json'

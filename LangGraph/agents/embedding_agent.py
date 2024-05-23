@@ -30,6 +30,9 @@ class EmbeddingAgent:
     def process_query(self, query):
         return self.graph.run("embed_query", query=query)
 
+    def get_graph(self):
+        return self.graph
+
 # Example usage:
 if __name__ == "__main__":
     agent = EmbeddingAgent(db_path="embeddings_memory.db")
