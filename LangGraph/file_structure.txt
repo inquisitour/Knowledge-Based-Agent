@@ -1,24 +1,23 @@
 # The current file structure is as follows:
 
-ophthal_agent/
+root/
 ├── agents/
 │   ├── __init__.py
 │   ├── database_agent.py
 │   ├── embedding_agent.py
 │   ├── graph_agent.py
 │   ├── query_generation_agent.py
-│   └── response_agent.py
+│   ├── utils_agent.py
+│   └── response_agent.py 
 ├── data_processing/
 │   ├── __init__.py
 │   └── database_ops.py
-├── interface/
-│   └── local_interface.py
 ├── tools/
 │   ├── __init__.py
-│   └── graph_embedding_retriever.py
-    └── embedding_retriever.py
-├── langgraph_setup.py
+│   ├── graph_embedding_retriever.py
+│   ├── embedding_retriever.py
+├── ui/
+│   └── main.py
+├── parent_agent.py
 ├── requirements.txt
-└── utils/
-    ├── __init__.py
-    └── utils.py
+└── myself.txt :)
