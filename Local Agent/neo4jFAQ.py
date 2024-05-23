@@ -31,9 +31,9 @@ class GraphEmbeddingRetriever(BaseModel):
         super().__init__(**data)
 
         # Set environment variables
-        os.environ["NEO4J_URI"] = self.neo4j_uri
-        os.environ["NEO4J_USERNAME"] = self.neo4j_username
-        os.environ["NEO4J_PASSWORD"] = self.neo4j_password
+        # os.environ["NEO4J_URI"] = self.neo4j_uri
+        # os.environ["NEO4J_USERNAME"] = self.neo4j_username
+        # os.environ["NEO4J_PASSWORD"] = self.neo4j_password
 
         # Initialize the Neo4j Graph connection
         self.graph = Neo4jGraph(url=os.getenv("NEO4J_URI"), username=os.getenv("NEO4J_USERNAME"), password=os.getenv("NEO4J_PASSWORD"))
