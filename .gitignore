@@ -29,3 +29,6 @@
 /Start Menu/
 /Templates/
 .env
+*__pycache__*
+*/__pycache__/
+test.py

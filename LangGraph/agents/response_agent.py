@@ -1,10 +1,11 @@
 from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
-from langchain.schema import HumanMessage, MessagesPlaceholder
+from langchain.schema import HumanMessage#, MessagesPlaceholder
+from langchain_core.prompts import MessagesPlaceholder
 from langgraph.graph import MessageGraph
 from langgraph.prebuilt.tool_node import ToolNode
 from langgraph.checkpoint.sqlite import SqliteSaver
-from agents.utils_agent import get_env_variable
+from .utils_agent import get_env_variable
 
 class ResponseAgent:
     def __init__(self, db_path):

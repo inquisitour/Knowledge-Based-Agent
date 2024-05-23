@@ -3,7 +3,7 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.graph import MessageGraph
 from langgraph.prebuilt import ToolNode
-from langgraph.core import messages
+# from langgraph.core import messages
 from data_processing.database_ops import DBops
 import pandas as pd
 
@@ -31,7 +31,8 @@ class DatabaseAgent:
         graph.add_edge("initialize", "get_db_connection")
         graph.add_edge("get_db_connection", "process_file")
         graph.add_edge("process_file", "check_data_hash")
-        graph.add_edge("check_data_hash", "delete_all_data_hashes", messages.ConditionalEdge(self.condition_check))
+        # graph.add_edge("check_data_hash", "delete_all_data_hashes", messages.ConditionalEdge(self.condition_check))
+        graph.add_conditional_edges("check_data_hash", self.condition_check)
         graph.add_edge("delete_all_data_hashes", "update_data_hash")
 
         graph.set_entry_point("initialize")
@@ -39,7 +40,10 @@ class DatabaseAgent:
         return graph
 
     def condition_check(self, state):
-        return not state["check_data_hash"]
+        if not state["check_data_hash"]:
+            return "delete_all_data_hashes"
+        return "__end__"
+        # return not state["check_data_hash"]
 
     def execute(self, params):
         # Setup the database

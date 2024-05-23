@@ -2,6 +2,13 @@ import streamlit as st
 import pandas as pd
 import requests
 from streamlit_lottie import st_lottie
+
+import sys
+import os
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+
 from agents.response_agent import ResponseAgent
 from parent_agent import AgentState
 from agents.utils_agent import get_env_variable

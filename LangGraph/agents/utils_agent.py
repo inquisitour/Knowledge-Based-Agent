@@ -54,3 +54,8 @@ class UtilsAgent:
 
     def get_graph(self):
         return self.graph
+def get_env_variable( variable_name):
+        value = os.getenv(variable_name)
+        if value is None:
+            raise ValueError(f"{variable_name} environment variable is not set.")
+        return value
