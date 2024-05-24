@@ -8,12 +8,12 @@ from psycopg2 import pool, extras
 from langgraph.graph import MessageGraph
 from langgraph.prebuilt.tool_node import ToolNode
 from langgraph.checkpoint.sqlite import SqliteSaver
-from agents.utils_agent import load_db_credentials
+from agents.utils_agent import UtilsAgent
 
 # Centralized connection management
 class DBops:
     def __init__(self, db_path, embeddings):
-        self.db_config = load_db_credentials('postgres')
+        self.db_config = UtilsAgent.load_db_credentials('postgres')
         self.memory = SqliteSaver.from_conn_string(f"sqlite:///{db_path}")
         self.graph = MessageGraph(memory=self.memory)
         self.embeddings = embeddings

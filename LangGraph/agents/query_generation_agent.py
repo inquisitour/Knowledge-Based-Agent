@@ -3,11 +3,11 @@ from langchain.schema import HumanMessage
 from langgraph.graph import MessageGraph
 from langgraph.prebuilt.tool_node import ToolNode
 from langgraph.checkpoint.sqlite import SqliteSaver
-from agents.utils_agent import get_env_variable
+from agents.utils_agent import UtilsAgent
 
 class QueryGenerationAgent:
     def __init__(self, db_path):
-        openai_api_key = get_env_variable("OPENAI_API_KEY")
+        openai_api_key = UtilsAgent.get_env_variable("OPENAI_API_KEY")
         self.llm = ChatOpenAI(api_key=openai_api_key, model="gpt-3.5-turbo")
         self.memory = SqliteSaver.from_conn_string(f"sqlite:///{db_path}")
         self.graph = MessageGraph(memory=self.memory)

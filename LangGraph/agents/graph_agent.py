@@ -2,12 +2,12 @@ from langgraph.graph import MessageGraph
 from langgraph.prebuilt.tool_node import ToolNode
 from langgraph.checkpoint.sqlite import SqliteSaver
 from tools.graph_embedding_retriever import GraphEmbeddingRetriever
-from agents.utils_agent import get_env_variable, load_db_credentials
+from agents.utils_agent import UtilsAgent
 
 class GraphAgent:
     def __init__(self, db_path):
-        openai_api_key = get_env_variable("OPENAI_API_KEY")
-        neo4j_credentials = load_db_credentials('neo4j')
+        openai_api_key = UtilsAgent.get_env_variable("OPENAI_API_KEY")
+        neo4j_credentials = UtilsAgent.load_db_credentials('neo4j')
         self.graph_embedding_retriever = GraphEmbeddingRetriever(
             neo4j_credentials['uri'],
             neo4j_credentials['username'],

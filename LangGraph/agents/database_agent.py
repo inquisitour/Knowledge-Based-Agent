@@ -6,6 +6,9 @@ from langgraph.prebuilt import ToolNode
 # from langgraph.core import messages
 from data_processing.database_ops import DBops
 import pandas as pd
+from dotenv import load_dotenv
+
+load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:

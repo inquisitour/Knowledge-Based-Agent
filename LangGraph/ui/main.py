@@ -11,7 +11,7 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from agents.response_agent import ResponseAgent
 from parent_agent import AgentState
-from agents.utils_agent import get_env_variable
+from agents.utils_agent import UtilsAgent
 
 def load_lottie_url(url: str):
     r = requests.get(url)
@@ -42,12 +42,12 @@ def main():
         # Pass the CSV data to the relevant agent for processing
         # For example: database_agent.process_local_file(data_csv)
 
-    openai_api_key = get_env_variable("OPENAI_API_KEY")
+    openai_api_key = UtilsAgent.get_env_variable("OPENAI_API_KEY")
 
     user_question = st.text_input("Enter a question:", key="user_question")
     if user_question:
         with st.spinner('Processing...'):
-            response = AgentState(openai_api_key)
+            response = AgentState(openai_api_key,"memory_test.db")
             st.write("Response:", response)
 
     lottie_url = 'https://assets1.lottiefiles.com/packages/lf20_vykpwt8b.json'

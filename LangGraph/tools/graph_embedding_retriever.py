@@ -2,7 +2,7 @@ from neo4j import GraphDatabase
 from langchain_community.chat_models import ChatOpenAI
 import numpy as np
 import faiss
-from agents.utils_agent import get_env_variable
+from agents.utils_agent import UtilsAgent
 from langgraph.graph import MessageGraph
 from langgraph.prebuilt.tool_node import ToolNode
 from langgraph.checkpoint.sqlite import SqliteSaver
@@ -136,10 +136,10 @@ class GraphEmbeddingRetriever:
 
 # Example usage
 if __name__ == "__main__":
-    neo4j_uri = get_env_variable("NEO4J_URI")
-    neo4j_username = get_env_variable("NEO4J_USERNAME")
-    neo4j_password = get_env_variable("NEO4J_PASSWORD")
-    openai_api_key = get_env_variable("OPENAI_API_KEY")
+    neo4j_uri = UtilsAgent.get_env_variable("NEO4J_URI")
+    neo4j_username = UtilsAgent.get_env_variable("NEO4J_USERNAME")
+    neo4j_password = UtilsAgent.get_env_variable("NEO4J_PASSWORD")
+    openai_api_key = UtilsAgent.get_env_variable("OPENAI_API_KEY")
     db_path = "graph_embedding_retriever_memory.db"
 
     from agents.embedding_agent import EmbeddingAgent
