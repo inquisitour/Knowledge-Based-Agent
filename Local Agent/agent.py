@@ -107,7 +107,7 @@ class OpenAIops:
         formatted_context = "\n\n".join([f"Q: {doc.metadata['question']}, A: {doc.page_content}" for doc in context])
         formatted_graph_context = "\n\n".join([f"{result['text']} (Score: {result['score']}, Label: {result['label']}, Category: {result['category']})" for result in graph_context])
         prompt = f"Context:\n{formatted_context}\n\nKnowledge Graph Context:\n{formatted_graph_context}\n\nQuestion: \n{user_question}\nAnswer:"
-        print("Prompt:", prompt)
+        # print("Prompt:", prompt)
         # Execute the agent with the dynamically formatted prompt
         response = self.agent_executor({"input": prompt}) 
         output = response["output"]
