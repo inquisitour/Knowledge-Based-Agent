@@ -10,14 +10,17 @@ from langchain.schema import HumanMessage
 from langchain_community.graphs import Neo4jGraph
 from langchain_community.chat_models import ChatOpenAI
 from langchain.embeddings.openai import OpenAIEmbeddings
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 warnings.filterwarnings('ignore')
 
 class GraphEmbeddingRetriever(BaseModel):
-    neo4j_uri: str = Field(..., description="URI for Neo4j database")
-    neo4j_username: str = Field(..., description="Username for Neo4j database")
-    neo4j_password: str = Field(..., description="Password for Neo4j database")
-    openai_api_key: str = Field(..., description="OpenAI API key for embedding model")
+    neo4j_uri: str = Field(os.getenv("NEO4J_URI"), description="URI for Neo4j database")
+    neo4j_username: str = Field(os.getenv("NEO4J_USERNAME"), description="Username for Neo4j database")
+    neo4j_password: str = Field(os.getenv("NEO4J_PASSWORD"), description="Password for Neo4j database")
+    openai_api_key: str = Field(os.getenv("OPENAI_API_KEY"), description="OpenAI API key for embedding model")
     graph: Any = Field(None, description="Neo4jGraph instance")
     llm: Any = Field(None, description="Language model instance")  
     embedding_model: Any = Field(None, description="Embedding model instance")
@@ -142,7 +145,7 @@ class GraphEmbeddingRetriever(BaseModel):
             List[Dict[str, any]]: List of relevant results with information like text, score, label, and category.
         """
         # Step 1: Generate candidate Cypher queries
-        prompt = f"Given the user query: {user_query}, generate a Cypher query to retrieve relevant information from the Neo4j knowledge graph."
+        prompt = f"Given the user query: {user_query}, generate a Cypher query to retrieve relevant information from the Neo4j knowledge graph. The database credentials are: URI: {self.neo4j_uri}, Username: {self.neo4j_username}, Password: {self.neo4j_password}."
         messages = HumanMessage(content=prompt)
         response = self.llm([messages])
         cypher_query = response.content
@@ -196,7 +199,8 @@ class GraphEmbeddingRetriever(BaseModel):
         messages = HumanMessage(content=prompt)
         response = self.llm([messages])
         cypher_query = response.content
-
+        print("-------------\n\n")
+        print(cypher_query)
         # Step 2: Execute candidate Cypher queries
         results_list = []
         seen_texts = set()  # Set to track texts and avoid duplicates

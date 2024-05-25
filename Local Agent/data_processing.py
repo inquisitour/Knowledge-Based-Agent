@@ -10,6 +10,7 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 import networkx as nx
 from pyvis.network import Network 
 from dotenv import load_dotenv
+from neo4jFAQ import GraphEmbeddingRetriever
 
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -67,6 +68,11 @@ class DBops:
             print("Data hash mismatch found. Updating database...")
             
             csv_data = pickle.loads(file_content)
+            graph_retriever = GraphEmbeddingRetriever()
+            print("creating knowledge graph for csv data")
+            graph_retriever.create_knowledge_graph(csv_data)
+            print("Knowledge graph created for csv data, preparing graph embeddings")
+
             if 'questions' in csv_data.columns and 'answers' in csv_data.columns:
                 questions = csv_data['questions'].tolist()
                 answers = csv_data['answers'].tolist()
