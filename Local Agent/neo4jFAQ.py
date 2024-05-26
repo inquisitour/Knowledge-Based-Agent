@@ -30,7 +30,7 @@ class GraphEmbeddingRetriever(BaseModel):
     def __init__(self, **data):
         super().__init__(**data)
 
-        # Set environment variables
+        ## Set environment variables
         # os.environ["NEO4J_URI"] = self.neo4j_uri
         # os.environ["NEO4J_USERNAME"] = self.neo4j_username
         # os.environ["NEO4J_PASSWORD"] = self.neo4j_password

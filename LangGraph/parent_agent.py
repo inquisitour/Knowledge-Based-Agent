@@ -24,26 +24,40 @@ def ParentAgent(db_path, state):
     graph = MessageGraph()
 
     # Step 1: Receive User Query
-    user_query_node = state["user_query"]
+    def receive_user_query():
+        """Receives the user query."""
+        return state["user_query"]
+    
+    user_query = receive_user_query()
+    user_query_node = ToolNode([user_query])
+    #user_query_node.nodes[0].func.__doc__ = "Retrieve the user query"
     graph.add_node("user_query", user_query_node)
 
     # Step 2: Setup Utility Handling
-    graph = utils_agent.graph
     graph.add_node("getting_environment_variables", utils_agent.get_env_variable)
     graph.add_node("loading_db_credentials", utils_agent.load_db_credentials)
 
     # Step 3: Setup Embedding Generation
-    graph = embedding_agent.graph
     graph.add_node("embedding_generation_for_docs", embedding_agent.embed_documents)
     graph.add_node("embedding_generation_for_queries", embedding_agent.embed_query)
 
     # Step 4: Database Operations
-    graph = database_agent.graph
-    graph.add_node("execute_database_ops", database_agent.execute(state["data_csv"]))
+    def execute_database_operations():
+        """
+        Executes database operations using the data_csv from state.
+        """
+        database_agent.execute(state)
+
+    graph.add_node("execute_database_ops", ToolNode([execute_database_operations]))
 
     # Step 5: Knowledge Graph Operations
-    graph = graph_agent.graph
-    graph.add_node("create_knowledge_graph", graph_agent.create_knowledge_graph(state["data_csv"]))
+    def execute_kg_operations():
+        """
+        Executes knowledge graph operations using the data_csv from state.
+        """
+        graph_agent.create_kg(state)
+
+    graph.add_node("execute_kg_operations", ToolNode([execute_kg_operations]))
 
     # Step 6: Database Retrieval
     def database_retrieval_function(state):
@@ -58,14 +72,19 @@ def ParentAgent(db_path, state):
     # Step 7: Query Generation
     def query_generation_function(state):
         """Method for query generation."""
-        return query_generation_agent.generate_cypher_query(state["user_query"])
+        return query_generation_agent.generate_cypher_query(state)
 
     query_generation_node = ToolNode([query_generation_function])
     graph.add_node("query_generation", query_generation_node)
 
     # Step 8: Graph Retrieval
-    graph = graph_agent.graph
-    graph.add_node("graph_retrieval", graph_agent.query_knowledge_graph(state["user_query"]))
+    def graph_retrieval_function():
+        """
+        Executes knowledge graph query related operations.
+        """
+        graph_agent.query_kg(state)
+
+    graph.add_node("graph_retrieval", ToolNode([graph_retrieval_function]))
 
     # Step 9: Context Combination
     def context_combination_function(state):
@@ -80,8 +99,13 @@ def ParentAgent(db_path, state):
     graph.add_node("context_combination", context_combination_node)
 
     # Step 10: Response Generation
-    graph = response_agent.graph
-    graph.add_node("response_generation", response_agent.generate_response(state["context_combination"]))
+    def response_generation_function():
+        """
+        Executes knowledge graph query operations.
+        """
+        response_agent.generate_response(state)
+
+    graph.add_node("response_generation", ToolNode([response_generation_function]))
 
     # Define edges
     graph.add_edge("user_query", "getting_environment_variables")
@@ -89,8 +113,8 @@ def ParentAgent(db_path, state):
     graph.add_edge("loading_db_credentials", "embedding_generation_for_docs")
     graph.add_edge("embedding_generation_for_docs", "embedding_generation_for_queries")
     graph.add_edge("embedding_generation_for_queries", "execute_database_ops")
-    graph.add_edge("execute_database_ops", "create_knowledge_graph")
-    graph.add_edge("create_knowledge_graph", "database_retrieval")
+    graph.add_edge("execute_database_ops", "execute_kg_operations")
+    graph.add_edge("execute_kg_operations", "database_retrieval")
     graph.add_edge("database_retrieval", "query_generation")
     graph.add_edge("query_generation", "graph_retrieval")
     graph.add_edge("graph_retrieval", "context_combination")
