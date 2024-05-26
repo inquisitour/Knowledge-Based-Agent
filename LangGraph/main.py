@@ -1,17 +1,16 @@
-import streamlit as st
-import pandas as pd
-import requests
-from streamlit_lottie import st_lottie
-
-import sys
 import os
+import requests
+import pandas as pd
+from parent_agent import ParentAgent
+from agents.memory.agent_state import AgentState
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.dirname(SCRIPT_DIR))
+import warnings
+warnings.filterwarnings('ignore')
 
-from agents.response_agent import ResponseAgent
-from parent_agent import AgentState
-from agents.utils_agent import UtilsAgent
+ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
+
+import streamlit as st
+from streamlit_lottie import st_lottie
 
 def load_lottie_url(url: str):
     r = requests.get(url)
@@ -36,18 +35,23 @@ def main():
     st.title("Knowledge Based Agent")
 
     uploaded_csv = st.file_uploader("Upload your CSV data file", type=['csv'], key='csv')
+    user_query = st.text_input("Enter a question:", key="user_question")
 
-    if uploaded_csv is not None:
-        data_csv = pd.read_csv(uploaded_csv)
-        # Pass the CSV data to the relevant agent for processing
-        # For example: database_agent.process_local_file(data_csv)
+    def load_state(state: AgentState) -> AgentState:
+        if uploaded_csv is not None:
+            data_csv = pd.read_csv(uploaded_csv)
+            state["data_csv"] = data_csv.to_dict(orient="list")
+        elif user_query is not None:
+            state["user_query"] = user_query
+        return state
+    
+    # Setup agent memory and instantiate
+    db_path = os.path.join(ROOT_DIR, 'agents', 'memory', 'agent_session.db')
+    init_state = load_state()
 
-    openai_api_key = UtilsAgent.get_env_variable("OPENAI_API_KEY")
-
-    user_question = st.text_input("Enter a question:", key="user_question")
-    if user_question:
+    if init_state:
         with st.spinner('Processing...'):
-            response = AgentState(openai_api_key,"memory_test.db")
+            response = ParentAgent(db_path, init_state)
             st.write("Response:", response)
 
     lottie_url = 'https://assets1.lottiefiles.com/packages/lf20_vykpwt8b.json'

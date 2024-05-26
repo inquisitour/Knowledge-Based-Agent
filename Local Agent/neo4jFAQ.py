@@ -34,9 +34,10 @@ class GraphEmbeddingRetriever(BaseModel):
         # os.environ["NEO4J_URI"] = self.neo4j_uri
         # os.environ["NEO4J_USERNAME"] = self.neo4j_username
         # os.environ["NEO4J_PASSWORD"] = self.neo4j_password
+        print(self.neo4j_uri)
 
         # Initialize the Neo4j Graph connection
-        self.graph = Neo4jGraph(url=os.getenv("NEO4J_URI"), username=os.getenv("NEO4J_USERNAME"), password=os.getenv("NEO4J_PASSWORD"))
+        self.graph = Neo4jGraph(url=self.neo4j_uri, username=self.neo4j_username, password=self.neo4j_password)
 
         # Initialize models
         self.llm = ChatOpenAI(api_key=self.openai_api_key, model='gpt-3.5-turbo')
