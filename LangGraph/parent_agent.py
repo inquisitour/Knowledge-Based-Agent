@@ -30,7 +30,7 @@ def ParentAgent(db_path, state):
     
     user_query = receive_user_query()
     user_query_node = ToolNode([user_query])
-    #user_query_node.nodes[0].func.__doc__ = "Retrieve the user query"
+    #user_query_node = ToolNode([receive_user_query])
     graph.add_node("user_query", user_query_node)
 
     # Step 2: Setup Utility Handling
