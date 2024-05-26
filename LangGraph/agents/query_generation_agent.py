@@ -17,8 +17,9 @@ class QueryGenerationAgent:
         self.graph.add_node("generate_cypher_query", ToolNode([self.generate_cypher_query]))
         self.graph.set_entry_point("generate_cypher_query")
 
-    def generate_cypher_query(self, user_query):
+    def generate_cypher_query(self, state):
         """Method for generating a cypher query."""
+        user_query = state["user_query"]
         prompt = f"Given the user query: {user_query}, generate a Cypher query to retrieve relevant information from the Neo4j knowledge graph."
         messages = HumanMessage(content=prompt)
         response = self.llm([messages])

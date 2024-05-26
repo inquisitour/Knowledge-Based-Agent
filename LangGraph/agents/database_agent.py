@@ -1,3 +1,4 @@
+import pandas as pd
 from langgraph.prebuilt import ToolNode
 from langgraph.graph import MessageGraph
 from data_processing.database_ops import DBops
@@ -18,7 +19,7 @@ class DatabaseAgent:
         """Executes the necessary database operations."""
         data_csv = state["data_csv"]
         if data_csv is not None:
-            with self.db_ops.get_database_connection() as conn:
-                self.db_ops.process_local_file(data_csv, conn)
+            df = pd.DataFrame(data_csv)
+            self.db_ops.process_local_file(df)
         else:
-            raise ValueError("data_csv parameter is missing")
+            raise ValueError("No data_csv found in the state.")

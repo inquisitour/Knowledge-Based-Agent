@@ -5,7 +5,6 @@ from langgraph.graph import MessageGraph
 from langgraph.prebuilt.tool_node import ToolNode
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langchain_community.chat_models import ChatOpenAI
-from agents.query_generation_agent import QueryGenerationAgent
 
 class GraphEmbeddingRetriever:
     def __init__(self, neo4j_uri, neo4j_username, neo4j_password, openai_api_key, db_path, embeddings):
@@ -82,9 +81,8 @@ class GraphEmbeddingRetriever:
         self.index.add(np.array(embeddings, dtype=np.float32))
         self.node_id_to_index = {idx: node_id for idx, node_id in enumerate(node_ids)}
 
-    def query_knowledge_graph(self, user_query):
+    def query_knowledge_graph(self, user_query, cypher_query):
         """Actual method for querying a knowledge graph."""
-        cypher_query = QueryGenerationAgent.generate_cypher_query(user_query)
         results_list = []
         seen_texts = set()  # Set to track texts and avoid duplicates
         try:
@@ -125,3 +123,5 @@ class GraphEmbeddingRetriever:
                     seen_texts.add(node_data['text'])  # Add text to set to track as seen
 
         return results_list
+    
+

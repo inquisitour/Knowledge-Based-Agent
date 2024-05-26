@@ -11,6 +11,7 @@ from langgraph.checkpoint.sqlite import SqliteSaver
 from agents.utils_agent import UtilsAgent
 from agents.embedding_agent import EmbeddingAgent
 
+
 # Centralized connection management
 class DBops:
     def __init__(self, db_path):
@@ -18,6 +19,11 @@ class DBops:
         self.embeddings = EmbeddingAgent(db_path)
         self.memory = SqliteSaver.from_conn_string(db_path)
         self.graph = MessageGraph()
+        self.connection_pool = psycopg2.pool.ThreadedConnectionPool(
+            minconn=1,
+            maxconn=10,  # Adjust maxconn based on your expected workload
+            **self.db_config
+        )
         self._setup_graph()
 
     def _setup_graph(self):
@@ -44,11 +50,11 @@ class DBops:
     @contextmanager
     def get_database_connection(self):
         """Get a database connection from the connection pool."""
-        conn = psycopg2.connect(**self.db_config)
+        conn = self.connection_pool.getconn()
         try:
             yield conn
         finally:
-            conn.close()
+            self.connection_pool.putconn(conn)
 
     def with_connection(func):
         @wraps(func)
@@ -58,14 +64,16 @@ class DBops:
         return wrapper
     
     def calculate_file_hash(self, file_content):
-        return hashlib.sha256(file_content).hexdigest()
+        try:
+            return hashlib.sha256(file_content).hexdigest()
+        except Exception as e:
+            print(f"Error calculating file hash: {e}")
 
-    @with_connection
-    def process_local_file(self, data_csv, conn):
+    def process_local_file(self, data_csv):
         """Process the local CSV file and update the database if necessary."""
         file_content = pickle.dumps(data_csv)
         file_hash = self.calculate_file_hash(file_content)
-        if not self.check_data_hash(file_hash, conn):
+        if not self.check_data_hash(file_hash):
             print("Data hash mismatch found. Updating database...")
             
             csv_data = pickle.loads(file_content)
@@ -73,9 +81,9 @@ class DBops:
                 questions = csv_data['questions'].tolist()
                 answers = csv_data['answers'].tolist()
                 embeddings = self.embeddings.embed_documents(questions)  # Batch processing
-                self.insert_data(questions, answers, embeddings, conn)
-                self.delete_all_data_hashes(conn)
-                self.update_data_hash(file_hash, conn)
+                self.insert_data(questions, answers, embeddings)
+                self.delete_all_data_hashes()
+                self.update_data_hash(file_hash)
                 print("Database updated with new data and data hash")
             else:
                 raise ValueError("CSV does not contain the required 'questions' and 'answers' columns")
