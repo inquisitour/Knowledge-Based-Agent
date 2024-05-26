@@ -1,5 +1,5 @@
 import os
-import json
+import sqlite3
 from dotenv import load_dotenv
 from langgraph.graph import MessageGraph
 from langgraph.prebuilt.tool_node import ToolNode
@@ -7,25 +7,40 @@ from langgraph.checkpoint.sqlite import SqliteSaver
 
 class UtilsAgent:
     def __init__(self, db_path):
-        self.memory = SqliteSaver.from_conn_string(f"sqlite:///{db_path}")
-        self.graph = MessageGraph(memory=self.memory)
-        self._setup_graph()
+        try:
+            self.memory = SqliteSaver.from_conn_string(db_path)
+            self.graph = MessageGraph()
+            self._setup_graph()
+        except sqlite3.OperationalError as e:
+            print(f"Error opening database file: {e}")
 
     def _setup_graph(self):
-        self.graph.add_node("load_db_credentials", ToolNode(self.load_db_credentials))
-        self.graph.add_node("save_db_credentials", ToolNode(self.save_db_credentials))
-        self.graph.add_node("get_env_variable", ToolNode(self.get_env_variable))
-        self.graph.set_entry_point("load_db_credentials")
+        self.graph.add_node("get_env_variable", ToolNode([UtilsAgent.get_env_variable]))
+        self.graph.add_node("load_db_credentials", ToolNode([UtilsAgent.load_db_credentials]))
 
-    def load_db_credentials(self, db_type):
+        self.graph.add_edge("get_env_variable", "load_db_credentials")
+
+        self.graph.set_entry_point("get_env_variable")
+
+    @staticmethod
+    def get_env_variable(variable_name):
+        """Get the value of an environment variable."""
+        value = os.getenv(variable_name)
+        if value is None:
+            raise ValueError(f"{variable_name} environment variable is not set.")
+        return value
+
+    @staticmethod
+    def load_db_credentials(db_type):
+        """Load database credentials from environment variables."""
         load_dotenv()
         if db_type == 'postgres':
             return {
-                'host': os.getenv('POSTGRES_HOST'),
-                'port': os.getenv('POSTGRES_PORT'),
-                'database': os.getenv('POSTGRES_DB'),
-                'user': os.getenv('POSTGRES_USER'),
-                'password': os.getenv('POSTGRES_PASSWORD')
+                'host': os.getenv('DB_HOST'),
+                'port': os.getenv('DB_PORT'),
+                'database': os.getenv('DB_DB'),
+                'user': os.getenv('DB_USER'),
+                'password': os.getenv('DB_PASSWORD')
             }
         elif db_type == 'neo4j':
             return {
@@ -35,22 +50,3 @@ class UtilsAgent:
             }
         else:
             raise ValueError(f"Unsupported database type: {db_type}")
-
-    def save_db_credentials(self, db_type, credentials):
-        if db_type == 'postgres':
-            with open('postgres_credentials.json', 'w') as f:
-                json.dump(credentials, f)
-        elif db_type == 'neo4j':
-            with open('neo4j_credentials.json', 'w') as f:
-                json.dump(credentials, f)
-        else:
-            raise ValueError(f"Unsupported database type: {db_type}")
-
-    def get_env_variable(self, variable_name):
-        value = os.getenv(variable_name)
-        if value is None:
-            raise ValueError(f"{variable_name} environment variable is not set.")
-        return value
-
-    def get_graph(self):
-        return self.graph

@@ -103,6 +103,7 @@ class OpenAIops:
 
     def answer_question(self, user_question):
         context = self.retriever.get_relevant_documents(user_question)
+        print(context)
         graph_context = self.graph_retriever.query_knowledge_graph(user_question)
         formatted_context = "\n\n".join([f"Q: {doc.metadata['question']}, A: {doc.page_content}" for doc in context])
         formatted_graph_context = "\n\n".join([f"{result['text']} (Score: {result['score']}, Label: {result['label']}, Category: {result['category']})" for result in graph_context])
