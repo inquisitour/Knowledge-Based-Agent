@@ -37,7 +37,7 @@ def main():
     uploaded_csv = st.file_uploader("Upload your CSV data file", type=['csv'], key='csv')
     user_query = st.text_input("Enter a question:", key="user_question")
 
-    def load_state(state: AgentState) -> AgentState:
+    def load_state(state: AgentState, uploaded_csv=None, user_query=None) -> AgentState:
         if uploaded_csv is not None:
             data_csv = pd.read_csv(uploaded_csv)
             state["data_csv"] = data_csv.to_dict(orient="list")
@@ -47,7 +47,7 @@ def main():
     
     # Setup agent memory and instantiate
     db_path = os.path.join(ROOT_DIR, 'agents', 'memory', 'agent_session.db')
-    init_state = load_state()
+    init_state = load_state(state=AgentState, uploaded_csv=uploaded_csv, user_query=user_query)
 
     if init_state:
         with st.spinner('Processing...'):
