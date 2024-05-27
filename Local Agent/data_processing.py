@@ -7,8 +7,6 @@ import numpy as np
 import pandas as pd
 from contextlib import contextmanager
 from langchain.embeddings.openai import OpenAIEmbeddings
-import networkx as nx
-from pyvis.network import Network 
 from dotenv import load_dotenv
 from neo4jFAQ import GraphEmbeddingRetriever
 
@@ -243,7 +241,7 @@ class DBops:
         except Exception as e:
             print(f"Error setting up database: {e}")
 
-    def visualize_graph(self, *graphs):
+    '''def visualize_graph(self, *graphs):
         try:
             combined_graph = nx.compose_all(graphs)
             nt = Network(height="750px", width="100%", bgcolor="#222222", font_color="white")
@@ -252,7 +250,7 @@ class DBops:
             print("Visualizing knowledge graph")
             nt.show("knowledge_graph.html", notebook=False)
         except Exception as e:
-            print(f"Error visualizing graph: {e}")
+            print(f"Error visualizing graph: {e}")'''
 
 # Uncomment to visualize knowledge graph            
 # db_ops.visualize_graph(db_ops.create_knowledge_graph(excel_file_content), db_ops.create_knowledge_graph(csv_file_content))

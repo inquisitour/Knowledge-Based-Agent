@@ -1,22 +1,18 @@
-from neo4j import GraphDatabase
-from langchain_community.chat_models import ChatOpenAI
-import numpy as np
 import faiss
-from agents.utils_agent import UtilsAgent
+import numpy as np
+from neo4j import GraphDatabase
 from langgraph.graph import MessageGraph
 from langgraph.prebuilt.tool_node import ToolNode
 from langgraph.checkpoint.sqlite import SqliteSaver
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.schema import HumanMessage
-import pandas as pd
+from langchain_community.chat_models import ChatOpenAI
 
 class GraphEmbeddingRetriever:
     def __init__(self, neo4j_uri, neo4j_username, neo4j_password, openai_api_key, db_path, embeddings):
         self.driver = GraphDatabase.driver(neo4j_uri, auth=(neo4j_username, neo4j_password))
         self.llm = ChatOpenAI(api_key=openai_api_key, model="gpt-3.5-turbo")
         self.embedding_model = embeddings
-        self.memory = SqliteSaver.from_conn_string(f"sqlite:///{db_path}")
-        self.graph_manager = MessageGraph(memory=self.memory)
+        self.memory = SqliteSaver.from_conn_string(db_path)
+        self.graph_manager = MessageGraph()
         self._setup_graph()
 
         sample_embedding = self.embedding_model.embed_query("sample text")
@@ -28,17 +24,22 @@ class GraphEmbeddingRetriever:
         print("Graph embedding retriever initialized")
 
     def _setup_graph(self):
-        self.graph_manager.add_node("create_knowledge_graph", ToolNode(self.create_knowledge_graph))
-        self.graph_manager.add_node("query_knowledge_graph", ToolNode(self.query_knowledge_graph))
+        self.graph_manager.add_node("create_knowledge_graph", ToolNode([self.create_knowledge_graph]))
+        self.graph_manager.add_node("query_knowledge_graph", ToolNode([self.query_knowledge_graph]))
+
+        self.graph_manager.add_edge("create_knowledge_graph", "query_knowledge_graph")
+
         self.graph_manager.set_entry_point("create_knowledge_graph")
 
     def batch_embeddings(self, texts):
+        """Method for processing embeddings in batches."""
         if not texts:
             return []
         embeddings = self.embedding_model.embed_documents(texts)
         return embeddings
 
     def create_knowledge_graph(self, csv_data):
+        """Actual method for creating a knowledge graph."""
         with self.driver.session() as session:
             for index, row in csv_data.iterrows():
                 question = row['questions']
@@ -63,6 +64,7 @@ class GraphEmbeddingRetriever:
             self.build_faiss_index(nodes_with_embeddings)
 
     def update_embeddings_in_graph(self, nodes_with_embeddings):
+        """Method for updating a knowledge graph."""
         with self.driver.session() as session:
             query = """
                 UNWIND $nodes as node
@@ -73,13 +75,14 @@ class GraphEmbeddingRetriever:
             session.run(query, nodes=nodes_with_embeddings)
 
     def build_faiss_index(self, nodes_with_embeddings):
+        """Method for building a vector index."""
         embeddings = [node['embedding'] for node in nodes_with_embeddings]
         node_ids = [node['id'] for node in nodes_with_embeddings]
         self.index.add(np.array(embeddings, dtype=np.float32))
         self.node_id_to_index = {idx: node_id for idx, node_id in enumerate(node_ids)}
 
-    def query_knowledge_graph(self, user_query):
-        cypher_query = self.generate_cypher_query(user_query)
+    def query_knowledge_graph(self, user_query, cypher_query):
+        """Actual method for querying a knowledge graph."""
         results_list = []
         seen_texts = set()  # Set to track texts and avoid duplicates
         try:
@@ -120,39 +123,5 @@ class GraphEmbeddingRetriever:
                     seen_texts.add(node_data['text'])  # Add text to set to track as seen
 
         return results_list
+    
 
-    def generate_cypher_query(self, user_query):
-        prompt = f"Given the user query: {user_query}, generate a Cypher query to retrieve relevant information from the Neo4j knowledge graph."
-        messages = HumanMessage(content=prompt)
-        response = self.llm([messages])
-        cypher_query = response.content
-        return cypher_query
-
-    def process_create_knowledge_graph(self, csv_data):
-        return self.graph_manager.run("create_knowledge_graph", csv_data=csv_data)
-
-    def process_query_knowledge_graph(self, user_query):
-        return self.graph_manager.run("query_knowledge_graph", user_query=user_query)
-
-# Example usage
-if __name__ == "__main__":
-    neo4j_uri = UtilsAgent.get_env_variable("NEO4J_URI")
-    neo4j_username = UtilsAgent.get_env_variable("NEO4J_USERNAME")
-    neo4j_password = UtilsAgent.get_env_variable("NEO4J_PASSWORD")
-    openai_api_key = UtilsAgent.get_env_variable("OPENAI_API_KEY")
-    db_path = "graph_embedding_retriever_memory.db"
-
-    from agents.embedding_agent import EmbeddingAgent
-    embedding_agent = EmbeddingAgent(db_path=db_path)
-    retriever = GraphEmbeddingRetriever(neo4j_uri, neo4j_username, neo4j_password, openai_api_key, db_path, embeddings=embedding_agent.embeddings)
-
-    data_csv = pd.DataFrame({
-        'questions': ["What is AI?", "What is machine learning?"],
-        'answers': ["AI is artificial intelligence.", "Machine learning is a subset of AI."],
-        'category': ["Technology", "Technology"]
-    })
-    retriever.process_create_knowledge_graph(data_csv)
-
-    user_query = "Tell me about AI."
-    results = retriever.process_query_knowledge_graph(user_query)
-    print(results)
