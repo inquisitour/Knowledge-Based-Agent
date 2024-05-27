@@ -1,8 +1,8 @@
 import os
 import requests
 import pandas as pd
-from typing import Dict, Any
 from parent_agent import ParentAgent
+from agents.memory.agent_state import AgentState
 
 import warnings
 warnings.filterwarnings('ignore')
@@ -18,7 +18,7 @@ def load_lottie_url(url: str):
         return None
     return r.json()
 
-def load_state(state: Dict[str, Any], uploaded_csv=None, user_query=None) -> Dict[str, Any]:
+def load_state(state: AgentState, uploaded_csv=None, user_query=None) -> AgentState:
     if uploaded_csv is not None:
         data_csv = pd.read_csv(uploaded_csv)
         state["data_csv"] = data_csv.to_dict(orient="list")
@@ -46,11 +46,12 @@ def main():
     user_query = st.text_input("Enter a question:", key="user_question")
 
     # Initialize the state with default values
-    initial_state: Dict[str, Any] = {
+    initial_state: AgentState = {
         "user_query": "",
         "database_retrieval": [],
         "graph_retrieval": {},
         "context_combination": {},
+        "response_generation": [],
         "data_csv": {}
     }
     

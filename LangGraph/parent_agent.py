@@ -5,6 +5,7 @@ from agents.query_generation_agent import QueryGenerationAgent
 from agents.response_agent import ResponseAgent
 from agents.embedding_agent import EmbeddingAgent
 from agents.graph_agent import GraphAgent
+from agents.user_query_agent import UserQueryAgent
 from tools.embedding_retriever import EmbeddingRetriever
 from agents.utils_agent import UtilsAgent
 from langgraph.prebuilt.tool_node import ToolNode
@@ -13,6 +14,7 @@ from langgraph.checkpoint.sqlite import SqliteSaver
 
 def ParentAgent(db_path, state):
 
+    user_query_agent = UserQueryAgent(db_path=db_path)
     utils_agent = UtilsAgent(db_path=db_path)
     embedding_agent = EmbeddingAgent(db_path=db_path)
     database_agent = DatabaseAgent(db_path=db_path)
@@ -24,14 +26,7 @@ def ParentAgent(db_path, state):
     graph = MessageGraph()
 
     # Step 1: Receive User Query
-    def receive_user_query():
-        """Receives the user query."""
-        return state["user_query"]
-    
-    user_query = receive_user_query()
-    user_query_node = ToolNode([user_query])
-    #user_query_node = ToolNode([receive_user_query])
-    graph.add_node("user_query", user_query_node)
+    graph.add_node("user_query", user_query_agent.get_user_query)
 
     # Step 2: Setup Utility Handling
     graph.add_node("getting_environment_variables", utils_agent.get_env_variable)
@@ -121,8 +116,9 @@ def ParentAgent(db_path, state):
     graph.add_edge("context_combination", "response_generation")
     graph.add_edge("response_generation", END)
 
-    start = graph.set_entry_point("user_query")
+    graph.set_entry_point("user_query")
+
     runnable = graph.compile(checkpointer=memory)
-    runnable.invoke(HumanMessage(start))
+    runnable.invoke(HumanMessage(state["response_generation"]))
 
     return runnable
