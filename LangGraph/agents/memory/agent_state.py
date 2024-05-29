@@ -8,6 +8,7 @@ class AgentState(TypedDict):
     database_retrieval: List[Document]
     graph_retrieval: Dict[str, List]
     context_combination: Dict[str, Any]
+    response_generation: List[Any]
     data_csv: Annotated[Dict[str, List], operator.add]
 
 
