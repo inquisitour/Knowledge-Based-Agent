@@ -145,18 +145,75 @@ class GraphEmbeddingRetriever(BaseModel):
         Returns:
             List[Dict[str, any]]: List of relevant results with information like text, score, label, and category.
         """
-        # Step 1: Generate candidate Cypher queries
-        prompt = f"Given the user query: {user_query}, generate a Cypher query to retrieve relevant information from the Neo4j knowledge graph. The database credentials are: URI: {self.neo4j_uri}, Username: {self.neo4j_username}, Password: {self.neo4j_password}."
-        messages = HumanMessage(content=prompt)
-        response = self.llm([messages])
-        cypher_query = response.content
-        print("-------------\n\n")
-        print(cypher_query)
+        #step 0: find embedding vector for the input user query
+        user_query_embedding = self.embedding_model.embed_query(user_query)
+
+        # Step 1: Generate candidate Cypher queries to find answer nodes closest to the user_query_embedding using cosine similarity
+
+
+
+        # prompt = f"""Given the user query embedding ,
+        #  generate a Cypher query [with no other text only the pure cypher query with the user_query_embedding varibale written inside curly brackets which can be directly be passed to execute no other comments] 
+        #   to retrieve N relevant nodes from the Neo4j knowledge graph perform similarity search like cosine similarity or distance similarity. 
+        #   The database credentials are: URI: {self.neo4j_uri}, Username: {self.neo4j_username}, Password: {self.neo4j_password}. 
+        #   and the structure of the graph is 
+        #   Nodes [ each node has a embedding property]
+        #     Category (c)
+        #         Properties:
+        #         name: The name of the category.
+        #     Question (q)
+        #         Properties:
+        #         id: Unique identifier for the question.
+        #         text: The text of the question.
+        #         category: The category to which the question belongs.
+        #     Answer (a)
+        #         Properties:
+        #         id: Unique identifier for the answer (same as the question for direct association).
+        #         text: The text of the answer.
+        #         category: The category to which the answer belongs.
+        #     Relationships
+        #     HAS_ANSWER
+        #         From: Question (q)
+        #         To: Answer (a)
+        #         Description: This relationship indicates that a particular question has a specific answer.
+        #     INCLUDES
+        #         From: Category (c)
+        #         To: Question (q)
+        #         Description: This relationship indicates that a category includes a particular question.
+        #     From: Category (c)
+        #         To: Answer (a)
+        #         Description: This relationship indicates that a category includes a particular answer.
+        #     """
+        # print(prompt)
+        # messages = HumanMessage(content=prompt)
+        # response = self.llm([messages])
+        # cypher_query = response.content
+
+        # cypher_query = """
+        # MATCH (q:Question)
+        # WITH q, gds.alpha.similarity.cosine(q.embedding, {user_query_embedding}) AS similarity
+        # ORDER BY similarity DESC
+        # LIMIT 5
+        # MATCH (q)-[:HAS_ANSWER]->(a:Answer)
+        # RETURN q.text AS question, a.text AS answer, similarity
+
+        # """
+        cypher_query = """
+        MATCH (n)
+        RETURN n
+        LIMIT 3
+        """
+        print("------the cypher query-------\n\n")
+        # print(cypher_query)
 
         # Step 2: Execute candidate Cypher queries
         results_list = []
         seen_texts = set()  # Set to track texts and avoid duplicates
-        candidate_results = self.graph.query(cypher_query)
+        candidate_results = self.graph.query(cypher_query.format(user_query_embedding=user_query_embedding))
+        print("------the candidate results-------\n\n")
+        print(candidate_results)
+        print("\n-----xox----\n")
+
         if candidate_results:
             for node in candidate_results:
                 if node['text'] not in seen_texts:
@@ -184,7 +241,7 @@ class GraphEmbeddingRetriever(BaseModel):
                     'category': node_data['category']
                 })
                 seen_texts.add(node_data['text'])  # Add text to set to track as seen
-        print("\n-----xox----\n")
+        print("\n-----holo----\n")
         print(results_list)
         return results_list
 
