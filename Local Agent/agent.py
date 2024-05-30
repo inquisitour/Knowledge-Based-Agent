@@ -8,7 +8,7 @@ from langchain.schema import Document
 from langchain.agents import AgentExecutor, create_openai_tools_agent
 from langchain.tools import Tool
 from pydantic import BaseModel, Field
-from neo4jFAQ import GraphEmbeddingRetriever
+from neo4j_LangChain_Test import GraphEmbeddingRetriever
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 
 # Securely fetch the API key
@@ -52,7 +52,9 @@ class EmbeddingRetriever(BaseModel):
 class OpenAIops:
     def __init__(self):
         self.chat_model = ChatOpenAI(api_key=OPENAI_API_KEY, model='gpt-3.5-turbo')
+        print("before database con")
         with get_database_connection() as conn:
+            print("database con established")
             self.retriever = EmbeddingRetriever(conn)
             
             # Convert the retriever into a LangChain tool
@@ -68,6 +70,10 @@ class OpenAIops:
             # neo4j_password="gravitas@123",
             # openai_api_key=OPENAI_API_KEY
         )
+
+        self.graph_retriever.load_knowledge_graph()
+        
+        print("load knnowledge graph done")
 
         # Convert the GraphEmbeddingRetriever into a LangChain tool
         graph_retriever_tool = Tool(
@@ -102,13 +108,15 @@ class OpenAIops:
         print("OpenAI operations with LangChain agent initialized")
 
     def answer_question(self, user_question):
-        context = self.retriever.get_relevant_documents(user_question)
-        print(context)
+        print("in answer    question")
+        # context = self.retriever.get_relevant_documents(user_question)
+        # print(context)
         graph_context = self.graph_retriever.query_knowledge_graph(user_question)
-        formatted_context = "\n\n".join([f"Q: {doc.metadata['question']}, A: {doc.page_content}" for doc in context])
-        formatted_graph_context = "\n\n".join([f"{result['text']} (Score: {result['score']}, Label: {result['label']}, Category: {result['category']})" for result in graph_context])
+        formatted_context = ""
+        # formatted_context = "\n\n".join([f"Q: {doc.metadata['question']}, A: {doc.page_content}" for doc in context])
+        formatted_graph_context = "\n\n".join([f"Reference Question : {result['question']} (Correct Answer: {result['answer']})" for result in graph_context])
         prompt = f"Context:\n{formatted_context}\n\nKnowledge Graph Context:\n{formatted_graph_context}\n\nQuestion: \n{user_question}\nAnswer:"
-        # print("Prompt:", prompt)
+        print("Prompt:", prompt)
         # Execute the agent with the dynamically formatted prompt
         response = self.agent_executor({"input": prompt}) 
         output = response["output"]

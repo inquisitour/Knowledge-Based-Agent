@@ -70,7 +70,7 @@ class GraphEmbeddingRetriever(BaseModel):
             return []
         embeddings = self.embedding_model.embed_documents(texts)
         return embeddings
-
+        
     def create_knowledge_graph(self, csv_data: pd.DataFrame) -> None:
         """
         Create a knowledge graph in Neo4j based on the input CSV data and build a vector index.
@@ -245,63 +245,7 @@ class GraphEmbeddingRetriever(BaseModel):
         print(results_list)
         return results_list
 
-    # def query_knowledge_graph(self, user_query: str) -> List[Dict[str, any]]:
-    #     """
-    #     Query the Neo4j knowledge graph based on the user's input and return relevant results.
-
-    #     Args:
-    #         user_query (str): User's query.
-
-    #     Returns:
-    #         List[Dict[str, any]]: List of relevant results with information like text, score, label, and category.
-    #     """
-    #     # Step 1: Generate candidate Cypher queries
-    #     prompt = f"Given the user query: {user_query}, generate a Cypher query to retrieve relevant information from the Neo4j knowledge graph."
-    #     messages = HumanMessage(content=prompt)
-    #     response = self.llm([messages])
-    #     cypher_query = response.content
-    #     print("-------------\n\n")
-    #     print(cypher_query)
-    #     # Step 2: Execute candidate Cypher queries
-    #     results_list = []
-    #     seen_texts = set()  # Set to track texts and avoid duplicates
-    #     try:
-    #         candidate_results = self.graph.query(cypher_query)
-    #     except Exception as e:
-    #         print(f"Error executing Cypher query: {e}")
-    #         candidate_results = []
-
-    #     if candidate_results:
-    #         for node in candidate_results:
-    #             if node['text'] not in seen_texts:
-    #                 results_list.append({
-    #                     'text': node['text'],
-    #                     'score': 0.2,  # High score for direct matches
-    #                     'label': node['labels'][0] if node['labels'] else 'No Label',
-    #                     'category': node['category'] if 'category' in node else 'No Category'
-    #                 })
-    #                 seen_texts.add(node['text'])
-
-    #     # Step 3: FAISS-based embedding similarity search
-    #     user_query_embedding = self.embedding_model.embed_query(user_query)
-    #     D, I = self.index.search(np.array([user_query_embedding], dtype=np.float32), k=10)  # Retrieve top 10 matches
-
-    #     for i in range(len(I[0])):
-    #         node_index = I[0][i]
-    #         if node_index >= 0 and node_index in self.node_id_to_index:  # Check if node_index is valid
-    #             node_id = self.node_id_to_index[node_index]
-    #             score = 1 - D[0][i]  # Convert distance to similarity score
-    #             node_data = self.graph.query(f"MATCH (n) WHERE id(n) = {node_id} OPTIONAL MATCH (n)<-[:INCLUDES]-(c:Category) RETURN n.text as text, labels(n) as labels, coalesce(c.name, 'No Category') as category")[0]
-    #             if node_data['text'] not in seen_texts:
-    #                 results_list.append({
-    #                     'text': node_data['text'],
-    #                     'score': score,
-    #                     'label': node_data['labels'][0] if node_data['labels'] else 'No Label',
-    #                     'category': node_data['category']
-    #                 })
-    #                 seen_texts.add(node_data['text'])  # Add text to set to track as seen
-
-    #     return results_list
+   
 
     def output_parser(self, user_query: str, results: List[Dict[str, any]]) -> None:
         """

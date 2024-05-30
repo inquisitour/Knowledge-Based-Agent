@@ -8,7 +8,7 @@ import pandas as pd
 from contextlib import contextmanager
 from langchain.embeddings.openai import OpenAIEmbeddings
 from dotenv import load_dotenv
-from neo4jFAQ import GraphEmbeddingRetriever
+from neo4j_LangChain_Test import GraphEmbeddingRetriever
 
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -83,6 +83,7 @@ class DBops:
                 raise ValueError("CSV does not contain the required 'questions' and 'answers' columns")
         else:
             print("Data is up to date")
+            
     
     @with_connection
     def insert_data(self, questions, answers, embeddings, conn):

@@ -45,7 +45,7 @@ class GraphEmbeddingRetriever(BaseModel):
 
         # Initialize the Neo4j Graph connection
         self.graph = Neo4jGraph(url=self.neo4j_uri, username=self.neo4j_username, password=self.neo4j_password)
-        self.db = Neo4jVector.from_existing_index(OpenAIEmbeddings() ,url=self.neo4j_uri, username=self.neo4j_username, password=self.neo4j_password,index_name="vector",)
+        
 
         # Initialize models
         self.llm = ChatOpenAI(api_key=self.openai_api_key, model='gpt-3.5-turbo')
@@ -61,7 +61,8 @@ class GraphEmbeddingRetriever(BaseModel):
         
         print("Graph embedding retriever initialized")
 
- 
+    def load_knowledge_graph(self) -> None:
+        self.db = Neo4jVector.from_existing_index(OpenAIEmbeddings() ,url=self.neo4j_uri, username=self.neo4j_username, password=self.neo4j_password,index_name="vector",)
 
     def create_knowledge_graph(self, csv_data: pd.DataFrame) -> None:
         """
@@ -104,17 +105,7 @@ class GraphEmbeddingRetriever(BaseModel):
 
        
 
-    def build_faiss_index(self, nodes_with_embeddings: List[Dict[str, any]]) -> None:
-        """
-        Build a FAISS vector index from the embeddings.
-
-        Args:
-            nodes_with_embeddings (List[Dict[str, any]]): List of node dictionaries containing node IDs and embeddings.
-        """
-        embeddings = [node['embedding'] for node in nodes_with_embeddings]
-        node_ids = [node['id'] for node in nodes_with_embeddings]
-        self.index.add(np.array(embeddings, dtype=np.float32))
-        self.node_id_to_index = {idx: node_id for idx, node_id in enumerate(node_ids)}
+    
 
     def query_knowledge_graph(self, user_query: str) -> List[Dict[str, Any]]:
         """
@@ -152,20 +143,24 @@ class GraphEmbeddingRetriever(BaseModel):
                 "answers": [answer["text"] for answer in answer_nodes]
             }
             questions_with_answers.append(question_with_answers)
-
+        results_list = []
         for qa in questions_with_answers:
-            print("-" * 80)
-            print("Question: ", qa["question"])
+            # print("-" * 80)
+            # print("Question: ", qa["question"])
             for answer in qa["answers"]:
-                print("Answer: ", answer)
-            print("-" * 80)
+                # print("Answer: ", answer)
+                # print("-" * 80)
+                results_list.append({
+                        'question':  qa["question"],
+                        'answer': answer,
+                    })
         
-        return questions_with_answers
+        return results_list
         
 
 
 
-ret = GraphEmbeddingRetriever()
-# ret.create_knowledge_graph(pd.read_csv("C:/Users/Rudra/main/code/gravitas/Knowledge-Based-Agent/Local Agent/categorized_qa_pairs.csv", encoding='latin1'))
-ans = ret.query_knowledge_graph("what does my eye hurt")
+# ret = GraphEmbeddingRetriever()
+# # ret.create_knowledge_graph(pd.read_csv("C:/Users/Rudra/main/code/gravitas/Knowledge-Based-Agent/Local Agent/categorized_qa_pairs.csv", encoding='latin1'))
+# ans = ret.query_knowledge_graph("what does my eye hurt")
 # print(ans)
