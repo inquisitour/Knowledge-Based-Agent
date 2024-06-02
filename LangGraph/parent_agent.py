@@ -10,6 +10,7 @@ from tools.embedding_retriever import EmbeddingRetriever
 from agents.utils_agent import UtilsAgent
 from langgraph.prebuilt.tool_node import ToolNode
 from langgraph.checkpoint.sqlite import SqliteSaver
+from IPython.display import Image, display
 
 
 def ParentAgent(db_path, state):
@@ -119,6 +120,9 @@ def ParentAgent(db_path, state):
     graph.set_entry_point("user_query")
 
     runnable = graph.compile(checkpointer=memory)
-    runnable.invoke(HumanMessage(state["response_generation"]))
 
-    return runnable
+    #topology = display(Image(runnable.get_graph(xray=True).draw_mermaid_png())) 
+
+    response = runnable.invoke(HumanMessage(state["response_generation"]))  # checkpointer failure 
+
+    return response
