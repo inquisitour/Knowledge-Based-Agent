@@ -79,7 +79,7 @@ class OpenAIops:
         graph_retriever_tool = Tool(
             name="GraphEmbeddingRetriever",
             func=self.graph_retriever.query_knowledge_graph,
-            description="Retrieves relevant information from the Neo4j knowledge graph"
+            description="Retrieves relevant information from the Neo4j knowledge graph [the input must be in english if in hinglish convert it to english first]"
         )
 
         # Define the prompt template
@@ -111,14 +111,16 @@ class OpenAIops:
         print("in answer    question")
         # context = self.retriever.get_relevant_documents(user_question)
         # print(context)
-        graph_context = self.graph_retriever.query_knowledge_graph(user_question)
-        formatted_context = ""
-        # formatted_context = "\n\n".join([f"Q: {doc.metadata['question']}, A: {doc.page_content}" for doc in context])
-        formatted_graph_context = "\n\n".join([f"Reference Question : {result['question']} (Correct Answer: {result['answer']})" for result in graph_context])
-        prompt = f"Context:\n{formatted_context}\n\nKnowledge Graph Context:\n{formatted_graph_context}\n\nQuestion: \n{user_question}\nAnswer:"
-        print("Prompt:", prompt)
+        # -----------------
+        # graph_context = self.graph_retriever.query_knowledge_graph(user_question)
+        # formatted_context = ""
+        # # formatted_context = "\n\n".join([f"Q: {doc.metadata['question']}, A: {doc.page_content}" for doc in context])
+        # formatted_graph_context = "\n\n".join([f"Reference Question : {result['question']} (Correct Answer: {result['answer']})" for result in graph_context])
+        # prompt = f"Context:\n{formatted_context}\n\nKnowledge Graph Context:\n{formatted_graph_context}\n\nQuestion: \n{user_question}\nAnswer:"
+        # print("Prompt:", prompt)
+        # ---------------------
         # Execute the agent with the dynamically formatted prompt
-        response = self.agent_executor({"input": prompt}) 
+        response = self.agent_executor({"input": user_question}) 
         output = response["output"]
         print("Finishing up..!")
             

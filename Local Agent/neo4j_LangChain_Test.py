@@ -117,6 +117,7 @@ class GraphEmbeddingRetriever(BaseModel):
         Returns:
             List[Dict[str, Any]]: List of relevant results with question and answer texts.
         """
+        print("Querying knowledge graph... in..\n [promp recieved] ", user_query)
         # Perform similarity search to get the most relevant questions
         docs_with_score = self.db.similarity_search_with_score(user_query, k=5)
         
