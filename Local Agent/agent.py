@@ -10,44 +10,45 @@ from langchain.tools import Tool
 from pydantic import BaseModel, Field
 from neo4j_LangChain_Test import GraphEmbeddingRetriever
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-
+from base_embedding_retriever import EmbeddingRetriever
 # Securely fetch the API key
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
     raise ValueError("OPENAI_API_KEY is not set in environment variables")
 
-class EmbeddingRetriever(BaseModel):
-    db_connection: Any = Field(..., description="Database connection for retrieving embeddings")
-    embeddings: Any = Field(None, description="OpenAI embeddings model")
+# class EmbeddingRetriever(BaseModel):
+#     db_connection: Any = Field(..., description="Database connection for retrieving embeddings")
+#     embeddings: Any = Field(None, description="OpenAI embeddings model")
 
-    def __init__(self, db_connection):
-        super().__init__(db_connection=db_connection)
-        self.embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY, model="text-embedding-3-large")
-        print("Embedding retriever initialized")
+#     def __init__(self, db_connection):
+#         super().__init__(db_connection=db_connection)
+#         self.embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY, model="text-embedding-3-large")
+#         print("Embedding retriever initialized")
 
-    def retrieve_similar_questions(self, query, k=20, min_similarity=0.1):
-        query_vec = self.embeddings.embed_documents(query)[0]
-        query_vec = np.array(query_vec)  # Ensure the query vector is writable
-        query_vec /= np.linalg.norm(query_vec)
-        similar_questions = []
-        with self.db_connection.cursor() as cursor:
-            cursor.execute("SELECT question, answer, embedding FROM faq_embeddings")
-            results = cursor.fetchall()
-            for result in results:
-                question, answer, embedding = result
-                embedding = np.frombuffer(embedding, dtype=np.float32).copy()  # Make a writable copy of the embedding
-                embedding /= np.linalg.norm(embedding)
-                similarity = np.dot(embedding, query_vec)
-                #print(similarity)
-                if similarity >= min_similarity:
-                    similar_questions.append({'question': question, 'answer': answer, 'similarity': similarity})
-            similar_questions.sort(key=lambda x: x['similarity'], reverse=True)
-        return similar_questions[:k]
+#     def retrieve_similar_questions(self, query, k=20, min_similarity=0.1):
+#         query_vec = self.embeddings.embed_documents(query)[0]
+#         query_vec = np.array(query_vec)  # Ensure the query vector is writable
+#         query_vec /= np.linalg.norm(query_vec)
+#         similar_questions = []
+#         with self.db_connection.cursor() as cursor:
+#             cursor.execute("SELECT question, answer, embedding FROM faq_embeddings")
+#             results = cursor.fetchall()
+#             for result in results:
+#                 question, answer, embedding = result
+#                 embedding = np.frombuffer(embedding, dtype=np.float32).copy()  # Make a writable copy of the embedding
+#                 embedding /= np.linalg.norm(embedding)
+#                 similarity = np.dot(embedding, query_vec)
+#                 #print(similarity)
+#                 if similarity >= min_similarity:
+#                     similar_questions.append({'question': question, 'answer': answer, 'similarity': similarity})
+#             similar_questions.sort(key=lambda x: x['similarity'], reverse=True)
+#         return similar_questions[:k]
     
-    def get_relevant_documents(self, query: str) -> List[Document]:
-        similar_questions = self.retrieve_similar_questions(query)
-        documents = [Document(page_content=q['answer'], metadata={"question": q['question'], "similarity": q['similarity']}) for q in similar_questions]
-        return documents
+#     def get_relevant_documents(self, query: str) -> List[Document]:
+#         similar_questions = self.retrieve_similar_questions(query)
+#         documents = [Document(page_content=q['answer'], metadata={"question": q['question'], "similarity": q['similarity']}) for q in similar_questions]
+#         print("in normal retrivier ---\nRetrieved documents: ", documents)
+#         return documents
 
 class OpenAIops:
     def __init__(self):
@@ -89,6 +90,7 @@ class OpenAIops:
             Contextual Retrieval: Search both the question-answer database and the Neo4j knowledge graph to find relevant information for the processed user question. Utilize natural language processing techniques to match the semantics of the question rather than relying solely on keyword matching.
             Answer Generation: If relevant information is available: Use the retrieved information from both sources to generate a comprehensive and detailed response. The answer should integrate all relevant information from the context, ensuring that it addresses all aspects of the user's question. The system should synthesize the information in a coherent and informative manner.
             If no relevant information is available: The system should return "Answer not available in the context" to indicate that it cannot provide an accurate answer based on the existing sources.
+            Depending on the question use the retrivers for example if the question is a normal greeting like 'hello whats up' you can ignore the retrivers and continue to converse normally but if the question is about a broad topic you can use the embedding retriver but if the question is specific use both graph retriver and embedding retriver\n
             Output: Output should be presented here. Present the answer to the user in a clear and concise format. If multiple pieces of relevant information are available, synthesize them into a single unified response to avoid redundancy and ensure clarity. """
             ),
             ("human", "{input}"),
@@ -109,9 +111,9 @@ class OpenAIops:
 
     def answer_question(self, user_question):
         print("in answer    question")
+        # -----------------manual retrivial of context----------------
         # context = self.retriever.get_relevant_documents(user_question)
         # print(context)
-        # -----------------
         # graph_context = self.graph_retriever.query_knowledge_graph(user_question)
         # formatted_context = ""
         # # formatted_context = "\n\n".join([f"Q: {doc.metadata['question']}, A: {doc.page_content}" for doc in context])
@@ -120,7 +122,7 @@ class OpenAIops:
         # print("Prompt:", prompt)
         # ---------------------
         # Execute the agent with the dynamically formatted prompt
-        response = self.agent_executor({"input": user_question}) 
+        response = self.agent_executor({"input": " Question : "+user_question}) 
         output = response["output"]
         print("Finishing up..!")
             
